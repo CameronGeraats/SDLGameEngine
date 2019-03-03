@@ -347,3 +347,4 @@ MigrationBackup/
 .vs/SDLGameEngine/v15/.suo
 *.db
 .vs/SDLGameEngine/v15/.suo
+*.ipch
