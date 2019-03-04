@@ -83,11 +83,13 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\101240293\Documents\GitHub\SDLGameEngine\ExternalLibraries\SDL2\include;C:\Users\101240293\Documents\GitHub\SDLGameEngine\ExternalLibraries\Box2D\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+
+      <AdditionalIncludeDirectories>$(SolutionDir)ExternalLibraries\SDL2\include;$(SolutionDir)ExternalLibraries\Box2D\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;Box2D.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\101240293\Documents\GitHub\SDLGameEngine\ExternalLibraries\SDL2\lib\x86;C:\Users\101240293\Documents\GitHub\SDLGameEngine\ExternalLibraries\Box2D\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)ExternalLibraries\Box2D\lib;$(SolutionDir)ExternalLibraries\SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
