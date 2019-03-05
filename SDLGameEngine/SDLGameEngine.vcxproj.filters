@@ -56,6 +56,27 @@
     <Filter Include="Engine\Header Files\Physics">
       <UniqueIdentifier>{935d3661-5c5a-4658-bcac-59d2000e2ef9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Old Demo Projects">
+      <UniqueIdentifier>{05280b82-7979-4590-af91-9c927bb4eb45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Old Demo Projects\DynamicSteering">
+      <UniqueIdentifier>{6d5f598a-2031-41d9-abf0-c2f3c3611622}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Old Demo Projects\KinematicSteering">
+      <UniqueIdentifier>{a24e302c-1ea0-4f40-84f6-b8c7efe099c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Old Demo Projects\Shooter">
+      <UniqueIdentifier>{80c28545-bd1a-45d7-b6bd-d34eae370ef8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Old Demo Projects\TestDemo">
+      <UniqueIdentifier>{6dd4ccbe-0ad2-452c-91f4-0b0fb252b86f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Old Demo Projects\KinematicSteering\Cams Additions">
+      <UniqueIdentifier>{e3f3a66f-7509-466b-bb7c-b4722fda24ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Old Demo Projects\KinematicSteering\Cams Additions\Added Functionality">
+      <UniqueIdentifier>{5f354cda-8e6e-4d4c-959d-d493862bca3c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -147,6 +168,84 @@
     </ClCompile>
     <ClCompile Include="Vector2.cpp">
       <Filter>Engine\Source Files\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Align.cpp">
+      <Filter>Old Demo Projects\DynamicSteering</Filter>
+    </ClCompile>
+    <ClCompile Include="Arrive.cpp">
+      <Filter>Old Demo Projects\DynamicSteering</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicSteeringDemo.cpp">
+      <Filter>Old Demo Projects\DynamicSteering</Filter>
+    </ClCompile>
+    <ClCompile Include="Flee.cpp">
+      <Filter>Old Demo Projects\DynamicSteering</Filter>
+    </ClCompile>
+    <ClCompile Include="PathFollowing.cpp">
+      <Filter>Old Demo Projects\DynamicSteering</Filter>
+    </ClCompile>
+    <ClCompile Include="Pursue.cpp">
+      <Filter>Old Demo Projects\DynamicSteering</Filter>
+    </ClCompile>
+    <ClCompile Include="Seek.cpp">
+      <Filter>Old Demo Projects\DynamicSteering</Filter>
+    </ClCompile>
+    <ClCompile Include="SteeringAgent.cpp">
+      <Filter>Old Demo Projects\DynamicSteering</Filter>
+    </ClCompile>
+    <ClCompile Include="SteeringBehaviour.cpp">
+      <Filter>Old Demo Projects\DynamicSteering</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdateVectorTarget.cpp">
+      <Filter>Old Demo Projects\DynamicSteering</Filter>
+    </ClCompile>
+    <ClCompile Include="KinematicAgent.cpp">
+      <Filter>Old Demo Projects\KinematicSteering</Filter>
+    </ClCompile>
+    <ClCompile Include="KinematicDemo.cpp">
+      <Filter>Old Demo Projects\KinematicSteering</Filter>
+    </ClCompile>
+    <ClCompile Include="KinematicSeek.cpp">
+      <Filter>Old Demo Projects\KinematicSteering</Filter>
+    </ClCompile>
+    <ClCompile Include="KinematicSteeringBehaviour.cpp">
+      <Filter>Old Demo Projects\KinematicSteering</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdateTarget.cpp">
+      <Filter>Old Demo Projects\KinematicSteering</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Old Demo Projects\Shooter</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraFollow.cpp">
+      <Filter>Old Demo Projects\Shooter</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerControls.cpp">
+      <Filter>Old Demo Projects\Shooter</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene1.cpp">
+      <Filter>Old Demo Projects\Shooter</Filter>
+    </ClCompile>
+    <ClCompile Include="Shoot.cpp">
+      <Filter>Old Demo Projects\Shooter</Filter>
+    </ClCompile>
+    <ClCompile Include="Shooter.cpp">
+      <Filter>Old Demo Projects\Shooter</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveInCircle.cpp">
+      <Filter>Old Demo Projects\TestDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="TestDemo.cpp">
+      <Filter>Old Demo Projects\TestDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Old Demo Projects\KinematicSteering\Cams Additions\Added Functionality</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuControls.cpp">
+      <Filter>Old Demo Projects\KinematicSteering\Cams Additions</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneMenu.cpp">
+      <Filter>Old Demo Projects\KinematicSteering\Cams Additions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -245,6 +344,84 @@
     </ClInclude>
     <ClInclude Include="Vector2.h">
       <Filter>Engine\Header Files\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Align.h">
+      <Filter>Old Demo Projects\DynamicSteering</Filter>
+    </ClInclude>
+    <ClInclude Include="Arrive.h">
+      <Filter>Old Demo Projects\DynamicSteering</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicSteeringDemo.h">
+      <Filter>Old Demo Projects\DynamicSteering</Filter>
+    </ClInclude>
+    <ClInclude Include="Flee.h">
+      <Filter>Old Demo Projects\DynamicSteering</Filter>
+    </ClInclude>
+    <ClInclude Include="PathFollowing.h">
+      <Filter>Old Demo Projects\DynamicSteering</Filter>
+    </ClInclude>
+    <ClInclude Include="Pursue.h">
+      <Filter>Old Demo Projects\DynamicSteering</Filter>
+    </ClInclude>
+    <ClInclude Include="Seek.h">
+      <Filter>Old Demo Projects\DynamicSteering</Filter>
+    </ClInclude>
+    <ClInclude Include="SteeringAgent.h">
+      <Filter>Old Demo Projects\DynamicSteering</Filter>
+    </ClInclude>
+    <ClInclude Include="SteeringBehaviour.h">
+      <Filter>Old Demo Projects\DynamicSteering</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdateVectorTarget.h">
+      <Filter>Old Demo Projects\DynamicSteering</Filter>
+    </ClInclude>
+    <ClInclude Include="KinematicAgent.h">
+      <Filter>Old Demo Projects\KinematicSteering</Filter>
+    </ClInclude>
+    <ClInclude Include="KinematicDemo.h">
+      <Filter>Old Demo Projects\KinematicSteering</Filter>
+    </ClInclude>
+    <ClInclude Include="KinematicSeek.h">
+      <Filter>Old Demo Projects\KinematicSteering</Filter>
+    </ClInclude>
+    <ClInclude Include="KinematicSteeringBehaviour.h">
+      <Filter>Old Demo Projects\KinematicSteering</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdateTarget.h">
+      <Filter>Old Demo Projects\KinematicSteering</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Old Demo Projects\Shooter</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraFollow.h">
+      <Filter>Old Demo Projects\Shooter</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerControls.h">
+      <Filter>Old Demo Projects\Shooter</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene1.h">
+      <Filter>Old Demo Projects\Shooter</Filter>
+    </ClInclude>
+    <ClInclude Include="Shoot.h">
+      <Filter>Old Demo Projects\Shooter</Filter>
+    </ClInclude>
+    <ClInclude Include="Shooter.h">
+      <Filter>Old Demo Projects\Shooter</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveInCircle.h">
+      <Filter>Old Demo Projects\TestDemo</Filter>
+    </ClInclude>
+    <ClInclude Include="TestDemo.h">
+      <Filter>Old Demo Projects\TestDemo</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Old Demo Projects\KinematicSteering\Cams Additions\Added Functionality</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuControls.h">
+      <Filter>Old Demo Projects\KinematicSteering\Cams Additions</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneMenu.h">
+      <Filter>Old Demo Projects\KinematicSteering\Cams Additions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -2,6 +2,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
+#include <SDL_mixer.h>
 #include <functional>
 #include <map>
 #include "GameObject.h"
@@ -22,7 +23,7 @@ public:
 	virtual void Awake();
 	virtual bool Init();
 	virtual void Setup();
-	void Update();
+	virtual void Update(); // made virtual so I can add to it
 	void End();
 	static SDL_Window* gWindow;
 	//The window renderer

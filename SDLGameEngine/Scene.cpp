@@ -58,6 +58,8 @@ void Scene::Cleanup()
 	for (GameObject* go : gameObjects)
 	{
 		game->Destroy(go);
+		if (go->GetScene() != NULL)
+			go->scene = NULL;
 	}
 	//gameObjects.clear();
 }

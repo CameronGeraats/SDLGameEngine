@@ -8,9 +8,12 @@ and may not be redistributed without written permission.*/
 #include <string>
 #include <iostream>
 #include "Game.h"
+//#include "Shooter.h"
 
 
+//Game* game = new Shooter();
 Game* game = new Game();
+//Game* game = Shooter::Instance();
 
 int main( int argc, char* args[] )
 {
@@ -28,7 +31,6 @@ int main( int argc, char* args[] )
 			game->Update();
 		}
 	}
-
 	//Free resources and close SDL
 	game->End();
 

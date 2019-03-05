@@ -74,6 +74,12 @@ bool Game::Init()
 					success = false;
 				}
 
+				//if (Mix_Init(MIX_INIT_MP3) != 0) // Mixer init success.
+				//{
+				//	Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 8192);
+				//}
+				//else success = false; // Mixer init failed
+
 				//Initialize SDL_ttf
 				if (TTF_Init() == -1)
 				{
@@ -106,8 +112,6 @@ void Game::InitializeModules()
 	physics->Start();
 }
 
-
-
 void Game::Setup()
 {
 
@@ -136,7 +140,6 @@ void Game::Update()
 		m->Update();
 	}
 
-
 	for (GameObject* g : gameObjects)
 	{
 		if (g->isActive())
@@ -146,7 +149,7 @@ void Game::Update()
 			
 		}
 	}
-
+	
 	fixedDeltaAccumulator += Time::DeltaTime();
 
 	while (fixedDeltaAccumulator > Time::FixedDeltaTime())
@@ -163,7 +166,7 @@ void Game::Update()
 	}
 
 	physics->Extrapolate(fixedDeltaAccumulator);
-
+	// Some error with deleting these objeccts!!!
 	for (GameObject* g : objectsToDestroy)
 	{
 		g->transform->SetParentRelative(nullptr);
@@ -172,15 +175,14 @@ void Game::Update()
 		{
 			currentScene->ReleaseFromScene(g);
 		}
-		delete g;
+		if(g)
+			delete g; // Error hereeeee
 		g = NULL;
 	}
 
 	objectsToDestroy.clear();
 	//Update screen			
 	SDL_RenderPresent(gRenderer);
-
-	
 }
 
 void Game::End()

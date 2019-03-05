@@ -28,6 +28,15 @@ GameObject::GameObject(Game* _game, std::string _name, float x, float y, float a
 
 GameObject::~GameObject()
 {
+	//if (scene != NULL)
+	//{
+	//	scene->ReleaseFromScene(this);
+	//}
+	//for (Component* component : components)
+	//{
+	//	delete component;
+	//	component = NULL;
+	//}
 	Cleanup();
 }
 
