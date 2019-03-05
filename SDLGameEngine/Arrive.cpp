@@ -1,5 +1,6 @@
 #include "Arrive.h"
 #include "SteeringAgent.h"
+#include "Game.h"
 
 
 Arrive::Arrive()
@@ -16,7 +17,8 @@ Arrive::~Arrive()
 
 void Arrive::Update()
 {
-
+	SDL_SetRenderDrawColor(game->gRenderer, 0xFF, 0x00, 0x00, 0xFF);
+	SDL_RenderDrawLine(game->gRenderer, target->GetAbsolutePosition().x - Camera::x, target->GetAbsolutePosition().y - Camera::y, gameObject->transform->GetAbsolutePosition().x - Camera::x, gameObject->transform->GetAbsolutePosition().y - Camera::y);
 	// Get direction to target
 	Vector2 direction = target->GetAbsolutePosition() - gameObject->transform->GetAbsolutePosition();
 	float distance = direction.Length();
@@ -45,7 +47,7 @@ void Arrive::Update()
 	targetVelocity *= targetSpeed;
 
 	// Accelaration tries to get to this target velocity
-	steering.linear = targetVelocity - agent->velocity;
+	steering.linear = targetVelocity - agent->rb->GetVelocity();
 	steering.linear /= timeToTarget;
 
 	// Check if accelaration is too fast

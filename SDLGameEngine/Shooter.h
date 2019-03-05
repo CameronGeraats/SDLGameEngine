@@ -6,24 +6,16 @@
 class Shooter :
 	public Game
 {
-private:
-//	Shooter();
 public:
 	Shooter();
-	//static Shooter* Instance() // This static method creates the static instance that can be accessed 'globally'
-	//{
-	//	static Shooter* instance = new Shooter(); // C++11 will prevent this line from running more than once. Magic statics.
-	//	return instance;
-	//}
 	~Shooter();
 
 	void Awake();
 	void Setup();
-	void Update();
 
-	GameObject* BulletPrefab();
-	GameObject* EnemyPrefab();
-
+	void BulletPrefab(GameObject* go);
+	void EnemyPrefab(GameObject* go);
+	void WallPrefab(GameObject* go);
 	Scene* switchSceneTo = nullptr;
 
 	//StateMachine* m_pFinStateMachine;

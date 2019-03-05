@@ -21,6 +21,8 @@
 #include "PlayerControls.h"
 #include "Rigidbody.h"
 #include "BoxCollider.h"
+#include "Enemy.h"
+#include "ObstacleAvoidance.h"
 
 Shooter::Shooter()
 {
@@ -40,68 +42,105 @@ void Shooter::Awake()
 	Time::timeScale = 1;
 }
 
-GameObject* Shooter::BulletPrefab()
+void Shooter::BulletPrefab(GameObject* go)
 {
-	GameObject* go = new GameObject(this, "bullet");
-	go->AddComponent(new SpriteRenderer("Assets/Cannon_Ball.png"));
+	go->name = "bullet";
+	go->AddComponent(new SpriteRenderer("Assets/beams.png", new Rect(15, 300, 50, 90)));
 	go->AddComponent(new Bullet());
-	go->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
-	return go;
+	//go->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
+	Rigidbody* rb = new Rigidbody();
+	rb->SetBodyType(Rigidbody::dynamicBody);
+	go->AddComponent(rb);
+	rb->SetBullet(true);
+
+	BoxCollider* col = new BoxCollider();
+	go->AddComponent(col);
+
+	col->SetDimension(Vector2(10, 10));
+	col->SetTrigger(true);
 }
 
-GameObject* Shooter::EnemyPrefab()
+void Shooter::WallPrefab(GameObject* go)
 {
-	GameObject* go = new GameObject(this, "enemies");
-	go->AddComponent(new SpriteRenderer("Assets/Enemies/Enemy.png"));
+	SpriteRenderer* wallRenderer = new SpriteRenderer(new Sprite("Assets/stones_wall.png"));
+	go->AddComponent(wallRenderer);
+	go->transform->SetRelativeScale(Vector2(0.3f, 0.3f));
+	Rigidbody* rb = new Rigidbody();
+	rb->SetBodyType(Rigidbody::staticBody);
+	go->AddComponent(rb);
+	BoxCollider* col = new BoxCollider();
+	go->AddComponent(col);
+	col->SetCategory(physics->Layer_2);
+	col->SetDimension(Vector2(300, 60));
+}
 
-	GameObject* tgt = CreateGameObject("Target", Camera::x + rand() % Camera::width, Camera::y + rand() % Camera::height);
-	go->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
+void Shooter::EnemyPrefab(GameObject* go)
+{
+	go->name = "enemy";
+	GameObject* graphic = Instantiate("enemy_graphic", 0, 0, 90);
+	graphic->AddComponent(new SpriteRenderer("Assets/tanks_3.png", new Rect(350, 250, 225, 150)));
+	graphic->transform->SetParentRelative(go->transform);
+	graphic->transform->SetAbsoluteScale(Vector2(0.3f, 0.3f));
+
+	GameObject* tgt = Instantiate("Target", Camera::x + rand() % Camera::width, Camera::y + rand() % Camera::height);
+	//go->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
 
 	Arrive* arrive = new Arrive(go);
 	arrive->target = tgt->transform;;
 	arrive->maxAccelaraction = 1;
+	arrive->slowRadius = 30;
+	arrive->targetRadius = 10;
+	arrive->steering.weight = 0.5f;
 	go->AddComponent(arrive);
+
+	ObstacleAvoidance* obstacleAvoidance = new ObstacleAvoidance();
+	obstacleAvoidance->avoidLayer = physics->Layer_2;
+	obstacleAvoidance->steering.weight = 1;
+	obstacleAvoidance->maxAccelaraction = 1;
+	go->AddComponent(obstacleAvoidance);
 
 	SteeringAgent* agent = new SteeringAgent(go);
 	agent->steerings.push_back(arrive);
+	agent->steerings.push_back(obstacleAvoidance);
 	agent->maxSpeed = 200;
-	agent->velocity.y = -100;
+	//agent->velocity.y = -100;
 	go->AddComponent(agent);
 	arrive->agent = agent;
+	obstacleAvoidance->agent = agent;
 
 	UpdateVectorTarget* updateTarget = new UpdateVectorTarget(go);
 	updateTarget->target = &tgt->transform->GetAbsolutePosition();
-	updateTarget->maxTime = 20;
+	updateTarget->maxTime = 6;
 	go->AddComponent(updateTarget);
 
 	updateTarget->targetObject = tgt;
 
-	go->transform->SetRelativeScale(Vector2(0.2f, 0.2f));
-	
-	go->AddComponent(new Rigidbody());
+	//go->transform->SetRelativeScale(Vector2(0.2f, 0.2f));
+	Rigidbody* rb = new Rigidbody();
+	rb->SetBodyType(Rigidbody::dynamicBody);
+	go->AddComponent(rb);
 
 	BoxCollider* col = new BoxCollider();
 	go->AddComponent(col);
 
 	col->SetDimension(Vector2(50, 50));
+	col->SetCategory(physics->Layer_3);
+	col->SetCollisionMask(~physics->Layer_3);
 
-	return go;
+	go->AddComponent(new Enemy());
 }
 
 void Shooter::Setup()
 {
-	AddPrefab("Bullet", std::bind(&Shooter::BulletPrefab, this));
-	AddPrefab("Enemy", std::bind(&Shooter::EnemyPrefab, this));
+	AddPrefab("Bullet", std::bind(&Shooter::BulletPrefab, this, std::placeholders::_1));
+	AddPrefab("Enemy", std::bind(&Shooter::EnemyPrefab, this, std::placeholders::_1));
+	AddPrefab("Wall", std::bind(&Shooter::WallPrefab, this, std::placeholders::_1));
 
-	//SetScene(new Scene1());
-	
-	//m_pFinStateMachine = new StateMachine();
-	//m_pAudioManager = new AudioManager(); // Creates the audio manager object.
-	//m_pAudioManager->SetMusicVolume(10);
-	SetScene(new SceneMenu());
+
+	SetScene(new Scene1());
 }
 
-void Shooter::Update()
+/*void Shooter::Update()
 { // Checks if scene requested a scene swap, and swaps to new scene if so.
 	// Doing it inside a scene function would probably be bad as the SetScene will
 	// delete the scene that is in scope.
@@ -114,7 +153,7 @@ void Shooter::Update()
 	}
 	//
 	
-}
+}*/
 
 
 

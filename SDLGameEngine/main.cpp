@@ -7,12 +7,12 @@ and may not be redistributed without written permission.*/
 #include <stdio.h>
 #include <string>
 #include <iostream>
-#include "Game.h"
-//#include "Shooter.h"
+//#include "Game.h"
+#include "Shooter.h"
 
 
-//Game* game = new Shooter();
-Game* game = new Game();
+Game* game = new Shooter();
+//Game* game = new Game();
 //Game* game = Shooter::Instance();
 
 int main( int argc, char* args[] )

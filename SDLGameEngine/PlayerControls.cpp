@@ -4,6 +4,7 @@
 #include "Time.h"
 #include "Input.h"
 #include "Game.h"
+#include "RaycastHit.h"
 
 PlayerControls::PlayerControls()
 {
@@ -29,4 +30,6 @@ void PlayerControls::Update()
 	{
 		gameObject->transform->SetAbsoluteAngle(atan2(vertical, horizontal) * 180 / M_PI);
 	}
+
+	RaycastHit hit = game->physics->Raycast(gameObject->transform->GetAbsolutePosition(), gameObject->transform->Right(), 10000, ~game->physics->Layer_2);
 }
