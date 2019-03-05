@@ -91,16 +91,8 @@
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(SolutionDir)ExternalLibraries\SDL2\lib\x86\SDL2.dll" "$(OutDir)"
-copy "$(SolutionDir)ExternalLibraries\SDL2\lib\x86\SDL2_image.dll" "$(OutDir)"
-copy "$(SolutionDir)ExternalLibraries\SDL2\lib\x86\SDL2_mixer.dll" "$(OutDir)"
-copy "$(SolutionDir)ExternalLibraries\SDL2\lib\x86\SDL2_ttf.dll" "$(OutDir)"
-copy "$(SolutionDir)ExternalLibraries\SDL2\lib\x86\libpng16-16.dll" "$(OutDir)"
-copy "$(SolutionDir)ExternalLibraries\SDL2\lib\x86\zlib1.dll" "$(OutDir)"
-copy "$(SolutionDir)lib\SDL2_image-2.0.4\lib\x86\libjpeg-9.dll" "$(OutDir)"
-copy "$(SolutionDir)ExternalLibraries\SDL2\lib\x86\libfreetype-6.dll" "$(OutDir)"
-copy "$(SolutionDir)ExternalLibraries\SDL2\lib\x86\libmodplug-1.dll" "$(OutDir)"
-copy "$(SolutionDir)ExternalLibraries\SDL2\lib\x86\libmpg123-0.dll" "$(OutDir)"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
