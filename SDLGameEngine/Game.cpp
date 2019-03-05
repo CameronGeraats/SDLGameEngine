@@ -112,6 +112,8 @@ void Game::InitializeModules()
 	physics->Start();
 }
 
+
+
 void Game::Setup()
 {
 
@@ -175,7 +177,7 @@ void Game::Update()
 		{
 			currentScene->ReleaseFromScene(g);
 		}
-		if(g)
+	//	if(g)
 			delete g; // Error hereeeee
 		g = NULL;
 	}
