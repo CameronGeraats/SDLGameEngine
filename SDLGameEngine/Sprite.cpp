@@ -25,3 +25,8 @@ const Rect* const Sprite::GetClipFrame()
 {
 	return clipFrame;
 }
+
+void Sprite::ChangeFrame()
+{
+	clipFrame->x = 0;
+}

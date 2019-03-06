@@ -83,7 +83,8 @@ void Scene1::Setup()
 	go->AddComponent(new SpriteRenderer("Assets/Target.png"));
 	go->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
 	Rigidbody* rb = new Rigidbody();
-	rb->SetBodyType(Rigidbody::dynamicBody);
+	//rb->SetBodyType(Rigidbody::dynamicBody);
+	rb->SetBodyType(Rigidbody::staticBody);
 	go->AddComponent(rb);
 	BoxCollider* col = new BoxCollider();
 	col->SetCategory(game->physics->Layer_1);

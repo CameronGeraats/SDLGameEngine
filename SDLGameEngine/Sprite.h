@@ -11,6 +11,7 @@ public:
 
 	const std::string& GetPath();
 	const Rect* const GetClipFrame();
+	void ChangeFrame();
 
 private:
 	std::string imagePath;

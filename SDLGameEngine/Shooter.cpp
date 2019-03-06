@@ -137,10 +137,11 @@ void Shooter::Setup()
 	AddPrefab("Wall", std::bind(&Shooter::WallPrefab, this, std::placeholders::_1));
 
 
-	SetScene(new Scene1());
+	//SetScene(new Scene1());
+	SetScene(new SceneMenu());
 }
 
-/*void Shooter::Update()
+void Shooter::Update()
 { // Checks if scene requested a scene swap, and swaps to new scene if so.
 	// Doing it inside a scene function would probably be bad as the SetScene will
 	// delete the scene that is in scope.
@@ -153,7 +154,7 @@ void Shooter::Setup()
 	}
 	//
 	
-}*/
+}
 
 
 

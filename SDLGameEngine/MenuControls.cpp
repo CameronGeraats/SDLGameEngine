@@ -26,7 +26,9 @@ void MenuControls::Update()
 		// Downcasts to SHOOTER game instead of generic game pointer
 			// Allows for Shooter specific function/member usage
 		if (temp != nullptr)
+		{
 			temp->switchSceneTo = new Scene1();
+		}
 		// Stores a pointer to a new scene that will be used to generate a real...
 		// non-temporary scene.
 	}

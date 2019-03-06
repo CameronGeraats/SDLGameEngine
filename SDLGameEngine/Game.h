@@ -23,8 +23,8 @@ public:
 	virtual void Awake();
 	virtual bool Init();
 	virtual void Setup();
-	void Update();
-	//virtual void Update(); // made virtual so I can add to it
+	//void Update();
+	virtual void Update(); // made virtual so I can add to it
 	void End();
 	static SDL_Window* gWindow;
 	//The window renderer

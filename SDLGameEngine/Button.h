@@ -1,6 +1,7 @@
 #pragma once
 #include "SDL.h"
 #include "Component.h"
+#include "Sprite.h"
 
 class Button :
 	public Component
@@ -8,6 +9,7 @@ class Button :
 public:
 	//Button(const char* s, SDL_Rect d);
 	Button(SDL_Rect d);
+	Button(SDL_Rect d, Sprite* sp);
 	~Button();
 	void Update();
 	//void Render(); // New engine separates functionality, redundant
@@ -21,4 +23,5 @@ private:
 	SDL_Rect m_rDst;
 	SDL_Surface* m_pSurf;
 	SDL_Texture* m_pText;
+	Sprite* m_pSprite;
 };

@@ -1,11 +1,28 @@
 #include "Button.h"
 //#include "FSM.h"
 #include "Game.h"
+#include "Shooter.h"
 #include "SDL.h"
 #include "SDL_image.h"
+#include "Rect.h"
+#include "Scene1.h"
+
+Button::Button(SDL_Rect d)
+{
+	/// Set the button image. You should have some fail checking just in case. 
+//m_pSurf = IMG_Load(s);
+		///m_pText = SDL_CreateTextureFromSurface(Game::Instance()->GetRenderer(), m_pSurf);
+//m_pText = SDL_CreateTextureFromSurface(Game::gRenderer, m_pSurf);
+//SDL_FreeSurface(m_pSurf);*/
+	m_bReleased = true;
+	m_rDst = d;
+	m_rSrc.x = m_rSrc.y = 0;
+	m_rSrc.w = m_rDst.w;
+	m_rSrc.h = m_rDst.h;
+}
 
 //Button::Button(const char* s, SDL_Rect d)
-Button::Button(SDL_Rect d)
+Button::Button(SDL_Rect d, Sprite* sp)
 {
 					/// Set the button image. You should have some fail checking just in case. 
 			//m_pSurf = IMG_Load(s);
@@ -17,6 +34,7 @@ Button::Button(SDL_Rect d)
 	m_rSrc.x = m_rSrc.y = 0;
 	m_rSrc.w = m_rDst.w;
 	m_rSrc.h = m_rDst.h;
+	m_pSprite = sp;
 }
 
 Button::~Button()
@@ -38,11 +56,15 @@ void Button::Update()
 		{
 			m_iFrame = MOUSE_DOWN; // For animated buttons
 			m_bReleased = false;
+			//Rect r();
+			//m_pSprite->ChangeFrame();
+			dynamic_cast<Shooter*>(game)->switchSceneTo = new Scene1();
 		}
 		else if (Input::GetMouseButtonUp(mouse))
 		{
 			m_bReleased = true;
 			m_iFrame = MOUSE_OVER;
+			//m_pSprite->ChangeFrame();
 		}
 	}
 	else

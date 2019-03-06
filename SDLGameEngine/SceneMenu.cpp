@@ -42,11 +42,14 @@ void SceneMenu::Setup()
 	bg->AddComponent(bgRenderer);
 	bg->AddComponent(new MenuControls());
 
+	// Could add XML file loading to get an array of frame rectangles
 	GameObject* playButton = Instantiate("playButton",300,200,0);
-	Sprite* playButtonSprite = new Sprite("Assets/Target.png");
+	//Rect* tempRect = new Rect(0,0,256,128);
+	Rect* frameRect = new Rect(0,0,256,64);
+	Sprite* playButtonSprite = new Sprite("Assets/buttons.png", frameRect);
 	SpriteRenderer* playBRenderer = new SpriteRenderer(playButtonSprite);
 	playButton->AddComponent(playBRenderer);
-	Button* playBut = new Button(SDL_Rect{ 300,200,200,200 });
+	Button* playBut = new Button(SDL_Rect{ 300,200,frameRect->w,frameRect->h });
 	playButton->AddComponent(playBut);
 
 	/*
