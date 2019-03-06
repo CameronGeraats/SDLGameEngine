@@ -50,8 +50,9 @@ void SceneMenu::Setup()
 	Sprite* playButtonSprite = new Sprite("Assets/buttons.png", frameRect);
 	SpriteRenderer* playBRenderer = new SpriteRenderer(playButtonSprite);
 	playButton->AddComponent(playBRenderer);
-	//Sprite* playButtonTextSprite = new Sprite("Assets/buttons.png");
-	//SpriteRenderer* playBTRenderer = new SpriteRenderer(playButtonTextSprite);
+	TextSprite* playButtonTextSprite = new TextSprite("PLAY",game);
+	SpriteRenderer* playBTRenderer = new SpriteRenderer(playButtonTextSprite, playButtonTextSprite->GetTexture());
+	playButton->AddComponent(playBTRenderer);
 	//playButton->AddComponent(playBRenderer);
 	Button* playBut = new Button(SDL_Rect{ 300,200,frameRect->w,frameRect->h });
 	playButton->AddComponent(playBut);

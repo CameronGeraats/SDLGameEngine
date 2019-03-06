@@ -6,11 +6,12 @@ class Sprite
 {
 public:
 	Sprite();
+	Sprite(Rect* _clipFrame);
 	Sprite(std::string _imagePath, Rect * _clipFrame =  NULL);
 	~Sprite();
 
 	const std::string& GetPath();
-	const Rect* const GetClipFrame();
+	Rect* GetClipFrame();
 	void ChangeFrame();
 
 private:

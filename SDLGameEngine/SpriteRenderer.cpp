@@ -12,6 +12,12 @@ SpriteRenderer::SpriteRenderer(Sprite* _sprite, int _layer) : Renderer(_layer)
 	SetSprite(_sprite);
 }
 
+SpriteRenderer::SpriteRenderer(Sprite * _sprite, SDL_Texture * _texture, int _layer) : Renderer(_layer)
+{
+	sprite = _sprite;
+	texture = _texture;
+}
+
 SpriteRenderer::SpriteRenderer(std::string _imagePath, Rect * _clipFrame, int _layer) : Renderer(_layer)
 {
 	Sprite* _sprite = new Sprite(_imagePath, _clipFrame);

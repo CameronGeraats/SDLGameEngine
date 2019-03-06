@@ -9,6 +9,7 @@ class SpriteRenderer :
 public:
 	SpriteRenderer();
 	SpriteRenderer(Sprite* _sprite, int _layer = 0);
+	SpriteRenderer(Sprite* _sprite, SDL_Texture* _texture ,int _layer = 0);
 	SpriteRenderer(std::string _imagePath, Rect * _clipFrame = NULL, int _layer = 0);
 	~SpriteRenderer();
 

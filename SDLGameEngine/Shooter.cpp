@@ -24,7 +24,7 @@
 #include "Enemy.h"
 #include "ObstacleAvoidance.h"
 
-TTF_Font* Shooter::textFont = TTF_OpenFont("arial.ttf", 28);
+TTF_Font* Shooter::textFont = TTF_OpenFont("Assets/AdobeGothicStd-Bold", 28);
 SDL_Color Shooter::textColour = { 255, 0, 0 };
 
 Shooter::Shooter()

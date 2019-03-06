@@ -6,6 +6,10 @@ Sprite::Sprite()
 {
 }
 
+Sprite::Sprite(Rect* _clipFrame)
+{
+	clipFrame = _clipFrame;
+}
 
 Sprite::Sprite(std::string _imagePath, Rect * _clipFrame)
 {
@@ -21,7 +25,7 @@ const std::string& Sprite::GetPath()
 {
 	return imagePath;
 }
-const Rect* const Sprite::GetClipFrame()
+Rect* Sprite::GetClipFrame()
 {
 	return clipFrame;
 }
