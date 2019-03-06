@@ -16,6 +16,7 @@
 #include "Shoot.h"
 #include "CameraFollow.h"
 #include "SpriteRenderer.h"
+#include "TextSprite.h"
 #include "Renderer.h"
 #include "Camera.h"
 #include "Game.h"
@@ -49,6 +50,9 @@ void SceneMenu::Setup()
 	Sprite* playButtonSprite = new Sprite("Assets/buttons.png", frameRect);
 	SpriteRenderer* playBRenderer = new SpriteRenderer(playButtonSprite);
 	playButton->AddComponent(playBRenderer);
+	//Sprite* playButtonTextSprite = new Sprite("Assets/buttons.png");
+	//SpriteRenderer* playBTRenderer = new SpriteRenderer(playButtonTextSprite);
+	//playButton->AddComponent(playBRenderer);
 	Button* playBut = new Button(SDL_Rect{ 300,200,frameRect->w,frameRect->h });
 	playButton->AddComponent(playBut);
 

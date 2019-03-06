@@ -19,8 +19,9 @@ public:
 	void WallPrefab(GameObject* go);
 	
 	Scene* switchSceneTo = nullptr;
-	TTF_Font* textFont;
-	SDL_Color* textColour;
+	static TTF_Font* textFont;
+	static SDL_Color textColour;
+
 	//StateMachine* m_pFinStateMachine;
 	//AudioManager* m_pAudioManager;
 };

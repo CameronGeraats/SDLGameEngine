@@ -2,6 +2,7 @@
 #include "SDL.h"
 #include "Component.h"
 #include "Sprite.h"
+#include "TextSprite.h"
 
 class Button :
 	public Component

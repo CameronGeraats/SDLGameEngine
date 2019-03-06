@@ -232,6 +232,9 @@
     <ClCompile Include="MoveInCircle.cpp">
       <Filter>Old Demo Projects\Shooter</Filter>
     </ClCompile>
+    <ClCompile Include="TextSprite.cpp">
+      <Filter>DeathMark\Cams Additions\Added Functionality</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -395,6 +398,9 @@
     </ClInclude>
     <ClInclude Include="MoveInCircle.h">
       <Filter>Old Demo Projects\Shooter</Filter>
+    </ClInclude>
+    <ClInclude Include="TextSprite.h">
+      <Filter>DeathMark\Cams Additions\Added Functionality</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
