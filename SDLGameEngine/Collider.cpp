@@ -112,9 +112,9 @@ RaycastHit Collider::Raycast(Vector2 origin, Vector2 direction, float maxDistanc
 		hit.normal = Vector2(output.normal.x, output.normal.y);
 		hit.point = origin + output.fraction * maxDistance * direction;
 
-		SDL_SetRenderDrawColor(Game::gRenderer, 0x00, 0x00, 0xFF, 0xFF);
+		/*SDL_SetRenderDrawColor(Game::gRenderer, 0x00, 0x00, 0xFF, 0xFF);
 		SDL_RenderDrawLine(Game::gRenderer, origin.x - Camera::x, origin.y - Camera::y, hit.point.x - Camera::x, hit.point.y - Camera::y);
-		SDL_RenderDrawRect(Game::gRenderer, new Rect(hit.point.x - Camera::x - 5, hit.point.y - Camera::y - 5, 10, 10));
+		SDL_RenderDrawRect(Game::gRenderer, new Rect(hit.point.x - Camera::x - 5, hit.point.y - Camera::y - 5, 10, 10));*/
 	}
 
 	return hit;

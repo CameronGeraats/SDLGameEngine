@@ -22,6 +22,10 @@ void Scene::Setup()
 
 }
 
+//void Scene::Update()
+//{
+//}
+
 void Scene::ReleaseFromScene(GameObject* go)
 {
 	gameObjects.remove(go);

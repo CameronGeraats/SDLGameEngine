@@ -40,8 +40,10 @@ void Shooter::Awake()
 {
 	Camera::x = 0;
 	Camera::y = 0;
-	Camera::width = 1280;
-	Camera::height = 720;
+	//Camera::width = 1280;
+	Camera::width = 1600;
+	//Camera::height = 720;
+	Camera::height = 900;
 	Time::timeScale = 1;
 }
 
@@ -67,14 +69,14 @@ void Shooter::WallPrefab(GameObject* go)
 {
 	SpriteRenderer* wallRenderer = new SpriteRenderer(new Sprite("Assets/stones_wall.png"));
 	go->AddComponent(wallRenderer);
-	go->transform->SetRelativeScale(Vector2(0.3f, 0.3f));
+	go->transform->SetRelativeScale(Vector2(0.1f, 0.1f)); // 0.3, 0.3 default
 	Rigidbody* rb = new Rigidbody();
 	rb->SetBodyType(Rigidbody::staticBody);
 	go->AddComponent(rb);
 	BoxCollider* col = new BoxCollider();
 	go->AddComponent(col);
 	col->SetCategory(physics->Layer_2);
-	col->SetDimension(Vector2(300, 60));
+	col->SetDimension(Vector2(100, 20)); //300, 60 default
 }
 
 void Shooter::EnemyPrefab(GameObject* go)
@@ -85,7 +87,8 @@ void Shooter::EnemyPrefab(GameObject* go)
 	graphic->transform->SetParentRelative(go->transform);
 	graphic->transform->SetAbsoluteScale(Vector2(0.3f, 0.3f));
 
-	GameObject* tgt = Instantiate("Target", Camera::x + rand() % Camera::width, Camera::y + rand() % Camera::height);
+	//GameObject* tgt = Instantiate("Target", Camera::x + rand() % Camera::width, Camera::y + rand() % Camera::height);
+	GameObject* tgt = Instantiate("Target", Camera::x + Camera::width/2, Camera::y + Camera::height/2);
 	//go->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
 
 	Arrive* arrive = new Arrive(go);
@@ -105,7 +108,7 @@ void Shooter::EnemyPrefab(GameObject* go)
 	SteeringAgent* agent = new SteeringAgent(go);
 	agent->steerings.push_back(arrive);
 	agent->steerings.push_back(obstacleAvoidance);
-	agent->maxSpeed = 200;
+	agent->maxSpeed = 80; //200 default
 	//agent->velocity.y = -100;
 	go->AddComponent(agent);
 	arrive->agent = agent;
@@ -148,6 +151,7 @@ void Shooter::Update()
 { // Checks if scene requested a scene swap, and swaps to new scene if so.
 	// Doing it inside a scene function would probably be bad as the SetScene will
 	// delete the scene that is in scope.
+	
 	Game::Update();
 	if (switchSceneTo != nullptr)
 	{
@@ -155,6 +159,7 @@ void Shooter::Update()
 		SetScene(switchSceneTo);
 		switchSceneTo = nullptr;
 	}
+
 	//
 	
 }

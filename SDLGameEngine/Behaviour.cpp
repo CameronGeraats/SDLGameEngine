@@ -26,7 +26,7 @@ void Behaviour::Update()
 	Component::Update();
 }
 
-void Behaviour::FixedUpdate()
+void Behaviour::FixedUpdate() // Not fixed update?
 {
 	Component::Update();
 }

@@ -48,7 +48,7 @@ void SteeringAgent::Update()
 		gameObject->transform->SetAbsoluteAngle(atan2(rb->GetVelocity().y, rb->GetVelocity().x) * 180.0f / M_PI + 90.0f);
 	}
 
-	SDL_SetRenderDrawColor(Game::gRenderer, 0x00, 0xFF, 0x00, 0xFF);
-	SDL_RenderDrawLine(Game::gRenderer, gameObject->transform->GetAbsolutePosition().x - Camera::x, gameObject->transform->GetAbsolutePosition().y - Camera::y, gameObject->transform->GetAbsolutePosition().x + rb->GetVelocity().x - Camera::x, gameObject->transform->GetAbsolutePosition().y + rb->GetVelocity().y - Camera::y);
+	//SDL_SetRenderDrawColor(Game::gRenderer, 0x00, 0xFF, 0x00, 0xFF);
+	//SDL_RenderDrawLine(Game::gRenderer, gameObject->transform->GetAbsolutePosition().x - Camera::x, gameObject->transform->GetAbsolutePosition().y - Camera::y, gameObject->transform->GetAbsolutePosition().x + rb->GetVelocity().x - Camera::x, gameObject->transform->GetAbsolutePosition().y + rb->GetVelocity().y - Camera::y);
 	Behaviour::Update();
 }

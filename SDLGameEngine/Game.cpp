@@ -6,8 +6,8 @@
 
 SDL_Window* Game::gWindow = NULL;
 SDL_Renderer* Game::gRenderer = NULL;
-int Game::screenWidth = 800;
-int Game::screenHeight = 600;
+int Game::screenWidth = 1600;
+int Game::screenHeight = 900;
 bool Game::quit = false;
 float Game::fixedDeltaAccumulator = 0;
 
@@ -46,7 +46,10 @@ bool Game::Init()
 		}
 
 		//Create window
-		gWindow = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Camera::width, Camera::height, SDL_WINDOW_SHOWN);
+		//gWindow = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Camera::width, Camera::height, SDL_WINDOW_SHOWN);
+		gWindow = SDL_CreateWindow("SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Game::screenWidth, Game::screenHeight, SDL_WINDOW_SHOWN);
+		Camera::width = Game::screenWidth;
+		Camera::height = Game::screenHeight;
 		if (gWindow == NULL)
 		{
 			printf("Window could not be created! SDL Error: %s\n", SDL_GetError());
@@ -134,6 +137,7 @@ void Game::SetScene(Scene* _scene)
 
 void Game::Update()
 {
+
 	SDL_SetRenderDrawColor(gRenderer, 0x00, 0x00, 0x00, 0x00);
 	SDL_RenderClear(gRenderer);	
 

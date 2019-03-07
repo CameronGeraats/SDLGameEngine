@@ -21,6 +21,7 @@
 #include "Rigidbody.h"
 #include "BoxCollider.h"
 #include "Physics.h"
+#include "SpawnEnemies.h"
 
 Scene1::Scene1()
 {
@@ -109,15 +110,44 @@ void Scene1::Setup()
 
 	go->AddComponent(new PlayerControls());
 	go->AddComponent(new CameraFollow());
+	go->GetComponent<CameraFollow>()->Update();
+	go->AddComponent(new SpawnEnemies());
 
 	graphic->AddComponent(new Shoot());
 	
-	for (int i = 0; i < 100; i++)
+	for (int i = 0; i < 5; i++)
 	{
-		GameObject* enemy = Instantiate(game->Prefab("Enemy"), Camera::x + rand() % Camera::width, Camera::y + rand() % Camera::height, 0);
+		int x, y, z = rand() % 4;
+		if (z == 0) { y = Camera::y - 100; x = Camera::x + rand() % Camera::width; }
+		else if (z == 1) { y = Camera::y + rand() % Camera::height; x = Camera::x - 100; }
+		else if (z == 2) { y = Camera::y + Camera::height + 100; x = Camera::x + rand() % Camera::width; }
+		else if (z == 3) { y = Camera::y + rand() % Camera::height; x = Camera::x + Camera::width + 100; }
+
+		//GameObject* enemy = Instantiate(game->Prefab("Enemy"), Camera::x + rand() % Camera::width, Camera::y + rand() % Camera::height, 0);
+		GameObject* enemy = Instantiate(game->Prefab("Enemy"), x, y, 0);
 		//enemy->GetComponent<Rigidbody>()->AddForce(50 * Vector2(rand() % 100 - 50 , rand() % 100 - 50));
 	}
 
 
 
 }
+
+//void Scene1::Update()
+//{
+//	static int count = 0;
+//	count++;
+//	if (count = 120) {
+//		for (int i = 0; i < 100; i++)
+//		{
+//			int x, y, z = rand() % 4;
+//			if (z == 0) { y = Camera::y - 100; x = Camera::x + rand() % Camera::width; }
+//			else if (z == 1) { y = Camera::y + rand() % Camera::height; x = Camera::x - 100; }
+//			else if (z == 2) { y = Camera::y + Camera::height + 100; x = Camera::x + rand() % Camera::width; }
+//			else if (z == 3) { y = Camera::y + rand() % Camera::height; x = Camera::x + Camera::width + 100; }
+//
+//			//GameObject* enemy = Instantiate(game->Prefab("Enemy"), Camera::x + rand() % Camera::width, Camera::y + rand() % Camera::height, 0);
+//			GameObject* enemy = Instantiate(game->Prefab("Enemy"), x, y, 0);
+//			//enemy->GetComponent<Rigidbody>()->AddForce(50 * Vector2(rand() % 100 - 50 , rand() % 100 - 50));
+//		}
+//	}
+//}

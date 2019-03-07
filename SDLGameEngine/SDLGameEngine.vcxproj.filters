@@ -235,6 +235,12 @@
     <ClCompile Include="TextSprite.cpp">
       <Filter>DeathMark\Cams Additions\Added Functionality</Filter>
     </ClCompile>
+    <ClCompile Include="SpawnEnemies.cpp">
+      <Filter>DeathMark\Cams Additions</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyShoot.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -402,5 +408,9 @@
     <ClInclude Include="TextSprite.h">
       <Filter>DeathMark\Cams Additions\Added Functionality</Filter>
     </ClInclude>
+    <ClInclude Include="SpawnEnemies.h">
+      <Filter>DeathMark\Cams Additions</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyShoot.h" />
   </ItemGroup>
 </Project>

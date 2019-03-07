@@ -15,6 +15,7 @@ public:
 	Game* game;
 	std::string name;
 	virtual void Setup();
+	//virtual void Update();
 	void Cleanup();
 	void ReleaseFromScene(GameObject* go);
 

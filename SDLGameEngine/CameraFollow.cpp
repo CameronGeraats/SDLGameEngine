@@ -1,4 +1,4 @@
-#include "CameraFollow.h"
+ #include "CameraFollow.h"
 #include "Camera.h"
 #include "GameObject.h"
 #include "Transform.h"
@@ -17,5 +17,4 @@ void CameraFollow::Update()
 {
 	Camera::x = (gameObject->transform->GetAbsolutePosition().x) - (Camera::width * 0.5f);
 	Camera::y = (gameObject->transform->GetAbsolutePosition().y) - (Camera::height * 0.5f);
-
 }

@@ -8,5 +8,6 @@ public:
 	~SceneMenu();
 
 	void Setup();
+//	void Update();
 };
 

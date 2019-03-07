@@ -8,5 +8,6 @@ public:
 	~Scene1();
 
 	void Setup();
+	//void Update();
 };
 

@@ -45,9 +45,9 @@ void BoxCollider::FixedUpdate()
 	Vector2 b = gameObject->transform->GetAbsolutePosition() + gameObject->transform->Up() * dimension.y / 2 + gameObject->transform->Right() * dimension.x / 2 - cam;
 	Vector2 c = gameObject->transform->GetAbsolutePosition() - gameObject->transform->Up() * dimension.y / 2 + gameObject->transform->Right() * dimension.x / 2 - cam;
 	Vector2 d = gameObject->transform->GetAbsolutePosition() - gameObject->transform->Up() * dimension.y / 2 - gameObject->transform->Right() * dimension.x / 2 - cam;
-	SDL_RenderDrawLine(Game::gRenderer, a.x, a.y, b.x, b.y);
+	/*SDL_RenderDrawLine(Game::gRenderer, a.x, a.y, b.x, b.y);
 	SDL_RenderDrawLine(Game::gRenderer, b.x, b.y, c.x, c.y);
 	SDL_RenderDrawLine(Game::gRenderer, c.x, c.y, d.x, d.y);
-	SDL_RenderDrawLine(Game::gRenderer, d.x, d.y, a.x, a.y);
+	SDL_RenderDrawLine(Game::gRenderer, d.x, d.y, a.x, a.y);*/
 }
 

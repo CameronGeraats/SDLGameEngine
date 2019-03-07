@@ -17,8 +17,8 @@ Arrive::~Arrive()
 
 void Arrive::Update()
 {
-	SDL_SetRenderDrawColor(game->gRenderer, 0xFF, 0x00, 0x00, 0xFF);
-	SDL_RenderDrawLine(game->gRenderer, target->GetAbsolutePosition().x - Camera::x, target->GetAbsolutePosition().y - Camera::y, gameObject->transform->GetAbsolutePosition().x - Camera::x, gameObject->transform->GetAbsolutePosition().y - Camera::y);
+	//SDL_SetRenderDrawColor(game->gRenderer, 0xFF, 0x00, 0x00, 0xFF);
+	//SDL_RenderDrawLine(game->gRenderer, target->GetAbsolutePosition().x - Camera::x, target->GetAbsolutePosition().y - Camera::y, gameObject->transform->GetAbsolutePosition().x - Camera::x, gameObject->transform->GetAbsolutePosition().y - Camera::y);
 	// Get direction to target
 	Vector2 direction = target->GetAbsolutePosition() - gameObject->transform->GetAbsolutePosition();
 	float distance = direction.Length();

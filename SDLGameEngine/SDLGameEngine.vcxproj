@@ -156,6 +156,7 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ContactListener.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyShoot.cpp" />
     <ClCompile Include="Flee.cpp" />
     <ClCompile Include="MenuControls.cpp" />
     <ClCompile Include="MoveInCircle.cpp" />
@@ -184,6 +185,7 @@
     <ClCompile Include="RenderModule.cpp" />
     <ClCompile Include="Rigidbody.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SpawnEnemies.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteRenderer.cpp" />
     <ClCompile Include="SteeringAgent.cpp" />
@@ -211,6 +213,7 @@
     <ClInclude Include="Component.h" />
     <ClInclude Include="ContactListener.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyShoot.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="EventListener.h" />
     <ClInclude Include="Flee.h" />
@@ -240,6 +243,7 @@
     <ClInclude Include="Shooter.h" />
     <ClInclude Include="SimpleEvent.h" />
     <ClInclude Include="SimpleEventListener.h" />
+    <ClInclude Include="SpawnEnemies.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteRenderer.h" />
     <ClInclude Include="SteeringAgent.h" />
