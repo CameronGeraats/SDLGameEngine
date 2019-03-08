@@ -239,7 +239,10 @@
       <Filter>DeathMark\Cams Additions</Filter>
     </ClCompile>
     <ClCompile Include="EnemyShoot.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>DeathMark\Cams Additions</Filter>
+    </ClCompile>
+    <ClCompile Include="Stop.cpp">
+      <Filter>DeathMark\Cams Additions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -411,6 +414,11 @@
     <ClInclude Include="SpawnEnemies.h">
       <Filter>DeathMark\Cams Additions</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyShoot.h" />
+    <ClInclude Include="EnemyShoot.h">
+      <Filter>DeathMark\Cams Additions</Filter>
+    </ClInclude>
+    <ClInclude Include="Stop.h">
+      <Filter>DeathMark\Cams Additions</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

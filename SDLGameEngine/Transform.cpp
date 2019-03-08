@@ -31,8 +31,8 @@ const Vector2& Transform::GetAbsolutePosition() const
 {
 	if (parent != NULL)
 	{
-		SDL_SetRenderDrawColor(Game::gRenderer, 0x00, 0xFF, 0x00, 0xFF);
-		SDL_RenderDrawLine(Game::gRenderer, parent->GetAbsolutePosition().x - Camera::x, parent->GetAbsolutePosition().y - Camera::y, position.x - Camera::x, position.y - Camera::y);
+		//SDL_SetRenderDrawColor(Game::gRenderer, 0x00, 0xFF, 0x00, 0xFF);
+		//SDL_RenderDrawLine(Game::gRenderer, parent->GetAbsolutePosition().x - Camera::x, parent->GetAbsolutePosition().y - Camera::y, position.x - Camera::x, position.y - Camera::y);
 	}
 	return position;
 }

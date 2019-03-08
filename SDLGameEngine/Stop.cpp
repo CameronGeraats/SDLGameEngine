@@ -1,27 +1,24 @@
-#include "Arrive.h"
+#include "Stop.h"
 #include "SteeringAgent.h"
 #include "Game.h"
 
 
-Arrive::Arrive()
+Stop::Stop()
 {
 }
 
-Arrive::Arrive(GameObject* go): SteeringBehaviour(go)
+Stop::Stop(GameObject * go) : SteeringBehaviour(go)
 {
 }
 
-Arrive::~Arrive()
+
+Stop::~Stop()
 {
 }
 
-void Arrive::Update()
+void Stop::Update()
 {
-	
-	//SDL_SetRenderDrawColor(game->gRenderer, 0xFF, 0x00, 0x00, 0xFF);
-	//SDL_RenderDrawLine(game->gRenderer, target->GetAbsolutePosition().x - Camera::x, target->GetAbsolutePosition().y - Camera::y, gameObject->transform->GetAbsolutePosition().x - Camera::x, gameObject->transform->GetAbsolutePosition().y - Camera::y);
-	// Get direction to target
-	Vector2 direction = target->GetAbsolutePosition() - gameObject->transform->GetAbsolutePosition();
+	/*Vector2 direction = target->GetAbsolutePosition() - gameObject->transform->GetAbsolutePosition();
 	float distance = direction.Length();
 
 	// Check if we are there
@@ -30,21 +27,13 @@ void Arrive::Update()
 		return;
 	}
 
-	/*if (maxAccelaraction == 0)
-	{
-		steering.linear = 0;
-		steering.weight = 0;
-		steering.angular = 0;
-		return;
-	}*/
-
 	float targetSpeed = 0;
 	// If we are outside the slowRadius, go to maxSpeed
 	if (distance > slowRadius)
 	{
 		targetSpeed = agent->maxSpeed;
 	}
-    // Otherwise calculate scaled speed
+	// Otherwise calculate scaled speed
 	else
 	{
 		targetSpeed = agent->maxSpeed * distance / slowRadius;
@@ -64,10 +53,15 @@ void Arrive::Update()
 	{
 		steering.linear.Normalize();
 		steering.linear *= maxAccelaraction;
-	}
+	}*/
 
+	agent->velocity = 0;
+	//if (agent->velocity.Length() > 0)
+		//steering.linear = -agent->velocity;
+	//else
+	steering.linear = 0;
 	// Output steering
 	steering.angular = 0;
 	SteeringBehaviour::Update();
-	
+
 }

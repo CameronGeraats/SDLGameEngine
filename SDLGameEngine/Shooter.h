@@ -14,7 +14,9 @@ public:
 	void Setup();
 	void Update();//
 
+	void EnemyBulletPrefab(GameObject* go);
 	void BulletPrefab(GameObject* go);
+	void LaserPrefab(GameObject* go);
 	void EnemyPrefab(GameObject* go);
 	void WallPrefab(GameObject* go);
 	

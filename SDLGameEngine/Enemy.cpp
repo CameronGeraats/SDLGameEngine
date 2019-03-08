@@ -19,7 +19,7 @@ Enemy::~Enemy()
 void Enemy::Update()
 {
 	Behaviour::Update();
-	if (Input::GetKeyDown(SDLK_SPACE))
+	//if (Input::GetKeyDown(SDLK_SPACE))
 	{
 		//gameObject->GetComponent<Rigidbody>()->SetBodyType(Rigidbody::kinematicBody);
 	}

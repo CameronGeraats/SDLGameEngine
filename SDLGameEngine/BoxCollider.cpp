@@ -39,7 +39,7 @@ const Vector2& BoxCollider::GetDimension()
 void BoxCollider::FixedUpdate()
 {
 	Collider::FixedUpdate();
-	SDL_SetRenderDrawColor(Game::gRenderer, 0x00, 0xFF, 0x00, 0xFF);
+	//SDL_SetRenderDrawColor(Game::gRenderer, 0x00, 0xFF, 0x00, 0xFF);
 	Vector2 cam = Vector2(Camera::x, Camera::y);
 	Vector2 a = gameObject->transform->GetAbsolutePosition() + gameObject->transform->Up() * dimension.y / 2 - gameObject->transform->Right() * dimension.x / 2 - cam;
 	Vector2 b = gameObject->transform->GetAbsolutePosition() + gameObject->transform->Up() * dimension.y / 2 + gameObject->transform->Right() * dimension.x / 2 - cam;

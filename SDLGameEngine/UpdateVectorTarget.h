@@ -17,6 +17,6 @@ public:
 
 private:
 	float timer = 0;
-	bool stage2 = false;
+	short stage = 0;
 };
 

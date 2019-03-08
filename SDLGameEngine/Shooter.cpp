@@ -47,6 +47,26 @@ void Shooter::Awake()
 	Time::timeScale = 1;
 }
 
+void Shooter::EnemyBulletPrefab(GameObject* go)
+{
+	go->name = "enemybullet";
+	go->AddComponent(new SpriteRenderer("Assets/beams.png", new Rect(15, 300, 50, 90)));
+	go->AddComponent(new Bullet());
+	//go->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
+	Rigidbody* rb = new Rigidbody();
+	rb->SetBodyType(Rigidbody::dynamicBody);
+	go->AddComponent(rb);
+	rb->SetBullet(true);
+
+	/*BoxCollider* col = new BoxCollider();
+	go->AddComponent(col);
+
+	col->SetDimension(Vector2(10, 10));
+	//col->SetTrigger(true);
+	col->SetCategory(physics->Layer_1);
+	col->SetCollisionMask(~physics->Layer_1);*/
+}
+
 void Shooter::BulletPrefab(GameObject* go)
 {
 	go->name = "bullet";
@@ -62,6 +82,26 @@ void Shooter::BulletPrefab(GameObject* go)
 	go->AddComponent(col);
 
 	col->SetDimension(Vector2(10, 10));
+	col->SetTrigger(true);
+}
+
+void Shooter::LaserPrefab(GameObject* go)
+{
+	go->name = "laser";
+	go->AddComponent(new SpriteRenderer("Assets/beams.png", new Rect(15, 300, 50, 90)));
+	Bullet* b = new Bullet();
+	b->speed *= 0;
+	go->AddComponent(b);
+	go->transform->SetRelativeScale(Vector2(1.0f, 15.0f));
+	Rigidbody* rb = new Rigidbody();
+	rb->SetBodyType(Rigidbody::dynamicBody);
+	go->AddComponent(rb);
+	rb->SetBullet(true);
+
+	BoxCollider* col = new BoxCollider();
+	go->AddComponent(col);
+
+	col->SetDimension(Vector2(10, 1350));
 	col->SetTrigger(true);
 }
 
@@ -105,14 +145,22 @@ void Shooter::EnemyPrefab(GameObject* go)
 	obstacleAvoidance->maxAccelaraction = 1;
 	go->AddComponent(obstacleAvoidance);
 
+	/*ObstacleAvoidance* obstacleAvoidance2 = new ObstacleAvoidance();
+	obstacleAvoidance2->avoidLayer = physics->Layer_3;
+	obstacleAvoidance2->steering.weight = 1;
+	obstacleAvoidance2->maxAccelaraction = 1;
+	go->AddComponent(obstacleAvoidance2);*/
+
 	SteeringAgent* agent = new SteeringAgent(go);
 	agent->steerings.push_back(arrive);
 	agent->steerings.push_back(obstacleAvoidance);
+	//agent->steerings.push_back(obstacleAvoidance2);
 	agent->maxSpeed = 80; //200 default
 	//agent->velocity.y = -100;
 	go->AddComponent(agent);
 	arrive->agent = agent;
 	obstacleAvoidance->agent = agent;
+	//obstacleAvoidance2->agent = agent;
 
 	UpdateVectorTarget* updateTarget = new UpdateVectorTarget(go);
 	updateTarget->target = &tgt->transform->GetAbsolutePosition();
@@ -138,10 +186,12 @@ void Shooter::EnemyPrefab(GameObject* go)
 
 void Shooter::Setup()
 {
+	AddPrefab("EnemyBullet", std::bind(&Shooter::EnemyBulletPrefab, this, std::placeholders::_1));
 	AddPrefab("Bullet", std::bind(&Shooter::BulletPrefab, this, std::placeholders::_1));
+	AddPrefab("Laser", std::bind(&Shooter::LaserPrefab, this, std::placeholders::_1));
 	AddPrefab("Enemy", std::bind(&Shooter::EnemyPrefab, this, std::placeholders::_1));
 	AddPrefab("Wall", std::bind(&Shooter::WallPrefab, this, std::placeholders::_1));
-
+	srand(unsigned(time(NULL)));
 
 	//SetScene(new Scene1());
 	SetScene(new SceneMenu());

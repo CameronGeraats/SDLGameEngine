@@ -8,5 +8,7 @@ public:
 	~Shoot();
 
 	void Update();
+	float laserActive = 0;
+	GameObject* laser = nullptr;
 };
 

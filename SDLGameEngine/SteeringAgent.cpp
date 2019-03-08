@@ -40,10 +40,9 @@ void SteeringAgent::Update()
 		velocity.Normalize();
 		velocity *= maxSpeed;
 	}
-
 	//gameObject->transform->SetAbsolutePositionDelta(velocity * Time::DeltaTime());
 	//gameObject->transform->angle += (angularSpeed / 60.0f) * 180.0f / M_PI;
-	if (rb)
+	if (rb && velocity.Length() != 0)
 	{
 		gameObject->transform->SetAbsoluteAngle(atan2(rb->GetVelocity().y, rb->GetVelocity().x) * 180.0f / M_PI + 90.0f);
 	}
