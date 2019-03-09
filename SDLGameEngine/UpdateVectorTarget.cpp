@@ -29,6 +29,14 @@ UpdateVectorTarget::~UpdateVectorTarget()
 
 void UpdateVectorTarget::Update()
 {
+	if ((gameObject->transform->GetAbsolutePosition() - target).Length() <= 650 && stage == 0)
+	{
+		/*SteeringAgent* steerAgent = gameObject->GetComponent<Arrive>()->agent;
+		steerAgent->steerings.remove(gameObject->GetComponent<Arrive>());
+		steerAgent->steerings.remove(gameObject->GetComponent<ObstacleAvoidance>());
+		steerAgent->steerings.clear();
+		gameObject->GetComponent<Rigidbody>()->SetVelocity(Vector2(0, 0));*/
+	}
 	//timer += Time::DeltaTime();	//if ((gameObject->transform->GetAbsolutePosition() - target).Length() <= 10 || timer > maxTime)
 	/*
 	//SDL_SetRenderDrawColor(game->gRenderer, 0xFF, 0x00, 0x00, 0xFF);
@@ -53,7 +61,7 @@ void UpdateVectorTarget::Update()
 	//	stage++;
 	//}*/
 	//if ((gameObject->transform->GetAbsolutePosition() - target).Length() <= 5 && stage == 1)
-	if ((gameObject->transform->GetAbsolutePosition() - target).Length() <= 350 && stage != 1)
+	if ((gameObject->transform->GetAbsolutePosition() - target).Length() <= 350 && stage == 0)
 	{
 			//gameObject->transform->SetAbsoluteAngle(atan2((Camera::y+Camera::height/2)-gameObject->transform->GetAbsolutePosition().y, (Camera::x + Camera::width / 2) - gameObject->transform->GetAbsolutePosition().x));
 			//gameObject->transform->SetAbsoluteAngle(atan2((target.y)-gameObject->transform->GetAbsolutePosition().y, (target.x) - gameObject->transform->GetAbsolutePosition().x) * 180 / M_PI); 
@@ -91,6 +99,12 @@ void UpdateVectorTarget::Update()
 				//gameObject->GetComponent<Arrive>()->maxAccelaraction = 0;
 				//gameObject->GetComponent<SteeringAgent>()->velocity = 0;
 				//gameObject->RemoveComponents<SteeringAgent>();
+				SteeringAgent* steerAgent = gameObject->GetComponent<Arrive>()->agent;
+				steerAgent->steerings.remove(gameObject->GetComponent<Arrive>());
+				steerAgent->steerings.remove(gameObject->GetComponent<ObstacleAvoidance>());
+				steerAgent->steerings.clear();
+				steerAgent->steerings.resize(0);
+				gameObject->GetComponent<Rigidbody>()->SetVelocity(Vector2(0, 0));
 				gameObject->RemoveComponents<Arrive>();
 				gameObject->RemoveComponents<ObstacleAvoidance>();
 				//game->Destroy(targetObject);
@@ -113,6 +127,7 @@ void UpdateVectorTarget::Update()
 	}
 	if (stage == 1)
 	{
+		gameObject->GetComponent<Rigidbody>()->SetVelocity(Vector2(0,0));
 		gameObject->transform->SetAbsoluteAngle(atan2(((target.x) - gameObject->transform->GetAbsolutePosition().x)*-1, (target.y) - gameObject->transform->GetAbsolutePosition().y) * 180 / M_PI + 180);
 	}
 	//SDL_SetRenderDrawColor(game->gRenderer, 0xFF, 0x00, 0x00, 0xFF);

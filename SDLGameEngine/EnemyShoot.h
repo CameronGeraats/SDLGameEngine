@@ -9,7 +9,7 @@ public:
 
 	void Update();
 private:
-	float timer = 0;
+	float timer = 0, random;
 	bool shootready = true;
 };
 

@@ -27,7 +27,7 @@ void SpawnEnemies::Start()
 void SpawnEnemies::Update()
 {
 	float f = Time::TimeElapsed();
-	if(fmod(f,4)>3.50 && createReady)
+	if(createReady && fmod(f,4)>3.5f)
 	{
 		for (int i = 0; i < 3; i++) // To generate more each tick
 		{
@@ -43,7 +43,7 @@ void SpawnEnemies::Update()
 		}
 		createReady = false;
 	}
-	if (fmod(f, 4) < 3.5) createReady = true;
+	if (fmod(f, 4) < 3.5f) createReady = true;
 	Component::Update();
 }
 

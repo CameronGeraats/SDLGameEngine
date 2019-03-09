@@ -142,6 +142,7 @@ void Shooter::EnemyPrefab(GameObject* go)
 	ObstacleAvoidance* obstacleAvoidance = new ObstacleAvoidance();
 	obstacleAvoidance->avoidLayer = physics->Layer_2;
 	obstacleAvoidance->steering.weight = 1;
+	obstacleAvoidance->lookAhead = 100; // More aggressive, direct enemies
 	obstacleAvoidance->maxAccelaraction = 1;
 	go->AddComponent(obstacleAvoidance);
 
