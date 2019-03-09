@@ -45,13 +45,16 @@ void RenderModule::Start()
 
 void RenderModule::Update()
 {
-	for (auto renderLayer : renderers)
-	{
-		for (auto renderer : renderLayer)
+	for (int i = 0; i < numberOfLayers; i++) {
+		for (auto renderLayer : renderers)
 		{
-			if (renderer != NULL)
+			for (auto renderer : renderLayer)
 			{
-				renderer->Render();
+				if (renderer != NULL)
+				{
+					if(renderer->GetLayer()==i)
+					renderer->Render();
+				}
 			}
 		}
 	}

@@ -2,6 +2,8 @@
 #include <SDL.h>
 #include "Module.h"
 #include <list>
+#include "Transform.h"
+
 class Input:
 	public Module
 {
@@ -18,7 +20,8 @@ public:
 	static bool GetKeyDown(SDL_Keycode const &key);
 	static bool GetKey(SDL_Keycode const &key);
 	static bool GetKeyUp(SDL_Keycode const &key);
-	static SDL_Rect GetMousePosition();
+	//static SDL_Rect GetMousePosition();
+	static Transform* GetMousePosition();
 private:
 	//static int m_iMouseX, m_iMouseY;
 	Uint8* keyStates;

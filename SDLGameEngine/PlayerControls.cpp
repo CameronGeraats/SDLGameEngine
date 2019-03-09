@@ -31,7 +31,8 @@ void PlayerControls::Update()
 	//	gameObject->transform->SetAbsoluteAngle(atan2(vertical, horizontal) * 180 / M_PI);
 	//}
 
-	gameObject->transform->SetAbsoluteAngle(atan2(float(Input::GetMousePosition().y)-(Camera::height/2), float(Input::GetMousePosition().x) - (Camera::width/2)) * 180 / M_PI);
+	//gameObject->transform->SetAbsoluteAngle(atan2(float(Input::GetMousePosition().y)-(Camera::height/2), float(Input::GetMousePosition().x) - (Camera::width/2)) * 180 / M_PI);
+	gameObject->transform->SetAbsoluteAngle(atan2(float(Input::GetMousePosition()->GetAbsolutePosition().y)-(Camera::height/2), float(Input::GetMousePosition()->GetAbsolutePosition().x) - (Camera::width/2)) * 180 / M_PI);
 	
 
 	RaycastHit hit = game->physics->Raycast(gameObject->transform->GetAbsolutePosition(), gameObject->transform->Right(), 10000, ~game->physics->Layer_2);

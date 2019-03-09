@@ -44,12 +44,15 @@ Button::~Button()
 
 void Button::Update()
 {
-	SDL_Rect mouseXY = Input::GetMousePosition();
+	//SDL_Rect mouseXY = Input::GetMousePosition();
+	Transform* mouseXY = Input::GetMousePosition();
 	SDL_MouseButtonEvent mouse; // Temporary event that is used for finding specific mouse events (LEFT or RIGHT button, Up or Down State, etc)
 	mouse.button = SDL_BUTTON_LEFT;
-
-	if (mouseXY.x < (m_rDst.x + m_rDst.w) && mouseXY.x > m_rDst.x && // If cursor is within X bounds
-		mouseXY.y < (m_rDst.y + m_rDst.h) && mouseXY.y > m_rDst.y)   // And cursor is within Y bounds
+	
+	//if (mouseXY.x < (m_rDst.x + m_rDst.w) && mouseXY.x > m_rDst.x && // If cursor is within X bounds
+	if (mouseXY->GetAbsolutePosition().x < (m_rDst.x + m_rDst.w) && mouseXY->GetAbsolutePosition().x > m_rDst.x && // If cursor is within X bounds
+		//mouseXY.y < (m_rDst.y + m_rDst.h) && mouseXY.y > m_rDst.y)   // And cursor is within Y bounds
+		mouseXY->GetAbsolutePosition().y < (m_rDst.y + m_rDst.h) && mouseXY->GetAbsolutePosition().y > m_rDst.y)   // And cursor is within Y bounds
 	{
 		
 		if (Input::GetMouseButtonDown(mouse) && m_bReleased)

@@ -30,6 +30,7 @@ Scene1::Scene1()
 
 Scene1::~Scene1()
 {
+	SDL_ShowCursor(SDL_ENABLE);
 }
 
 void Scene1::Setup()
@@ -78,10 +79,7 @@ void Scene1::Setup()
 	GameObject* wall6 = Instantiate(game->Prefab("Wall"), -50, 550, 45);
 
 
-
-
 	GameObject* go = Instantiate("Tank", 300, 200, 0);
-	go->AddComponent(new SpriteRenderer("Assets/Target.png"));
 	go->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
 	Rigidbody* rb = new Rigidbody();
 	//rb->SetBodyType(Rigidbody::dynamicBody);
@@ -114,7 +112,23 @@ void Scene1::Setup()
 	go->AddComponent(new SpawnEnemies());
 
 	graphic->AddComponent(new Shoot());
-	
+			// Trying to replace cursor with Target sprite
+	////SDL_ShowCursor(SDL_DISABLE);
+	//GameObject* cursor = Instantiate("Cursor", -500, -250, 0);
+	//cursor->AddComponent(Input::GetMousePosition());
+	////GameObject* cursor = Instantiate("Cursor", -300, -200, 0);
+	//cursor->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
+	////GameObject* targetGraph = Instantiate("TargetGraphic", -Camera::width/2, -Camera::height/2, 90);
+	//GameObject* targetGraph = Instantiate("TargetGraphic", 0, 0, 90);
+	//Sprite* targetSprite = new Sprite("Assets/Target.png");
+	////SpriteRenderer* sprRen = new SpriteRenderer("Assets/Target.png", 0, 1);
+	//SpriteRenderer* sprRen = new SpriteRenderer();	
+	////sprRen->SetLayer(1);
+	//sprRen->SetSprite(targetSprite);
+	//targetGraph->AddComponent(sprRen);
+	//targetGraph->transform->SetParentRelative(cursor->transform);
+	//cursor->transform->SetParentRelative(Input::GetMousePosition());
+
 	for (int i = 0; i < 5; i++)
 	{
 		int x, y, z = rand() % 4;

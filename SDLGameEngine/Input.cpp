@@ -71,10 +71,11 @@ void Input::Update()
 			mouseUpEvents.push_back(e.button);
 			break;
 
-		//case SDL_MOUSEMOTION: // Not needed if I just need mouse position and not motion
+		case SDL_MOUSEMOTION: // Not needed if I just need mouse position and not motion
 			//mouseMoveEvents.push_back(e.motion); // unneccesary? useful if tracking delta x/y?
 			//SDL_GetMouseState(&m_iMouseX, &m_iMouseY);
-			//break;
+			GetMousePosition();
+			break;
 
 		default:
 			break;
@@ -122,14 +123,32 @@ bool Input::GetMouseButtonUp(SDL_MouseButtonEvent button)
 	return false;
 }
 
-SDL_Rect Input::GetMousePosition()
+//SDL_Rect Input::GetMousePosition()
+//{
+//	int m_iMouseX, m_iMouseY;
+//	SDL_GetMouseState(&m_iMouseX, &m_iMouseY);
+//	SDL_Rect xy;
+//	xy.h = xy.w = 0;
+//	xy.x = m_iMouseX;
+//	xy.y = m_iMouseY;
+//	return xy;
+//}
+
+//Transform* Input::GetMousePosition()
+//{
+//	int m_iMouseX, m_iMouseY;
+//	SDL_GetMouseState(&m_iMouseX, &m_iMouseY);
+//	static Transform* xy = new Transform;
+//	xy->SetAbsolutePosition(Vector2(m_iMouseX,m_iMouseY));
+//	return xy;
+//}
+
+Transform* Input::GetMousePosition()
 {
 	int m_iMouseX, m_iMouseY;
 	SDL_GetMouseState(&m_iMouseX, &m_iMouseY);
-	SDL_Rect xy;
-	xy.h = xy.w = 0;
-	xy.x = m_iMouseX;
-	xy.y = m_iMouseY;
+	static Transform* xy = new Transform;
+	xy->SetAbsolutePosition(Vector2(m_iMouseX ,m_iMouseY));
 	return xy;
 }
 

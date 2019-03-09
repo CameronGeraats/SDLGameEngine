@@ -88,11 +88,15 @@ void Shooter::BulletPrefab(GameObject* go)
 void Shooter::LaserPrefab(GameObject* go)
 {
 	go->name = "laser";
-	go->AddComponent(new SpriteRenderer("Assets/beams.png", new Rect(15, 300, 50, 90)));
+	//SpriteRenderer* sprRen = new SpriteRenderer("Assets/beams.png", new Rect(245, 90, 40, 80));
+	SpriteRenderer* sprRen = new SpriteRenderer("Assets/beams.png", new Rect(210, 320, 45, 95));
+	//sprRen->flipY = true;
+	//sprRen->SetLayer(0);
+	go->AddComponent(sprRen);
 	Bullet* b = new Bullet();
 	b->speed *= 0;
 	go->AddComponent(b);
-	go->transform->SetRelativeScale(Vector2(1.0f, 15.0f));
+	go->transform->SetRelativeScale(Vector2(1.0f, 9.0f));
 	Rigidbody* rb = new Rigidbody();
 	rb->SetBodyType(Rigidbody::dynamicBody);
 	go->AddComponent(rb);
@@ -101,7 +105,7 @@ void Shooter::LaserPrefab(GameObject* go)
 	BoxCollider* col = new BoxCollider();
 	go->AddComponent(col);
 
-	col->SetDimension(Vector2(10, 1350));
+	col->SetDimension(Vector2(20, 1350));
 	col->SetTrigger(true);
 }
 
