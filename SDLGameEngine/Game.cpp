@@ -3,9 +3,6 @@
 #include "Time.h"
 #include "RenderModule.h"
 #include "Event.h"
-#include "Rigidbody.h"
-#include "BoxCollider.h"
-#include "SpriteRenderer.h"
 
 SDL_Window* Game::gWindow = NULL;
 SDL_Renderer* Game::gRenderer = NULL;
@@ -113,39 +110,7 @@ void Game::InitializeModules()
 
 void Game::Setup()
 {
-	GameObject* go = Instantiate("player", Camera::width / 2, Camera::height / 2, 15);
-	GameObject* graphic = Instantiate("graphic", 0, 0, 15);
-	graphic->transform->SetParentRelative(go->transform);
-	graphic->transform->SetRelativeScale(Vector2(0.2f, 0.2f));
-	graphic->AddComponent(new SpriteRenderer("Assets/Tank.png"));
-	go->AddComponent(new Rigidbody());
-	go->GetComponent<Rigidbody>()->SetBodyType(Rigidbody::dynamicBody);
-	graphic->AddComponent(new BoxCollider());
-	graphic->GetComponent<BoxCollider>()->SetDimension(Vector2(500, 500));
-	//graphic->GetComponent<BoxCollider>()->SetOffset(Vector2(200, 200));
-	graphic->GetComponent<BoxCollider>()->SetRestitution(1.0f);
-	graphic->GetComponent<BoxCollider>()->SetFriction(0.3f);
-	graphic->GetComponent<BoxCollider>()->SetDensity(1);
 
-	GameObject* ground1 = Instantiate("ground", Camera::width / 2, Camera::height / 2 + 500);
-	ground1->AddComponent(new Rigidbody());
-	ground1->AddComponent(new BoxCollider());
-	ground1->GetComponent<BoxCollider>()->SetDimension(Vector2(1500, 50));
-
-	GameObject* ground2 = Instantiate("ground", 100, Camera::height / 2 , 90);
-	ground2->AddComponent(new Rigidbody());
-	ground2->AddComponent(new BoxCollider());
-	ground2->GetComponent<BoxCollider>()->SetDimension(Vector2(1000, 50));
-
-	GameObject* ground3 = Instantiate("ground", Camera::width - 100, Camera::height / 2, 90);
-	ground3->AddComponent(new Rigidbody());
-	ground3->AddComponent(new BoxCollider());
-	ground3->GetComponent<BoxCollider>()->SetDimension(Vector2(1000, 50));
-
-	GameObject* ground4 = Instantiate("ground", Camera::width / 2, Camera::height / 2 - 500);
-	ground4->AddComponent(new Rigidbody());
-	ground4->AddComponent(new BoxCollider());
-	ground4->GetComponent<BoxCollider>()->SetDimension(Vector2(1500, 50));
 }
 
 void Game::SetScene(Scene* _scene)
