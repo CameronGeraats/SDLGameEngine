@@ -83,6 +83,7 @@ void TextRenderer::Render()
 	}
 }
 
+// BUGGY
 void TextRenderer::SetColor(Color _color)
 {
 	SDL_SetTextureColorMod(texture, _color.r, _color.g, _color.b);
