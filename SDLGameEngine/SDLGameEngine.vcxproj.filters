@@ -62,6 +62,9 @@
     <Filter Include="Shooter">
       <UniqueIdentifier>{425c115b-a6e6-4b7f-b920-e63b558b8aaf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pathfinding">
+      <UniqueIdentifier>{38eef217-8964-4ac0-83cc-7dfeb34ff580}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -210,6 +213,15 @@
     </ClCompile>
     <ClCompile Include="Pursue.cpp">
       <Filter>SteeringBehaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="PathfindingDemo.cpp">
+      <Filter>Pathfinding</Filter>
+    </ClCompile>
+    <ClCompile Include="Pathfinder.cpp">
+      <Filter>Pathfinding</Filter>
+    </ClCompile>
+    <ClCompile Include="PathNode.cpp">
+      <Filter>Pathfinding</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -365,6 +377,15 @@
     </ClInclude>
     <ClInclude Include="Pursue.h">
       <Filter>SteeringBehaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="PathfindingDemo.h">
+      <Filter>Pathfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="Pathfinder.h">
+      <Filter>Pathfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="PathNode.h">
+      <Filter>Pathfinding</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
