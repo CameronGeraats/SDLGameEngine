@@ -1,6 +1,7 @@
 #include "PathfindingDemo.h"
 #include "SpriteRenderer.h"
 #include "Pathfinder.h"
+#include "DrawPath.h"
 
 
 PathfindingDemo::PathfindingDemo()
@@ -29,4 +30,12 @@ void PathfindingDemo::Setup()
 	AddPrefab("Obstacle", std::bind(&PathfindingDemo::ObstaclePrefab, this, std::placeholders::_1));
 
 	Pathfinder* finder = new Pathfinder(this, 20, 20);
+
+	GameObject* go = Instantiate("Path");
+
+	DrawPath* path = new DrawPath();
+	path->start = Vector2(75, 175);
+	path->end = Vector2(925, 825);
+	path->finder = finder;
+	go->AddComponent(path);	
 }

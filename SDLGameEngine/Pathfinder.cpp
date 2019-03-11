@@ -17,6 +17,7 @@ Pathfinder::Pathfinder(Game* _game, int _width, int _height)
 			PathNode* node = new PathNode();
 			node->xCoordinate = i;
 			node->yCoordinate = j;
+			node->finder = this;
 			if (rand() % 100 < 30)
 			{
 				node->blocked = true;
@@ -47,6 +48,7 @@ bool Pathfinder::FindPath(PathNode* start, PathNode* finish)
 
 	while (open.size() > 0)
 	{
+		// Find lowest fcost in open
 		PathNode* current = *(open.begin());
 		for (PathNode* node : open)
 		{
@@ -55,6 +57,7 @@ bool Pathfinder::FindPath(PathNode* start, PathNode* finish)
 				current = node;
 			}
 		}
+
 
 		open.remove(current);
 
@@ -69,6 +72,7 @@ bool Pathfinder::FindPath(PathNode* start, PathNode* finish)
 
 		for (PathNode* neighbour : neighbours)
 		{
+			// If in closed, do nothing
 			if (std::find(closed.begin(), closed.end(), neighbour) != closed.end())
 			{
 				continue;

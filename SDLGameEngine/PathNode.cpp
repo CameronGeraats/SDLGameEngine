@@ -35,8 +35,9 @@ std::list<PathNode*> PathNode::Neighbours()
 			}
 			neighbours.push_back(finder->grid[x][y]);
 		}
-		return neighbours;
+		
 	}
+	return neighbours;
 }
 
 
