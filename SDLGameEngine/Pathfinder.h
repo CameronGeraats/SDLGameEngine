@@ -14,8 +14,9 @@ public:
 
 	std::vector<std::vector<PathNode*>> grid;
 
-	std::list<PathNode*> FindPath(PathNode* start, PathNode* finish);
-private:
+	bool FindPath(PathNode* start, PathNode* finish);
+
+	friend class PathNode;
 
 	int m_width = 10;
 	int m_height = 10;

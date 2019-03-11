@@ -21,12 +21,12 @@ void PathfindingDemo::Awake()
 void PathfindingDemo::ObstaclePrefab(GameObject* go)
 {
 	go->AddComponent(new SpriteRenderer("Assets/background.png"));
-	go->transform->SetAbsoluteScale(Vector2(1.0f / 7.0f , 1.0f / 6.0f ));
+	go->transform->SetAbsoluteScale(Vector2(1.0f / 14.0f , 1.0f / 12.0f ));
 }
 
 void PathfindingDemo::Setup()
 {
 	AddPrefab("Obstacle", std::bind(&PathfindingDemo::ObstaclePrefab, this, std::placeholders::_1));
 
-	Pathfinder* finder = new Pathfinder(this, 10, 10);
+	Pathfinder* finder = new Pathfinder(this, 20, 20);
 }

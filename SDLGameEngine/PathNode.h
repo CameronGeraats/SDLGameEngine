@@ -21,6 +21,7 @@ public:
 	int hCost;
 	int gCost;
 
+	int CalculateCost(int destX, int destY);
 	inline int FCost() { return hCost + gCost; }
 };
 

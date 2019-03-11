@@ -223,6 +223,9 @@
     <ClCompile Include="PathNode.cpp">
       <Filter>Pathfinding</Filter>
     </ClCompile>
+    <ClCompile Include="DrawPath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -387,5 +390,6 @@
     <ClInclude Include="PathNode.h">
       <Filter>Pathfinding</Filter>
     </ClInclude>
+    <ClInclude Include="DrawPath.h" />
   </ItemGroup>
 </Project>
