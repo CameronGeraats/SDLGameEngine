@@ -65,6 +65,9 @@
     <Filter Include="Pathfinding">
       <UniqueIdentifier>{38eef217-8964-4ac0-83cc-7dfeb34ff580}</UniqueIdentifier>
     </Filter>
+    <Filter Include="BehaviourTrees">
+      <UniqueIdentifier>{5d9d1789-3443-41a4-8d76-ef34808c5d15}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -225,6 +228,39 @@
     </ClCompile>
     <ClCompile Include="DrawPath.cpp">
       <Filter>Pathfinding</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviourTree.cpp">
+      <Filter>BehaviourTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="BTAction.cpp">
+      <Filter>BehaviourTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="BTBlackboard.cpp">
+      <Filter>BehaviourTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="BTComposite.cpp">
+      <Filter>BehaviourTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="BTCondition.cpp">
+      <Filter>BehaviourTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="BTDecorator.cpp">
+      <Filter>BehaviourTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="BTInverter.cpp">
+      <Filter>BehaviourTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="BTNode.cpp">
+      <Filter>BehaviourTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="BTRoot.cpp">
+      <Filter>BehaviourTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="BTSequence.cpp">
+      <Filter>BehaviourTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="BTSeries.cpp">
+      <Filter>BehaviourTrees</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -392,6 +428,39 @@
     </ClInclude>
     <ClInclude Include="DrawPath.h">
       <Filter>Pathfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviourTree.h">
+      <Filter>BehaviourTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="BTAction.h">
+      <Filter>BehaviourTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="BTBlackboard.h">
+      <Filter>BehaviourTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="BTComposite.h">
+      <Filter>BehaviourTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="BTCondition.h">
+      <Filter>BehaviourTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="BTDecorator.h">
+      <Filter>BehaviourTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="BTInverter.h">
+      <Filter>BehaviourTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="BTNode.h">
+      <Filter>BehaviourTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="BTRoot.h">
+      <Filter>BehaviourTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="BTSequence.h">
+      <Filter>BehaviourTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="BTSeries.h">
+      <Filter>BehaviourTrees</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

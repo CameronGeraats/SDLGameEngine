@@ -11,6 +11,3 @@ BTNode::~BTNode()
 {
 }
 
-BTNode::BTState BTNode::Update()
-{
-}

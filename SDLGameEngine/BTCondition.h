@@ -7,6 +7,6 @@ public:
 	BTCondition();
 	~BTCondition();
 	virtual void OnStart() = 0;
-	virtual BTState Update();
+	virtual BTState Update() = 0;
 };
 

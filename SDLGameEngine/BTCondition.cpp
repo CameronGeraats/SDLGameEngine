@@ -11,6 +11,4 @@ BTCondition::~BTCondition()
 {
 }
 
-BTNode::BTState BTCondition::Update()
-{
-}
+

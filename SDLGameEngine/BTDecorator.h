@@ -6,7 +6,7 @@ class BTDecorator :
 public:
 	BTDecorator();
 	~BTDecorator();
-	virtual BTState Update();
+	virtual BTState Update() = 0;
 	void SetNode(BTNode* node);
 protected:
 	BTNode* child;

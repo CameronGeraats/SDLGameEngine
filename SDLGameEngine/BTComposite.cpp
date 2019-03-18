@@ -11,11 +11,6 @@ BTComposite::~BTComposite()
 {
 }
 
-BTNode::BTState BTComposite::Update()
-{
-	return Running;
-}
-
 void BTComposite::AddChild(BTNode* node)
 {
 	node->blackboard = blackboard;

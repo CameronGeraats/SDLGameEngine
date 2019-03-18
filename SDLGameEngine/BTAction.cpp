@@ -11,6 +11,3 @@ BTAction::~BTAction()
 {
 }
 
-BTNode::BTState BTAction::Update()
-{
-}
