@@ -9,5 +9,6 @@ public:
 	virtual BTNonLeafNode* AddChild(BTNode* node) = 0;
 	inline virtual BTNonLeafNode* End() { return this->parent; }
 	virtual BTState Update() = 0;
+	inline BTNonLeafNode* ReturnReference() { return this; }
 };
 

@@ -16,6 +16,7 @@ public:
 	virtual BTState Update() = 0;
 	BTBlackboard* blackboard;
 	BTNonLeafNode* parent = nullptr;
+	virtual BTNonLeafNode* ReturnReference() = 0;
 	BTNode();
 	~BTNode();
 protected:
