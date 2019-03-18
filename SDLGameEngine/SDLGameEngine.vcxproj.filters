@@ -259,7 +259,7 @@
     <ClCompile Include="BTSequence.cpp">
       <Filter>BehaviourTrees</Filter>
     </ClCompile>
-    <ClCompile Include="BTSeries.cpp">
+    <ClCompile Include="BTSelector.cpp">
       <Filter>BehaviourTrees</Filter>
     </ClCompile>
   </ItemGroup>
@@ -459,7 +459,7 @@
     <ClInclude Include="BTSequence.h">
       <Filter>BehaviourTrees</Filter>
     </ClInclude>
-    <ClInclude Include="BTSeries.h">
+    <ClInclude Include="BTSelector.h">
       <Filter>BehaviourTrees</Filter>
     </ClInclude>
   </ItemGroup>

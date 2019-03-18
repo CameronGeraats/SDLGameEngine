@@ -1,12 +1,12 @@
 #pragma once
 #include "BTComposite.h"
 #include <list>
-class BTSeries :
+class BTSelector :
 	public BTComposite
 {
 public:
-	BTSeries();
-	~BTSeries();
+	BTSelector();
+	~BTSelector();
 	BTState Update();
 };
 

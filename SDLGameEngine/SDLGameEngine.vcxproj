@@ -156,7 +156,7 @@
     <ClCompile Include="BTNode.cpp" />
     <ClCompile Include="BTRoot.cpp" />
     <ClCompile Include="BTSequence.cpp" />
-    <ClCompile Include="BTSeries.cpp" />
+    <ClCompile Include="BTSelector.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CameraFollow.cpp" />
@@ -222,7 +222,7 @@
     <ClInclude Include="BTNode.h" />
     <ClInclude Include="BTRoot.h" />
     <ClInclude Include="BTSequence.h" />
-    <ClInclude Include="BTSeries.h" />
+    <ClInclude Include="BTSelector.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraFollow.h" />

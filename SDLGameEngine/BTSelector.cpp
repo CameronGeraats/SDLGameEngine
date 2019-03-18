@@ -1,17 +1,17 @@
-#include "BTSeries.h"
+#include "BTSelector.h"
 
 
 
-BTSeries::BTSeries()
+BTSelector::BTSelector()
 {
 }
 
 
-BTSeries::~BTSeries()
+BTSelector::~BTSelector()
 {
 }
 
-BTNode::BTState BTSeries::Update()
+BTNode::BTState BTSelector::Update()
 {
 	for (BTNode* node : children)
 	{
