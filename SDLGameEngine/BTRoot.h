@@ -7,6 +7,8 @@ class BTRoot :
 public:
 	BTRoot();
 	~BTRoot();
+
+	void OnStart();
 	BTState Update();
 };
 

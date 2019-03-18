@@ -8,8 +8,11 @@ class BehaviourTree :
 public:
 	BehaviourTree();
 	~BehaviourTree();
-	BTRoot* root;
 	static BTBlackboard* globalBlackboard;
 	BTBlackboard* blackboard;
+	BTRoot* Create();
+	void Update();
+private:
+	BTRoot * root;
 };
 

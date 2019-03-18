@@ -1,13 +1,13 @@
 #pragma once
-#include "BTNode.h"
+#include "BTNonLeafNode.h"
 class BTDecorator :
-	public BTNode
+	public BTNonLeafNode
 {
 public:
 	BTDecorator();
 	~BTDecorator();
 	virtual BTState Update() = 0;
-	void SetNode(BTNode* node);
+	BTNonLeafNode* AddChild(BTNode* node);
 protected:
 	BTNode* child;
 };

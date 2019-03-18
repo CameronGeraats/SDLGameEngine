@@ -262,6 +262,9 @@
     <ClCompile Include="BTSelector.cpp">
       <Filter>BehaviourTrees</Filter>
     </ClCompile>
+    <ClCompile Include="BTNonLeafNode.cpp">
+      <Filter>BehaviourTrees</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -460,6 +463,9 @@
       <Filter>BehaviourTrees</Filter>
     </ClInclude>
     <ClInclude Include="BTSelector.h">
+      <Filter>BehaviourTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="BTNonLeafNode.h">
       <Filter>BehaviourTrees</Filter>
     </ClInclude>
   </ItemGroup>

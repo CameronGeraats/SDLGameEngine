@@ -7,10 +7,11 @@ and may not be redistributed without written permission.*/
 #include <stdio.h>
 #include <string>
 #include <iostream>
-#include "PathfindingDemo.h"
+//#include "PathfindingDemo.h"
+#include "Shooter.h"
 
 
-Game* game = new PathfindingDemo();
+Game* game = new Shooter();
 
 int main( int argc, char* args[] )
 {

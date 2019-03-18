@@ -154,6 +154,7 @@
     <ClCompile Include="BTDecorator.cpp" />
     <ClCompile Include="BTInverter.cpp" />
     <ClCompile Include="BTNode.cpp" />
+    <ClCompile Include="BTNonLeafNode.cpp" />
     <ClCompile Include="BTRoot.cpp" />
     <ClCompile Include="BTSequence.cpp" />
     <ClCompile Include="BTSelector.cpp" />
@@ -220,6 +221,7 @@
     <ClInclude Include="BTDecorator.h" />
     <ClInclude Include="BTInverter.h" />
     <ClInclude Include="BTNode.h" />
+    <ClInclude Include="BTNonLeafNode.h" />
     <ClInclude Include="BTRoot.h" />
     <ClInclude Include="BTSequence.h" />
     <ClInclude Include="BTSelector.h" />
