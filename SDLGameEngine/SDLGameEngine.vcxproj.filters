@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Behaviour.cpp">
+      <Filter>Engine\Core\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Engine\Core\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Module.cpp">
+      <Filter>Engine\Core\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Engine\Core\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Engine\Core\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="BoxCollider.cpp">
+      <Filter>Engine\Physics\Components\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>Engine\Physics\Components\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Engine\Physics\Data\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Color.cpp">
+      <Filter>Engine\Data\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ContactListener.cpp">
+      <Filter>Engine\Physics\Core\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Engine\Core\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Engine\Modules\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="LayerdStorage.cpp">
+      <Filter>Engine\Helper\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics.cpp">
+      <Filter>Engine\Physics\Core\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Ray.cpp">
+      <Filter>Engine\Physics\Data\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="RaycastHit.cpp">
+      <Filter>Engine\Physics\Data\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Rect.cpp">
+      <Filter>Engine\Data\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Engine\Components\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderModule.cpp">
+      <Filter>Engine\Modules\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Rigidbody.cpp">
+      <Filter>Engine\Physics\Components\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Engine\Core\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleEvent.cpp">
+      <Filter>Engine\Helper\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleEventListener.cpp">
+      <Filter>Engine\Helper\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Engine\Data\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteRenderer.cpp">
+      <Filter>Engine\Components\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="TextRenderer.cpp">
+      <Filter>Engine\Components\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>Engine\Components\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Time.cpp">
+      <Filter>Engine\Modules\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2.cpp">
+      <Filter>Engine\Utils\Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Behaviour.h">
+      <Filter>Engine\Core\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Engine\Core\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Module.h">
+      <Filter>Engine\Core\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Engine\Core\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Engine\Core\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxCollider.h">
+      <Filter>Engine\Physics\Components\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>Engine\Physics\Components\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Engine\Physics\Data\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.h">
+      <Filter>Engine\Data\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ContactListener.h">
+      <Filter>Engine\Physics\Core\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>Engine\Helper\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="EventListener.h">
+      <Filter>Engine\Helper\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Engine\Core\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Engine\Modules\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="LayerdStorage.h">
+      <Filter>Engine\Helper\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics.h">
+      <Filter>Engine\Physics\Core\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Ray.h">
+      <Filter>Engine\Physics\Data\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="RaycastHit.h">
+      <Filter>Engine\Physics\Data\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Rect.h">
+      <Filter>Engine\Data\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Engine\Components\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderModule.h">
+      <Filter>Engine\Modules\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Rigidbody.h">
+      <Filter>Engine\Physics\Components\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Engine\Core\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleEvent.h">
+      <Filter>Engine\Helper\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleEventListener.h">
+      <Filter>Engine\Helper\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Engine\Data\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteRenderer.h">
+      <Filter>Engine\Components\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="TextRenderer.h">
+      <Filter>Engine\Components\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Engine\Components\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Time.h">
+      <Filter>Engine\Modules\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>Engine\Utils\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformData.h">
+      <Filter>Engine\Data\Header</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{f2dae873-4a17-435d-92d3-c34b11cf1938}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Core">
+      <UniqueIdentifier>{33b3ed90-303d-49a9-b414-6dab12f223dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Core\Header">
+      <UniqueIdentifier>{6cf47504-9c38-40ce-8d01-583d443a1996}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Core\Source">
+      <UniqueIdentifier>{cde33337-5ef0-4a8f-9a79-b0969322b4b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Helper">
+      <UniqueIdentifier>{727219e9-c9aa-4b92-88f6-1a7bdc2e551e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Helper\Header">
+      <UniqueIdentifier>{9467aa69-a806-4338-bc2b-3e1eaf6085d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Helper\Source">
+      <UniqueIdentifier>{8d3e6954-9a58-4f96-a90e-b43d0d9f964e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Components">
+      <UniqueIdentifier>{999dd5f2-e45b-4bb7-b45d-359a3029c9bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Components\Header">
+      <UniqueIdentifier>{b7654b21-e019-4e1a-bcd4-bde3873ef876}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Components\Source">
+      <UniqueIdentifier>{51760072-a7e7-44cd-b16a-36581b1ceb02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Modules">
+      <UniqueIdentifier>{16026f3a-95f0-4367-a317-c50642238be4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Modules\Header">
+      <UniqueIdentifier>{88880801-171f-455a-a2a6-a76c99c40e1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Modules\Source">
+      <UniqueIdentifier>{dfadc656-845e-463d-a482-95f476ec24db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Data">
+      <UniqueIdentifier>{d88400f7-bfa5-4914-87a1-c3aa66ed3384}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Data\Header">
+      <UniqueIdentifier>{2e4a63bc-e896-466e-9aac-e22624663c42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Data\Source">
+      <UniqueIdentifier>{309f3765-22bf-4608-83ac-91a0fef608c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics">
+      <UniqueIdentifier>{d454440e-8514-49a7-8b11-a390ea66994e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics\Data">
+      <UniqueIdentifier>{70ca02e0-9c61-41ef-b033-8bb1a10724c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics\Data\Header">
+      <UniqueIdentifier>{e7471b17-3903-4d92-91b6-45ced94fa284}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics\Data\Source">
+      <UniqueIdentifier>{cecaf975-8f6f-4912-99e7-c3bd261c8331}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics\Core">
+      <UniqueIdentifier>{028d486a-9606-4e81-bf9f-7f60592cac14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics\Core\Header">
+      <UniqueIdentifier>{ca8027c2-0903-4053-a944-220872de3b63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics\Core\Source">
+      <UniqueIdentifier>{10e05c54-af7f-4da9-b738-b7de5ad96634}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics\Components">
+      <UniqueIdentifier>{df46744f-3359-43b3-aa02-88ff168a4336}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics\Components\Header">
+      <UniqueIdentifier>{bf89ebbc-ee60-490a-ba5d-6add080b3c7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics\Components\Source">
+      <UniqueIdentifier>{af04c940-4943-49a1-8815-9e713ec8fafc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Utils">
+      <UniqueIdentifier>{de96f9bb-e47a-4b53-9282-c9b7a73ff177}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Utils\Header">
+      <UniqueIdentifier>{fa0d0933-a3f8-4700-851b-d6eae33432a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Utils\Source">
+      <UniqueIdentifier>{759b6523-d9ff-4988-a070-194d24c01350}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
