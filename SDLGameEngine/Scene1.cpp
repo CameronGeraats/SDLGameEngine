@@ -22,6 +22,7 @@
 #include "BoxCollider.h"
 #include "Physics.h"
 #include "SpawnEnemies.h"
+#include "Cursor.h"
 
 Scene1::Scene1()
 {
@@ -113,21 +114,20 @@ void Scene1::Setup()
 
 	graphic->AddComponent(new Shoot());
 			// Trying to replace cursor with Target sprite
-	////SDL_ShowCursor(SDL_DISABLE);
-	//GameObject* cursor = Instantiate("Cursor", -500, -250, 0);
-	//cursor->AddComponent(Input::GetMousePosition());
-	////GameObject* cursor = Instantiate("Cursor", -300, -200, 0);
-	//cursor->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
-	////GameObject* targetGraph = Instantiate("TargetGraphic", -Camera::width/2, -Camera::height/2, 90);
-	//GameObject* targetGraph = Instantiate("TargetGraphic", 0, 0, 90);
-	//Sprite* targetSprite = new Sprite("Assets/Target.png");
-	////SpriteRenderer* sprRen = new SpriteRenderer("Assets/Target.png", 0, 1);
-	//SpriteRenderer* sprRen = new SpriteRenderer();	
-	////sprRen->SetLayer(1);
-	//sprRen->SetSprite(targetSprite);
-	//targetGraph->AddComponent(sprRen);
-	//targetGraph->transform->SetParentRelative(cursor->transform);
-	//cursor->transform->SetParentRelative(Input::GetMousePosition());
+	SDL_ShowCursor(SDL_DISABLE);
+	GameObject* cursor = Instantiate("Cursor", 0, 0, 0);
+	cursor->AddComponent(new Cursor);
+	//GameObject* cursor = Instantiate("Cursor", -300, -200, 0);
+	cursor->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
+	//GameObject* targetGraph = Instantiate("TargetGraphic", -Camera::width/2, -Camera::height/2, 90);
+	GameObject* targetGraph = Instantiate("TargetGraphic", -500, -250, 90);
+	Sprite* targetSprite = new Sprite("Assets/Target.png");
+	//SpriteRenderer* sprRen = new SpriteRenderer("Assets/Target.png", 0, 1);
+	SpriteRenderer* sprRen = new SpriteRenderer();	
+	sprRen->SetLayer(1);
+	sprRen->SetSprite(targetSprite);
+	targetGraph->AddComponent(sprRen);
+	targetGraph->transform->SetParentRelative(cursor->transform);
 
 	for (int i = 0; i < 5; i++)
 	{
