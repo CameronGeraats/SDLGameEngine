@@ -57,18 +57,6 @@ void Scene1::Setup()
 	SpriteRenderer* bgRenderer4 = new SpriteRenderer(bgSprite);
 	bg4->AddComponent(bgRenderer4);
 
-	//GameObject* wall1 = Instantiate("wall1", 200, 200, 90);
-	//SpriteRenderer* wall1Renderer = new SpriteRenderer(new Sprite("Assets/stones_wall.png"));
-	//wall1->AddComponent(wall1Renderer);
-	//wall1->transform->SetRelativeScale(Vector2(0.3f, 0.3f));
-	//Rigidbody* rb1 = new Rigidbody();
-	//rb1->SetBodyType(Rigidbody::staticBody);
-	//wall1->AddComponent(rb1);
-	//BoxCollider* col1 = new BoxCollider();
-	//wall1->AddComponent(col1);
-
-	//col1->SetDimension(Vector2(300, 60));
-
 	GameObject* wall1 = Instantiate(game->Prefab("Wall"), 200, 200, 90);
 	GameObject* wall2 = Instantiate(game->Prefab("Wall"), 500, 400, 0);
 	GameObject* wall3 = Instantiate(game->Prefab("Wall"), 0, 0, 0);
@@ -76,35 +64,27 @@ void Scene1::Setup()
 	GameObject* wall5 = Instantiate(game->Prefab("Wall"), 400, 100, 10);
 	GameObject* wall6 = Instantiate(game->Prefab("Wall"), -50, 550, 45);
 
-
-
-
 	GameObject* go = Instantiate("Tank", 300, 200, 0);
 	go->AddComponent(new SpriteRenderer("Assets/Target.png"));
 	go->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
-	Rigidbody* rb = new Rigidbody();
-	rb->SetBodyType(Rigidbody::dynamicBody);
-	go->AddComponent(rb);
-	BoxCollider* col = new BoxCollider();
-	col->SetCategory(game->physics->Layer_1);
-	go->AddComponent(col);
-
-	col->SetDimension(Vector2(80, 80));
+	
+	
 
 	GameObject* graphic = Instantiate("TankGraphic", 0, 0, 90);
 	Sprite* tankSprite = new Sprite("Assets/Tank.png");
 	SpriteRenderer* tankRenderer = new SpriteRenderer();
 	tankRenderer->SetSprite(tankSprite);
-	//tankRenderer->flipY = true;
-
 	graphic->AddComponent(tankRenderer);
-	/*graphic->transform->scale.x = 0.1f;
-	graphic->transform->scale.y = 0.1f;*/
-
-
-
 	graphic->transform->SetParentRelative(go->transform);
 
+	Rigidbody* rb = new Rigidbody();
+	rb->SetBodyType(Rigidbody::dynamicBody);
+	go->AddComponent(rb);
+
+	BoxCollider* col = new BoxCollider();
+	col->SetCategory(game->physics->Layer_1);
+	go->AddComponent(col);
+	col->SetDimension(Vector2(620, 691));
 
 	go->AddComponent(new PlayerControls());
 	go->AddComponent(new CameraFollow());
@@ -114,7 +94,6 @@ void Scene1::Setup()
 	for (int i = 0; i < 100; i++)
 	{
 		GameObject* enemy = Instantiate(game->Prefab("Enemy"), Camera::x + rand() % Camera::width, Camera::y + rand() % Camera::height, 0);
-		//enemy->GetComponent<Rigidbody>()->AddForce(50 * Vector2(rand() % 100 - 50 , rand() % 100 - 50));
 	}
 
 
