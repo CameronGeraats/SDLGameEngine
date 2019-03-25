@@ -22,7 +22,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{443FB7E1-2D8B-4CF2-916A-DF29E2FD003F}</ProjectGuid>
     <RootNamespace>SDLGameEngine</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -201,7 +201,7 @@
     <ClCompile Include="SpriteRenderer.cpp" />
     <ClCompile Include="SteeringAgent.cpp" />
     <ClCompile Include="SteeringBehaviour.cpp" />
-    <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="TextRenderer.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="UpdateTarget.cpp" />
@@ -269,7 +269,7 @@
     <ClInclude Include="SpriteRenderer.h" />
     <ClInclude Include="SteeringAgent.h" />
     <ClInclude Include="SteeringBehaviour.h" />
-    <ClInclude Include="Texture.h" />
+    <ClInclude Include="TextRenderer.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="TransformData.h" />
