@@ -5,7 +5,7 @@ class CanSeePlayer :
 {
 public:
 	void OnStart() {}
-	BTState Update() { return BTState::Success; }
+	BTState Update();
 	CanSeePlayer();
 	~CanSeePlayer();
 };

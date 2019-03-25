@@ -64,7 +64,7 @@ void Scene1::Setup()
 	GameObject* wall5 = Instantiate(game->Prefab("Wall"), 400, 100, 10);
 	GameObject* wall6 = Instantiate(game->Prefab("Wall"), -50, 550, 45);
 
-	GameObject* go = Instantiate("Tank", 300, 200, 0);
+	GameObject* go = Instantiate("Player", 300, 200, 0);
 	go->AddComponent(new SpriteRenderer("Assets/Target.png"));
 	go->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
 	
@@ -97,10 +97,10 @@ void Scene1::Setup()
 
 	graphic->AddComponent(new Shoot());
 	
-	/*for (int i = 0; i < 100; i++)
+	for (int i = 0; i < 1; i++)
 	{
 		GameObject* enemy = Instantiate(game->Prefab("Enemy"), Camera::x + rand() % Camera::width, Camera::y + rand() % Camera::height, 0);
-	}*/
+	}
 
 
 

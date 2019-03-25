@@ -15,6 +15,7 @@ BehaviourTree::~BehaviourTree()
 BTRoot* BehaviourTree::Create()
 {
 	root = new BTRoot();
+	root->blackboard = blackboard;
 	return root;
 }
 

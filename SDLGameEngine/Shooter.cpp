@@ -131,6 +131,15 @@ void Shooter::EnemyPrefab(GameObject* go)
 	col->SetCategory(physics->Layer_3);
 	col->SetCollisionMask(~physics->Layer_3);
 
+	// Trigger
+	BoxCollider* col2 = new BoxCollider();
+	go->AddComponent(col2);
+
+	col2->SetDimension(Vector2(200, 200));
+	col2->SetCategory(physics->Layer_3);
+	col2->SetCollisionMask(~physics->Layer_3);
+	col2->SetTrigger(true);
+
 	go->AddComponent(new Enemy());
 
 	EnemyBlackboard* blackBoard = new EnemyBlackboard();

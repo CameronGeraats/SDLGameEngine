@@ -104,6 +104,9 @@
     <Filter Include="BehaviourTrees">
       <UniqueIdentifier>{5d9d1789-3443-41a4-8d76-ef34808c5d15}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Shooter\BTBehaviours">
+      <UniqueIdentifier>{e85fea0b-7a55-4f12-a23a-984eefed3b23}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -299,17 +302,17 @@
     <ClCompile Include="BTNonLeafNode.cpp">
       <Filter>BehaviourTrees</Filter>
     </ClCompile>
-    <ClCompile Include="CanSeePlayer.cpp">
-      <Filter>Shooter</Filter>
-    </ClCompile>
     <ClCompile Include="EnemyBlackboard.cpp">
       <Filter>Shooter</Filter>
     </ClCompile>
     <ClCompile Include="AimAndShoot.cpp">
-      <Filter>Shooter</Filter>
+      <Filter>Shooter\BTBehaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="CanSeePlayer.cpp">
+      <Filter>Shooter\BTBehaviours</Filter>
     </ClCompile>
     <ClCompile Include="Patrol.cpp">
-      <Filter>Shooter</Filter>
+      <Filter>Shooter\BTBehaviours</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -514,17 +517,17 @@
     <ClInclude Include="TransformData.h">
       <Filter>Engine\Data\Header</Filter>
     </ClInclude>
-    <ClInclude Include="CanSeePlayer.h">
-      <Filter>Shooter</Filter>
-    </ClInclude>
     <ClInclude Include="EnemyBlackboard.h">
       <Filter>Shooter</Filter>
     </ClInclude>
     <ClInclude Include="AimAndShoot.h">
-      <Filter>Shooter</Filter>
+      <Filter>Shooter\BTBehaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="CanSeePlayer.h">
+      <Filter>Shooter\BTBehaviours</Filter>
     </ClInclude>
     <ClInclude Include="Patrol.h">
-      <Filter>Shooter</Filter>
+      <Filter>Shooter\BTBehaviours</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
