@@ -46,13 +46,16 @@ public:
 	Event<Collision> OnCollisionExit;
 	Event<Collider*> OnTriggerEnter;
 	Event<Collider*> OnTriggerExit;
+	std::shared_ptr<EventListener<Transform*>> onAddChild = NULL;
+
 	//std::shared_ptr<EventListener<Rigidbody*>> OnMyRigidbodyRemoved = std::make_shared<EventListener<Rigidbody*>>(std::bind(&SearchAndSetNewRigidBody, this));
 private:
 	friend class Rigidbody;
 	friend class Transform;
 	Rigidbody* SearchForNewRigidBody();
 	void AddRigidbody(Rigidbody* _rigidbody);
-	void RemoveRigidbody();
+	void ResetRigidbody();
+	void AddChild(Transform* child);
 	//void OnChangeParent();
 private:
 	std::list<Component*> components;
