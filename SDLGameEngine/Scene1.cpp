@@ -68,7 +68,9 @@ void Scene1::Setup()
 	go->AddComponent(new SpriteRenderer("Assets/Target.png"));
 	go->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
 	
-	
+	Rigidbody* rb = new Rigidbody();
+	rb->SetBodyType(Rigidbody::dynamicBody);
+	go->AddComponent(rb);
 
 	GameObject* graphic = Instantiate("TankGraphic", 0, 0, 90);
 	Sprite* tankSprite = new Sprite("Assets/Tank.png");
@@ -77,24 +79,28 @@ void Scene1::Setup()
 	graphic->AddComponent(tankRenderer);
 	graphic->transform->SetParentRelative(go->transform);
 
-	Rigidbody* rb = new Rigidbody();
-	rb->SetBodyType(Rigidbody::dynamicBody);
-	go->AddComponent(rb);
-
 	BoxCollider* col = new BoxCollider();
 	col->SetCategory(game->physics->Layer_1);
-	go->AddComponent(col);
+	graphic->AddComponent(col);
 	col->SetDimension(Vector2(620, 691));
 
-	go->AddComponent(new PlayerControls());
+	GameObject* crosshair = Instantiate("Crosshair", 0, 0, 90);
+	Sprite* targetSprite = new Sprite("Assets/Target.png");
+	SpriteRenderer* targetRenderer = new SpriteRenderer();
+	targetRenderer->SetSprite(targetSprite);
+	crosshair->AddComponent(targetRenderer);
+	crosshair->transform->SetAbsoluteScale(Vector2(0.1f, 0.1f));
+	PlayerControls* controls = new PlayerControls();
+	controls->target = crosshair->transform;
+	go->AddComponent(controls);
 	go->AddComponent(new CameraFollow());
 
 	graphic->AddComponent(new Shoot());
 	
-	for (int i = 0; i < 100; i++)
+	/*for (int i = 0; i < 100; i++)
 	{
 		GameObject* enemy = Instantiate(game->Prefab("Enemy"), Camera::x + rand() % Camera::width, Camera::y + rand() % Camera::height, 0);
-	}
+	}*/
 
 
 

@@ -26,9 +26,11 @@ void PlayerControls::Update()
 	gameObject->transform->SetAbsolutePositionDelta(Vector2(horizontal * xSpeed * Time::DeltaTime(), vertical * ySpeed * Time::DeltaTime()));
 	
 	// Orientation
-	if (vertical != 0 || horizontal != 0)
+	target->SetAbsolutePosition(Input::GetMousePosition());
+	Vector2 toVector = target->GetAbsolutePosition() - gameObject->transform->GetAbsolutePosition();
+	if (toVector.Length() > 0)
 	{
-		gameObject->transform->SetAbsoluteAngle(atan2(vertical, horizontal) * 180 / M_PI);
+		gameObject->transform->SetAbsoluteAngle(atan2(toVector.y, toVector.x) * 180 / M_PI);
 	}
 
 	RaycastHit hit = game->physics->Raycast(gameObject->transform->GetAbsolutePosition(), gameObject->transform->Right(), 10000, ~game->physics->Layer_2);

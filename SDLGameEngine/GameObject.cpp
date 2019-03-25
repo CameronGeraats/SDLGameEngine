@@ -83,6 +83,8 @@ void GameObject::FixedUpdate()
 
 void GameObject::Cleanup()
 {
+	transform->OnAddChild.RemoveListener(onAddChild);
+
 	if (scene != NULL)
 	{
 		scene->ReleaseFromScene(this);
@@ -96,7 +98,6 @@ void GameObject::Cleanup()
 		delete component;
 		component = NULL;
 	}
-	transform->OnAddChild.RemoveListener(onAddChild);
 }
 
 Rigidbody* GameObject::SearchForNewRigidBody()
