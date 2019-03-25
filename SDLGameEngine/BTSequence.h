@@ -2,7 +2,7 @@
 #include "BTComposite.h"
 #include <list>
 class BTSequence
-	:BTComposite
+	:public BTComposite
 {
 public:
 	BTSequence();

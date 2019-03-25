@@ -1,5 +1,6 @@
 #include "BehaviourTree.h"
 
+BTBlackboard* BehaviourTree::globalBlackboard = nullptr;
 
 
 BehaviourTree::BehaviourTree()

@@ -22,6 +22,11 @@
 #include "BoxCollider.h"
 #include "Enemy.h"
 #include "ObstacleAvoidance.h"
+#include "BehaviourTree.h"
+#include "EnemyBlackboard.h"
+#include "CanSeePlayer.h"
+#include "AimAndShoot.h"
+#include "Patrol.h"
 
 Shooter::Shooter()
 {
@@ -127,6 +132,20 @@ void Shooter::EnemyPrefab(GameObject* go)
 	col->SetCollisionMask(~physics->Layer_3);
 
 	go->AddComponent(new Enemy());
+
+	EnemyBlackboard* blackBoard = new EnemyBlackboard();
+	blackBoard->enemy = go->GetComponent<Enemy>();
+
+	BehaviourTree* tree = new BehaviourTree();
+	tree->blackboard = blackBoard;
+	go->AddComponent(tree);
+	tree->Create()->
+		AddChild(new BTSelector())->
+			AddChild(new BTSequence())->
+				AddChild(new CanSeePlayer())->
+				AddChild(new AimAndShoot())->
+			End()->
+			AddChild(new Patrol());
 }
 
 void Shooter::Setup()

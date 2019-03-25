@@ -299,6 +299,18 @@
     <ClCompile Include="BTNonLeafNode.cpp">
       <Filter>BehaviourTrees</Filter>
     </ClCompile>
+    <ClCompile Include="CanSeePlayer.cpp">
+      <Filter>Shooter</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBlackboard.cpp">
+      <Filter>Shooter</Filter>
+    </ClCompile>
+    <ClCompile Include="AimAndShoot.cpp">
+      <Filter>Shooter</Filter>
+    </ClCompile>
+    <ClCompile Include="Patrol.cpp">
+      <Filter>Shooter</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Behaviour.h">
@@ -501,6 +513,18 @@
     </ClInclude>
     <ClInclude Include="TransformData.h">
       <Filter>Engine\Data\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CanSeePlayer.h">
+      <Filter>Shooter</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBlackboard.h">
+      <Filter>Shooter</Filter>
+    </ClInclude>
+    <ClInclude Include="AimAndShoot.h">
+      <Filter>Shooter</Filter>
+    </ClInclude>
+    <ClInclude Include="Patrol.h">
+      <Filter>Shooter</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

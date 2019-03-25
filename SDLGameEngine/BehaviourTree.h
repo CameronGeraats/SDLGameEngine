@@ -2,6 +2,11 @@
 #include "Component.h"
 #include "BTRoot.h"
 #include "BTBlackboard.h"
+#include "BTSelector.h"
+#include "BTSequence.h"
+#include "BTInverter.h"
+
+
 class BehaviourTree :
 	public Component
 {

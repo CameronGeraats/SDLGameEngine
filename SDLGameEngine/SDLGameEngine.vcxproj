@@ -142,6 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AimAndShoot.cpp" />
     <ClCompile Include="Align.cpp" />
     <ClCompile Include="Arrive.cpp" />
     <ClCompile Include="Behaviour.cpp" />
@@ -161,6 +162,7 @@
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CameraFollow.cpp" />
+    <ClCompile Include="CanSeePlayer.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Color.cpp" />
@@ -168,6 +170,7 @@
     <ClCompile Include="ContactListener.cpp" />
     <ClCompile Include="DrawPath.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyBlackboard.cpp" />
     <ClCompile Include="Flee.cpp" />
     <ClCompile Include="MoveInCircle.cpp" />
     <ClCompile Include="ObstacleAvoidance.cpp" />
@@ -175,6 +178,7 @@
     <ClCompile Include="PathfindingDemo.cpp" />
     <ClCompile Include="PathFollowing.cpp" />
     <ClCompile Include="PathNode.cpp" />
+    <ClCompile Include="Patrol.cpp" />
     <ClCompile Include="PlayerControls.cpp" />
     <ClCompile Include="Pursue.cpp" />
     <ClCompile Include="Ray.cpp" />
@@ -209,6 +213,7 @@
     <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AimAndShoot.h" />
     <ClInclude Include="Align.h" />
     <ClInclude Include="Arrive.h" />
     <ClInclude Include="Behaviour.h" />
@@ -228,6 +233,7 @@
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraFollow.h" />
+    <ClInclude Include="CanSeePlayer.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="Color.h" />
@@ -235,6 +241,7 @@
     <ClInclude Include="ContactListener.h" />
     <ClInclude Include="DrawPath.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyBlackboard.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="EventListener.h" />
     <ClInclude Include="Flee.h" />
@@ -249,6 +256,7 @@
     <ClInclude Include="PathfindingDemo.h" />
     <ClInclude Include="PathFollowing.h" />
     <ClInclude Include="PathNode.h" />
+    <ClInclude Include="Patrol.h" />
     <ClInclude Include="Physics.h" />
     <ClInclude Include="PlayerControls.h" />
     <ClInclude Include="Pursue.h" />

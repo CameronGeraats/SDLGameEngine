@@ -6,6 +6,7 @@ class BTNonLeafNode :
 public:
 	BTNonLeafNode();
 	~BTNonLeafNode();
+	virtual void OnStart();
 	virtual BTNonLeafNode* AddChild(BTNode* node) = 0;
 	inline virtual BTNonLeafNode* End() { return this->parent; }
 	virtual BTState Update() = 0;
