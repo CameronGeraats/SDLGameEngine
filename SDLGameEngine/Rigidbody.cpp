@@ -24,7 +24,7 @@ void Rigidbody::Cleanup()
 		// remove transform listener
 		gameObject->transform->OnTransformUpdate.RemoveListener(onTransformUpdate);
 		// remove from gameobject
-		gameObject->RemoveRigidbody();
+		gameObject->ResetRigidbody();
 	}
 	physics->rigidbodies.remove(this);
 }
@@ -199,4 +199,5 @@ void Rigidbody::UpdatePhysicsTransform(const TransformData &data)
 {
 	body->SetTransform(physics->GetPhysicsCoordinates(data.position), data.angle * M_PI / 180.0f);
 }
+
 

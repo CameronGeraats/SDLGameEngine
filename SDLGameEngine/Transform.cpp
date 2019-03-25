@@ -244,6 +244,10 @@ void Transform::SetParent(Transform* _parent)
 	SetAbsolutePosition(position);
 	SetAbsoluteAngle(angle);
 	SetAbsoluteScale(scale);
+	if (parent != NULL)
+	{
+		parent->OnAddChild(this);
+	}
 }
 
 void Transform::SetParentRelative(Transform* _parent)
@@ -260,6 +264,10 @@ void Transform::SetParentRelative(Transform* _parent)
 	SetRelativePosition(relativePosition);
 	SetRelativeAngle(relativeAngle);
 	SetRelativeScale(relativeScale);
+	if (parent != NULL)
+	{
+		parent->OnAddChild(this);
+	}
 }
 
 const Vector2 Transform::Right() const

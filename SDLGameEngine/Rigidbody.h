@@ -49,6 +49,7 @@ public:
 	void RemoveCollider(Collider* col);
 
 	std::shared_ptr<EventListener<TransformData>> onTransformUpdate = NULL;
+
 private:
 	b2BodyDef bodyDef;
 	bool massChanged = false;
