@@ -26,7 +26,7 @@ void PlayerControls::Update()
 	gameObject->transform->SetAbsolutePositionDelta(Vector2(horizontal * xSpeed * Time::DeltaTime(), vertical * ySpeed * Time::DeltaTime()));
 	
 	// Orientation
-	target->SetAbsolutePosition(Input::GetMousePosition());
+	target->SetAbsolutePosition(Input::GetMousePosition() + Vector2(Camera::x, Camera::y));
 	Vector2 toVector = target->GetAbsolutePosition() - gameObject->transform->GetAbsolutePosition();
 	if (toVector.Length() > 0)
 	{
