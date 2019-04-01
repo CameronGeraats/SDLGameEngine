@@ -172,6 +172,7 @@
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyBlackboard.cpp" />
     <ClCompile Include="Flee.cpp" />
+    <ClCompile Include="Investigate.cpp" />
     <ClCompile Include="MoveInCircle.cpp" />
     <ClCompile Include="ObstacleAvoidance.cpp" />
     <ClCompile Include="Pathfinder.cpp" />
@@ -187,6 +188,7 @@
     <ClCompile Include="Seek.cpp" />
     <ClCompile Include="Shoot.cpp" />
     <ClCompile Include="Shooter.cpp" />
+    <ClCompile Include="ShouldInvestigate.cpp" />
     <ClCompile Include="SimpleEvent.cpp" />
     <ClCompile Include="SimpleEventListener.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -248,6 +250,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="Investigate.h" />
     <ClInclude Include="LayerdStorage.h" />
     <ClInclude Include="Module.h" />
     <ClInclude Include="MoveInCircle.h" />
@@ -271,6 +274,7 @@
     <ClInclude Include="Seek.h" />
     <ClInclude Include="Shoot.h" />
     <ClInclude Include="Shooter.h" />
+    <ClInclude Include="ShouldInvestigate.h" />
     <ClInclude Include="SimpleEvent.h" />
     <ClInclude Include="SimpleEventListener.h" />
     <ClInclude Include="Sprite.h" />

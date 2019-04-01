@@ -27,6 +27,8 @@
 #include "CanSeePlayer.h"
 #include "AimAndShoot.h"
 #include "Patrol.h"
+#include "ShouldInvestigate.h"
+#include "Investigate.h"
 
 Shooter::Shooter()
 {
@@ -72,10 +74,10 @@ void Shooter::WallPrefab(GameObject* go)
 	Rigidbody* rb = new Rigidbody();
 	rb->SetBodyType(Rigidbody::staticBody);
 	go->AddComponent(rb);
-	BoxCollider* col = new BoxCollider();
-	go->AddComponent(col);
-	col->SetCategory(physics->Layer_2);
-	col->SetDimension(Vector2(300, 60));
+	//BoxCollider* col = new BoxCollider();
+	//go->AddComponent(col);
+	//col->SetCategory(physics->Layer_2);
+	//col->SetDimension(Vector2(300, 60));
 }
 
 void Shooter::EnemyPrefab(GameObject* go)
@@ -132,13 +134,13 @@ void Shooter::EnemyPrefab(GameObject* go)
 	col->SetCollisionMask(~physics->Layer_3);
 
 	// Trigger
-	BoxCollider* col2 = new BoxCollider();
+	/*BoxCollider* col2 = new BoxCollider();
 	go->AddComponent(col2);
 
 	col2->SetDimension(Vector2(200, 200));
 	col2->SetCategory(physics->Layer_3);
 	col2->SetCollisionMask(~physics->Layer_3);
-	col2->SetTrigger(true);
+	col2->SetTrigger(true);*/
 
 	go->AddComponent(new Enemy());
 
@@ -154,6 +156,10 @@ void Shooter::EnemyPrefab(GameObject* go)
 				AddChild(new CanSeePlayer())->
 				AddChild(new AimAndShoot())->
 			End()->
+			/*AddChild(new BTSequence())->
+				AddChild(new ShouldInvestigate())->
+				AddChild(new Investigate())->
+			End()->*/
 			AddChild(new Patrol());
 }
 

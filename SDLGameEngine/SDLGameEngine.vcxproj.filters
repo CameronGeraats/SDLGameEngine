@@ -314,6 +314,12 @@
     <ClCompile Include="Patrol.cpp">
       <Filter>Shooter\BTBehaviours</Filter>
     </ClCompile>
+    <ClCompile Include="ShouldInvestigate.cpp">
+      <Filter>Shooter\BTBehaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="Investigate.cpp">
+      <Filter>Shooter\BTBehaviours</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Behaviour.h">
@@ -527,6 +533,12 @@
       <Filter>Shooter\BTBehaviours</Filter>
     </ClInclude>
     <ClInclude Include="Patrol.h">
+      <Filter>Shooter\BTBehaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="ShouldInvestigate.h">
+      <Filter>Shooter\BTBehaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="Investigate.h">
       <Filter>Shooter\BTBehaviours</Filter>
     </ClInclude>
   </ItemGroup>

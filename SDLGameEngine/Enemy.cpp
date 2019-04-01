@@ -35,14 +35,28 @@ void Enemy::Cleanup()
 void Enemy::Update()
 {
 	Behaviour::Update();
-	if (detectedPlayer != nullptr)
+	if (player != nullptr)
 	{
-		float length = (detectedPlayer->transform->GetAbsolutePosition() - gameObject->transform->GetAbsolutePosition()).Length();
-		if ( length > 100)
+		float length = (player->transform->GetAbsolutePosition() - gameObject->transform->GetAbsolutePosition()).Length();
+		/*if ( length > 100)
 		{
 			detectedPlayer = nullptr;
-		}
+		}*/
+		detectedPlayer = length > range ? nullptr : player;
 		//gameObject->GetComponent<Rigidbody>()->SetBodyType(Rigidbody::kinematicBody);
+	}
+
+	SDL_SetRenderDrawColor(Game::gRenderer, 0xFF, 0x00, 0x00, 0xFF);
+	int maxPoints = 100;
+	Vector2 pos;
+	for (int i = 0; i < maxPoints; i++)
+	{
+		pos = gameObject->transform->GetAbsolutePosition() + range * Vector2(cos(i * 2 * M_PI / maxPoints), sin(i * 2 * M_PI / maxPoints));
+		SDL_RenderDrawPoint(Game::gRenderer, pos.x - Camera::x, pos.y - Camera::y);
+		SDL_RenderDrawPoint(Game::gRenderer, pos.x + 1 - Camera::x, pos.y - Camera::y);
+		SDL_RenderDrawPoint(Game::gRenderer, pos.x - 1 - Camera::x, pos.y - Camera::y);
+		SDL_RenderDrawPoint(Game::gRenderer, pos.x - Camera::x, pos.y + 1 - Camera::y);
+		SDL_RenderDrawPoint(Game::gRenderer, pos.x - Camera::x, pos.y - 1 - Camera::y);
 	}
 	//RaycastHit hit = game->physics->Raycast(gameObject->transform->GetAbsolutePosition(), -gameObject->transform->Up(), 10000);
 }
@@ -51,7 +65,7 @@ void Enemy::OnTriggerEnter(Collider* col)
 {
 	if (col->gameObject->name == "TankGraphic")
 	{
-		detectedPlayer = col->gameObject;
+		//detectedPlayer = col->gameObject;
 	}
 }
 

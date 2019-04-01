@@ -42,7 +42,7 @@ void Collider::Awake()
 	gameObject->OnAddRigidbody.AddListener(OnRigidbodyAdded);
 	//gameObject->OnRemoveRigidbody.AddListener(OnRigidbodyRemoved);
 	onTransformUpdate = std::make_shared<EventListener<TransformData>>(std::bind(&Collider::UpdateTransform, this, std::placeholders::_1));
-	gameObject->transform->OnTransformUpdate.AddListener(onTransformUpdate);
+	//gameObject->transform->OnTransformUpdate.AddListener(onTransformUpdate);
 
 }
 

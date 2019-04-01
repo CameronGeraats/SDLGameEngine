@@ -6,6 +6,8 @@ class EnemyBlackboard :
 {
 public:
 	Enemy* enemy;
+	bool investigate = false;
+	Vector2 lastKnowPos;
 	EnemyBlackboard();
 	~EnemyBlackboard();
 };

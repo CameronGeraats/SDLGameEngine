@@ -15,11 +15,11 @@ void AimAndShoot::OnStart()
 {
 	enemy = static_cast<EnemyBlackboard*>(tree->blackboard)->enemy;
 	enemy->gameObject->GetComponent<SteeringAgent>()->enabled = false;
+	enemy->gameObject->rigidbody->SetVelocity(Vector2(0, 0));
 }
 
 BTNode::BTState AimAndShoot::OnUpdate()
 {
-	enemy->gameObject->rigidbody->SetVelocity(Vector2(0, 0));
 	if (enemy->detectedPlayer != nullptr)
 	{
 		Vector2 toVec = enemy->detectedPlayer->transform->GetAbsolutePosition()

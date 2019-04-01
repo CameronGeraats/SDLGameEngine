@@ -21,6 +21,7 @@
 #include "Rigidbody.h"
 #include "BoxCollider.h"
 #include "Physics.h"
+#include "Enemy.h"
 
 Scene1::Scene1()
 {
@@ -97,9 +98,10 @@ void Scene1::Setup()
 
 	graphic->AddComponent(new Shoot());
 	
-	for (int i = 0; i < 1; i++)
+	for (int i = 0; i < 3; i++)
 	{
 		GameObject* enemy = Instantiate(game->Prefab("Enemy"), Camera::x + rand() % Camera::width, Camera::y + rand() % Camera::height, 0);
+		enemy->GetComponent<Enemy>()->player = graphic;
 	}
 
 

@@ -16,6 +16,8 @@ public:
 	void OnTriggerEnter(Collider* col);
 	std::shared_ptr<EventListener<Collider*>> triggerExitListener = NULL;
 	void OnTriggerExit(Collider* col);
+	float range = 200;
+	GameObject* player;
 	GameObject* detectedPlayer = nullptr;
 };
 
