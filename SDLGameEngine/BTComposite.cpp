@@ -13,7 +13,7 @@ BTComposite::~BTComposite()
 
 BTNonLeafNode* BTComposite::AddChild(BTNode* node)
 {
-	node->blackboard = blackboard;
+	node->tree = tree;
 	node->parent = this;
 	children.push_back(node);
 	return node->ReturnReference();

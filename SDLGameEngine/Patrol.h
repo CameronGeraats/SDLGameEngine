@@ -8,7 +8,7 @@ class Patrol :
 {
 public:
 	void OnStart();
-	BTState Update();
+	BTState OnUpdate();
 	Patrol();
 	~Patrol();
 private:

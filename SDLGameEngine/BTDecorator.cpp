@@ -13,7 +13,7 @@ BTDecorator::~BTDecorator()
 
 BTNonLeafNode* BTDecorator::AddChild(BTNode* node)
 {
-	node->blackboard = blackboard;
+	node->tree = tree;
 	node->parent = this;
 	child = node;
 	return node->ReturnReference();

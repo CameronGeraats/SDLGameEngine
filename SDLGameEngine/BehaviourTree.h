@@ -5,6 +5,7 @@
 #include "BTSelector.h"
 #include "BTSequence.h"
 #include "BTInverter.h"
+#include <list>
 
 
 class BehaviourTree :
@@ -17,6 +18,8 @@ public:
 	BTBlackboard* blackboard;
 	BTRoot* Create();
 	void Update();
+	std::list<BTNode*> ranLastFrame;
+	std::list<BTNode*> running;
 private:
 	BTRoot * root;
 };

@@ -9,6 +9,6 @@ public:
 	~BTRoot();
 
 	void OnStart();
-	BTState Update();
+	BTState OnUpdate();
 };
 

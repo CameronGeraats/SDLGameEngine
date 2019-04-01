@@ -11,7 +11,7 @@ BTInverter::~BTInverter()
 {
 }
 
-BTNode::BTState BTInverter::Update()
+BTNode::BTState BTInverter::OnUpdate()
 {
 	if (child->Update() == BTState::Failure)
 	{

@@ -9,7 +9,7 @@ public:
 	virtual void OnStart();
 	virtual BTNonLeafNode* AddChild(BTNode* node) = 0;
 	inline virtual BTNonLeafNode* End() { return this->parent; }
-	virtual BTState Update() = 0;
+	virtual BTState OnUpdate() = 0;
 	inline BTNonLeafNode* ReturnReference() { return this; }
 };
 

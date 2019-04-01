@@ -16,7 +16,7 @@ void BTRoot::OnStart()
 	
 }
 
-BTNode::BTState BTRoot::Update()
+BTNode::BTState BTRoot::OnUpdate()
 {
 	for (BTNode* node : children)
 	{

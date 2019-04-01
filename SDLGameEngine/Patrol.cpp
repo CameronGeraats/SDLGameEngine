@@ -1,4 +1,5 @@
 #include "Patrol.h"
+#include "BehaviourTree.h"
 
 
 
@@ -14,16 +15,16 @@ Patrol::~Patrol()
 void Patrol::OnStart()
 {
 	
-	enemy = static_cast<EnemyBlackboard*>(blackboard)->enemy;
+	enemy = static_cast<EnemyBlackboard*>(tree->blackboard)->enemy;
 	enemy->gameObject->GetComponent<SteeringAgent>()->enabled = true;
 }
 
-BTNode::BTState Patrol::Update()
+BTNode::BTState Patrol::OnUpdate()
 {
-	if (enemy == nullptr)
+	/*if (enemy == nullptr)
 	{
-		enemy = static_cast<EnemyBlackboard*>(blackboard)->enemy;
+		enemy = static_cast<EnemyBlackboard*>(tree->blackboard)->enemy;
 	}
-	enemy->gameObject->GetComponent<SteeringAgent>()->enabled = true;
+	enemy->gameObject->GetComponent<SteeringAgent>()->enabled = true;*/
 	return BTState::Running;
 }

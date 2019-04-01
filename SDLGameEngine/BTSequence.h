@@ -7,6 +7,6 @@ class BTSequence
 public:
 	BTSequence();
 	~BTSequence();
-	BTState Update();
+	BTState OnUpdate();
 };
 

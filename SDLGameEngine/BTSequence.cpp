@@ -11,7 +11,7 @@ BTSequence::~BTSequence()
 {
 }
 
-BTNode::BTState BTSequence::Update()
+BTNode::BTState BTSequence::OnUpdate()
 {
 	for (BTNode* node : children)
 	{

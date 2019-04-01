@@ -1,4 +1,5 @@
 #include "AimAndShoot.h"
+#include "BehaviourTree.h"
 
 
 AimAndShoot::AimAndShoot()
@@ -12,17 +13,17 @@ AimAndShoot::~AimAndShoot()
 
 void AimAndShoot::OnStart()
 {
-	enemy = static_cast<EnemyBlackboard*>(blackboard)->enemy;
+	enemy = static_cast<EnemyBlackboard*>(tree->blackboard)->enemy;
 	enemy->gameObject->GetComponent<SteeringAgent>()->enabled = false;
 }
 
-BTNode::BTState AimAndShoot::Update()
+BTNode::BTState AimAndShoot::OnUpdate()
 {
-	if (enemy == nullptr)
+	/*if (enemy == nullptr)
 	{
-		enemy = static_cast<EnemyBlackboard*>(blackboard)->enemy;
+		enemy = static_cast<EnemyBlackboard*>(tree->blackboard)->enemy;
 	}
-	enemy->gameObject->GetComponent<SteeringAgent>()->enabled = false;
+	enemy->gameObject->GetComponent<SteeringAgent>()->enabled = false;*/
 
 	enemy->gameObject->rigidbody->SetVelocity(Vector2(0, 0));
 	if (enemy->detectedPlayer != nullptr)

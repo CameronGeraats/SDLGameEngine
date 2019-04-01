@@ -2,6 +2,7 @@
 #include "BTBlackboard.h"
 
 class BTNonLeafNode;
+class BehaviourTree;
 class BTNode
 {
 public:
@@ -13,8 +14,9 @@ public:
 	};
 
 	virtual void OnStart() = 0;
-	virtual BTState Update() = 0;
-	BTBlackboard* blackboard;
+	virtual BTState OnUpdate() = 0;
+	BTState Update();
+	BehaviourTree* tree;
 	BTNonLeafNode* parent = nullptr;
 	virtual BTNonLeafNode* ReturnReference() = 0;
 	BTNode();

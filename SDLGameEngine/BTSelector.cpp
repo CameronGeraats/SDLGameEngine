@@ -11,7 +11,7 @@ BTSelector::~BTSelector()
 {
 }
 
-BTNode::BTState BTSelector::Update()
+BTNode::BTState BTSelector::OnUpdate()
 {
 	for (BTNode* node : children)
 	{

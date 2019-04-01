@@ -8,7 +8,7 @@ public:
 	BTComposite();
 	~BTComposite();
 	std::list<BTNode*> children;
-	virtual BTState Update() = 0;
+	virtual BTState OnUpdate() = 0;
 	BTNonLeafNode* AddChild(BTNode* node);
 	void RemoveChild(BTNode* node);
 };

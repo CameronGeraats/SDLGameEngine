@@ -6,6 +6,6 @@ class BTInverter :
 public:
 	BTInverter();
 	~BTInverter();
-	BTState Update();
+	BTState OnUpdate();
 };
 

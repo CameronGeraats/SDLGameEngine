@@ -7,6 +7,6 @@ class BTSelector :
 public:
 	BTSelector();
 	~BTSelector();
-	BTState Update();
+	BTState OnUpdate();
 };
 

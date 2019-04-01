@@ -9,7 +9,7 @@ class AimAndShoot :
 {
 public:
 	void OnStart();
-	BTState Update();
+	BTState OnUpdate();
 	AimAndShoot();
 	~AimAndShoot();
 private:
