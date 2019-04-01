@@ -15,6 +15,9 @@ public:
 	Vector2 target;
 	GameObject* targetObject;
 
+	Vector2 center;
+	float radius;
+
 private:
 	float timer = 0;
 };

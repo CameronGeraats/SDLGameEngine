@@ -26,8 +26,12 @@ void UpdateVectorTarget::Update()
 	timer += Time::DeltaTime();
 	if ((gameObject->transform->GetAbsolutePosition() - target).Length() <= 10 || timer > maxTime)
 	{
-		target.x = Camera::x + rand() % Camera::width;
-		target.y = Camera::y + rand() % Camera::height;
+		/*target.x = Camera::x + rand() % Camera::width;
+		target.y = Camera::y + rand() % Camera::height;*/
+		float theta = rand();
+		target.x = Camera::x + center.x + radius * cos(theta);
+		target.y = Camera::y + center.y + radius * sin(theta);
+
 		targetObject->transform->SetAbsolutePosition(target);
 		timer = 0;
 	}

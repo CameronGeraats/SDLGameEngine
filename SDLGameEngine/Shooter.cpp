@@ -156,10 +156,10 @@ void Shooter::EnemyPrefab(GameObject* go)
 				AddChild(new CanSeePlayer())->
 				AddChild(new AimAndShoot())->
 			End()->
-			/*AddChild(new BTSequence())->
+			AddChild(new BTSequence())->
 				AddChild(new ShouldInvestigate())->
 				AddChild(new Investigate())->
-			End()->*/
+			End()->
 			AddChild(new Patrol());
 }
 
