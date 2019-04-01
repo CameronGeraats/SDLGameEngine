@@ -19,12 +19,6 @@ void AimAndShoot::OnStart()
 
 BTNode::BTState AimAndShoot::OnUpdate()
 {
-	/*if (enemy == nullptr)
-	{
-		enemy = static_cast<EnemyBlackboard*>(tree->blackboard)->enemy;
-	}
-	enemy->gameObject->GetComponent<SteeringAgent>()->enabled = false;*/
-
 	enemy->gameObject->rigidbody->SetVelocity(Vector2(0, 0));
 	if (enemy->detectedPlayer != nullptr)
 	{

@@ -21,10 +21,5 @@ void Patrol::OnStart()
 
 BTNode::BTState Patrol::OnUpdate()
 {
-	/*if (enemy == nullptr)
-	{
-		enemy = static_cast<EnemyBlackboard*>(tree->blackboard)->enemy;
-	}
-	enemy->gameObject->GetComponent<SteeringAgent>()->enabled = true;*/
 	return BTState::Running;
 }
