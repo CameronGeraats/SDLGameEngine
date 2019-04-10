@@ -346,16 +346,3 @@ MigrationBackup/
 *.ipch
 .vs/SDLGameEngine/v15/.suo
 *.db
-<<<<<<< HEAD
-*.ipch
-*.obj
-*.tlog
-*.log
-.vs/SDLGameEngine/v15/Browse.VC.opendb
-Debug/SDLGameEngine.exe
-Debug/SDLGameEngine.ilk
-Debug/SDLGameEngine.pdb
-SDLGameEngine/Debug/vc141.idb
-SDLGameEngine/Debug/vc141.pdb
-=======
->>>>>>> upstream/ExampleProjects

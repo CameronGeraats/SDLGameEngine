@@ -172,9 +172,6 @@ void Shooter::EnemyPrefab(GameObject* go)
 	col->SetCategory(physics->Layer_3);
 	col->SetCollisionMask(~physics->Layer_3);
 
-<<<<<<< HEAD
-	go->AddComponent(new Enemy());
-=======
 	// Trigger
 	/*BoxCollider* col2 = new BoxCollider();
 	go->AddComponent(col2);
@@ -203,12 +200,10 @@ void Shooter::EnemyPrefab(GameObject* go)
 				AddChild(new Investigate())->
 			End()->
 			AddChild(new Patrol());
->>>>>>> upstream/ExampleProjects
 }
 
 void Shooter::Setup()
 {
-<<<<<<< HEAD
 	AddPrefab("EnemyBullet", std::bind(&Shooter::EnemyBulletPrefab, this, std::placeholders::_1));
 	AddPrefab("Bullet", std::bind(&Shooter::BulletPrefab, this, std::placeholders::_1));
 	AddPrefab("Laser", std::bind(&Shooter::LaserPrefab, this, std::placeholders::_1));
@@ -234,13 +229,4 @@ void Shooter::Update()
 	}
 
 	//
-
-=======
-	AddPrefab("Bullet", std::bind(&Shooter::BulletPrefab, this, std::placeholders::_1));
-	AddPrefab("Enemy", std::bind(&Shooter::EnemyPrefab, this, std::placeholders::_1));
-	AddPrefab("Wall", std::bind(&Shooter::WallPrefab, this, std::placeholders::_1));
-
-
-	SetScene(new Scene1());
->>>>>>> upstream/ExampleProjects
 }

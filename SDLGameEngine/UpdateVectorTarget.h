@@ -15,16 +15,10 @@ public:
 	Vector2 target;
 	GameObject* targetObject;
 
-<<<<<<< HEAD
-private:
-	float timer = 0;
-	short stage = 0;
-=======
 	Vector2 center;
 	float radius;
 
 private:
 	float timer = 0;
->>>>>>> upstream/ExampleProjects
+	short stage = 0;
 };
-

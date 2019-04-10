@@ -17,14 +17,9 @@ Arrive::~Arrive()
 
 void Arrive::Update()
 {
-<<<<<<< HEAD
-	
+
 	//SDL_SetRenderDrawColor(game->gRenderer, 0xFF, 0x00, 0x00, 0xFF);
 	//SDL_RenderDrawLine(game->gRenderer, target->GetAbsolutePosition().x - Camera::x, target->GetAbsolutePosition().y - Camera::y, gameObject->transform->GetAbsolutePosition().x - Camera::x, gameObject->transform->GetAbsolutePosition().y - Camera::y);
-=======
-	SDL_SetRenderDrawColor(game->gRenderer, 0xFF, 0x00, 0x00, 0xFF);
-	SDL_RenderDrawLine(game->gRenderer, target->GetAbsolutePosition().x - Camera::x, target->GetAbsolutePosition().y - Camera::y, gameObject->transform->GetAbsolutePosition().x - Camera::x, gameObject->transform->GetAbsolutePosition().y - Camera::y);
->>>>>>> upstream/ExampleProjects
 	// Get direction to target
 	Vector2 direction = target->GetAbsolutePosition() - gameObject->transform->GetAbsolutePosition();
 	float distance = direction.Length();
@@ -35,17 +30,6 @@ void Arrive::Update()
 		return;
 	}
 
-<<<<<<< HEAD
-	/*if (maxAccelaraction == 0)
-	{
-		steering.linear = 0;
-		steering.weight = 0;
-		steering.angular = 0;
-		return;
-	}*/
-
-=======
->>>>>>> upstream/ExampleProjects
 	float targetSpeed = 0;
 	// If we are outside the slowRadius, go to maxSpeed
 	if (distance > slowRadius)
@@ -77,9 +61,5 @@ void Arrive::Update()
 	// Output steering
 	steering.angular = 0;
 	SteeringBehaviour::Update();
-<<<<<<< HEAD
-	
-=======
 
->>>>>>> upstream/ExampleProjects
 }

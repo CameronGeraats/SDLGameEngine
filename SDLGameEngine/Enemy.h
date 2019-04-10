@@ -1,10 +1,7 @@
 #pragma once
 #include "Behaviour.h"
-<<<<<<< HEAD
-=======
 #include "EventListener.h"
 #include "Collider.h"
->>>>>>> upstream/ExampleProjects
 class Enemy :
 	public Behaviour
 {
@@ -12,9 +9,6 @@ public:
 	Enemy();
 	~Enemy();
 
-<<<<<<< HEAD
-	void Update();
-=======
 	void Awake();
 	void Update();
 	void Cleanup();
@@ -25,6 +19,4 @@ public:
 	float range = 200;
 	GameObject* player;
 	GameObject* detectedPlayer = nullptr;
->>>>>>> upstream/ExampleProjects
 };
-

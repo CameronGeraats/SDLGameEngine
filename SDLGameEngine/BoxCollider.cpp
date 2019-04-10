@@ -65,13 +65,6 @@ void BoxCollider::FixedUpdate()
 	Collider::FixedUpdate();
 	//SDL_SetRenderDrawColor(Game::gRenderer, 0x00, 0xFF, 0x00, 0xFF);
 	Vector2 cam = Vector2(Camera::x, Camera::y);
-<<<<<<< HEAD
-	Vector2 a = gameObject->transform->GetAbsolutePosition() + gameObject->transform->Up() * dimension.y / 2 - gameObject->transform->Right() * dimension.x / 2 - cam;
-	Vector2 b = gameObject->transform->GetAbsolutePosition() + gameObject->transform->Up() * dimension.y / 2 + gameObject->transform->Right() * dimension.x / 2 - cam;
-	Vector2 c = gameObject->transform->GetAbsolutePosition() - gameObject->transform->Up() * dimension.y / 2 + gameObject->transform->Right() * dimension.x / 2 - cam;
-	Vector2 d = gameObject->transform->GetAbsolutePosition() - gameObject->transform->Up() * dimension.y / 2 - gameObject->transform->Right() * dimension.x / 2 - cam;
-	/*SDL_RenderDrawLine(Game::gRenderer, a.x, a.y, b.x, b.y);
-=======
 	Vector2 up = gameObject->transform->Up() * (dimension.y * gameObjectScale.y / 2);
 	Vector2 right = gameObject->transform->Right() * (dimension.x * gameObjectScale.x / 2);
 	Vector2 relOffset = gameObject->transform->Up() * offset.y + gameObject->transform->Right() * offset.x;
@@ -80,9 +73,7 @@ void BoxCollider::FixedUpdate()
 	Vector2 c = gameObject->transform->GetAbsolutePosition() - up + right - cam + relOffset;
 	Vector2 d = gameObject->transform->GetAbsolutePosition() - up - right - cam + relOffset;
 	SDL_RenderDrawLine(Game::gRenderer, a.x, a.y, b.x, b.y);
->>>>>>> upstream/ExampleProjects
 	SDL_RenderDrawLine(Game::gRenderer, b.x, b.y, c.x, c.y);
 	SDL_RenderDrawLine(Game::gRenderer, c.x, c.y, d.x, d.y);
 	SDL_RenderDrawLine(Game::gRenderer, d.x, d.y, a.x, a.y);*/
 }
-

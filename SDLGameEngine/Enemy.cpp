@@ -15,8 +15,6 @@ Enemy::~Enemy()
 {
 }
 
-<<<<<<< HEAD
-=======
 void Enemy::Awake()
 {
 	Behaviour::Awake();
@@ -33,18 +31,10 @@ void Enemy::Cleanup()
 	gameObject->OnTriggerEnter.RemoveListener(triggerEnterListener);
 	gameObject->OnTriggerExit.RemoveListener(triggerExitListener);
 }
->>>>>>> upstream/ExampleProjects
 
 void Enemy::Update()
 {
 	Behaviour::Update();
-<<<<<<< HEAD
-	//if (Input::GetKeyDown(SDLK_SPACE))
-	{
-		//gameObject->GetComponent<Rigidbody>()->SetBodyType(Rigidbody::kinematicBody);
-	}
-	//RaycastHit hit = game->physics->Raycast(gameObject->transform->GetAbsolutePosition(), -gameObject->transform->Up(), 10000);
-=======
 	if (player != nullptr)
 	{
 		float length = (player->transform->GetAbsolutePosition() - gameObject->transform->GetAbsolutePosition()).Length();
@@ -85,5 +75,4 @@ void Enemy::OnTriggerExit(Collider* col)
 	{
 		//detectedPlayer = nullptr;
 	}
->>>>>>> upstream/ExampleProjects
 }
