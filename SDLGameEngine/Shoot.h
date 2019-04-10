@@ -8,7 +8,10 @@ public:
 	~Shoot();
 
 	void Update();
+<<<<<<< HEAD
 	float laserActive = 0;
 	GameObject* laser = nullptr;
+=======
+>>>>>>> upstream/ExampleProjects
 };
 

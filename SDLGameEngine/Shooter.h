@@ -1,8 +1,11 @@
 #pragma once
 #include "Game.h"
+<<<<<<< HEAD
 //#include "FSM.h"
 //#include "AudioManager.h"
 
+=======
+>>>>>>> upstream/ExampleProjects
 class Shooter :
 	public Game
 {
@@ -12,6 +15,7 @@ public:
 
 	void Awake();
 	void Setup();
+<<<<<<< HEAD
 	void Update();//
 
 	void EnemyBulletPrefab(GameObject* go);
@@ -26,5 +30,11 @@ public:
 
 	//StateMachine* m_pFinStateMachine;
 	//AudioManager* m_pAudioManager;
+=======
+
+	void BulletPrefab(GameObject* go);
+	void EnemyPrefab(GameObject* go);
+	void WallPrefab(GameObject* go);
+>>>>>>> upstream/ExampleProjects
 };
 

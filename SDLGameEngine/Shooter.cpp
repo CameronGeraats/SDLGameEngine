@@ -23,6 +23,13 @@
 #include "BoxCollider.h"
 #include "Enemy.h"
 #include "ObstacleAvoidance.h"
+#include "BehaviourTree.h"
+#include "EnemyBlackboard.h"
+#include "CanSeePlayer.h"
+#include "AimAndShoot.h"
+#include "Patrol.h"
+#include "ShouldInvestigate.h"
+#include "Investigate.h"
 
 TTF_Font* Shooter::textFont = TTF_OpenFont("Assets/AdobeGothicStd-Bold", 28);
 SDL_Color Shooter::textColour = { 255, 0, 0 };
@@ -40,31 +47,9 @@ void Shooter::Awake()
 {
 	Camera::x = 0;
 	Camera::y = 0;
-	//Camera::width = 1280;
-	Camera::width = 1600;
-	//Camera::height = 720;
-	Camera::height = 900;
+	Camera::width = 1280;
+	Camera::height = 720;
 	Time::timeScale = 1;
-}
-
-void Shooter::EnemyBulletPrefab(GameObject* go)
-{
-	go->name = "enemybullet";
-	go->AddComponent(new SpriteRenderer("Assets/beams.png", new Rect(15, 300, 50, 90)));
-	go->AddComponent(new Bullet());
-	//go->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
-	Rigidbody* rb = new Rigidbody();
-	rb->SetBodyType(Rigidbody::dynamicBody);
-	go->AddComponent(rb);
-	rb->SetBullet(true);
-
-	/*BoxCollider* col = new BoxCollider();
-	go->AddComponent(col);
-
-	col->SetDimension(Vector2(10, 10));
-	//col->SetTrigger(true);
-	col->SetCategory(physics->Layer_1);
-	col->SetCollisionMask(~physics->Layer_1);*/
 }
 
 void Shooter::BulletPrefab(GameObject* go)
@@ -78,11 +63,12 @@ void Shooter::BulletPrefab(GameObject* go)
 	go->AddComponent(rb);
 	rb->SetBullet(true);
 
-	BoxCollider* col = new BoxCollider();
+	/*BoxCollider* col = new BoxCollider();
 	go->AddComponent(col);
-
 	col->SetDimension(Vector2(10, 10));
 	col->SetTrigger(true);
+	//col->SetCategory(physics->Layer_1);
+	//col->SetCollisionMask(~physics->Layer_1);*/
 }
 
 void Shooter::LaserPrefab(GameObject* go)
@@ -113,14 +99,14 @@ void Shooter::WallPrefab(GameObject* go)
 {
 	SpriteRenderer* wallRenderer = new SpriteRenderer(new Sprite("Assets/stones_wall.png"));
 	go->AddComponent(wallRenderer);
-	go->transform->SetRelativeScale(Vector2(0.1f, 0.1f)); // 0.3, 0.3 default
+	go->transform->SetRelativeScale(Vector2(0.3f, 0.3f));
 	Rigidbody* rb = new Rigidbody();
 	rb->SetBodyType(Rigidbody::staticBody);
 	go->AddComponent(rb);
-	BoxCollider* col = new BoxCollider();
-	go->AddComponent(col);
-	col->SetCategory(physics->Layer_2);
-	col->SetDimension(Vector2(100, 20)); //300, 60 default
+	//BoxCollider* col = new BoxCollider();
+	//go->AddComponent(col);
+	//col->SetCategory(physics->Layer_2);
+	//col->SetDimension(Vector2(300, 60));
 }
 
 void Shooter::EnemyPrefab(GameObject* go)
@@ -160,7 +146,7 @@ void Shooter::EnemyPrefab(GameObject* go)
 	agent->steerings.push_back(arrive);
 	agent->steerings.push_back(obstacleAvoidance);
 	//agent->steerings.push_back(obstacleAvoidance2);
-	agent->maxSpeed = 80; //200 default
+	agent->maxSpeed = 120; //200 default
 	//agent->velocity.y = -100;
 	go->AddComponent(agent);
 	arrive->agent = agent;
@@ -186,11 +172,43 @@ void Shooter::EnemyPrefab(GameObject* go)
 	col->SetCategory(physics->Layer_3);
 	col->SetCollisionMask(~physics->Layer_3);
 
+<<<<<<< HEAD
 	go->AddComponent(new Enemy());
+=======
+	// Trigger
+	/*BoxCollider* col2 = new BoxCollider();
+	go->AddComponent(col2);
+
+	col2->SetDimension(Vector2(200, 200));
+	col2->SetCategory(physics->Layer_3);
+	col2->SetCollisionMask(~physics->Layer_3);
+	col2->SetTrigger(true);*/
+
+	go->AddComponent(new Enemy());
+
+	EnemyBlackboard* blackBoard = new EnemyBlackboard();
+	blackBoard->enemy = go->GetComponent<Enemy>();
+
+	BehaviourTree* tree = new BehaviourTree();
+	tree->blackboard = blackBoard;
+	go->AddComponent(tree);
+	tree->Create()->
+		AddChild(new BTSelector())->
+			AddChild(new BTSequence())->
+				AddChild(new CanSeePlayer())->
+				AddChild(new AimAndShoot())->
+			End()->
+			AddChild(new BTSequence())->
+				AddChild(new ShouldInvestigate())->
+				AddChild(new Investigate())->
+			End()->
+			AddChild(new Patrol());
+>>>>>>> upstream/ExampleProjects
 }
 
 void Shooter::Setup()
 {
+<<<<<<< HEAD
 	AddPrefab("EnemyBullet", std::bind(&Shooter::EnemyBulletPrefab, this, std::placeholders::_1));
 	AddPrefab("Bullet", std::bind(&Shooter::BulletPrefab, this, std::placeholders::_1));
 	AddPrefab("Laser", std::bind(&Shooter::LaserPrefab, this, std::placeholders::_1));
@@ -206,7 +224,7 @@ void Shooter::Update()
 { // Checks if scene requested a scene swap, and swaps to new scene if so.
 	// Doing it inside a scene function would probably be bad as the SetScene will
 	// delete the scene that is in scope.
-	
+
 	Game::Update();
 	if (switchSceneTo != nullptr)
 	{
@@ -216,8 +234,13 @@ void Shooter::Update()
 	}
 
 	//
-	
+
+=======
+	AddPrefab("Bullet", std::bind(&Shooter::BulletPrefab, this, std::placeholders::_1));
+	AddPrefab("Enemy", std::bind(&Shooter::EnemyPrefab, this, std::placeholders::_1));
+	AddPrefab("Wall", std::bind(&Shooter::WallPrefab, this, std::placeholders::_1));
+
+
+	SetScene(new Scene1());
+>>>>>>> upstream/ExampleProjects
 }
-
-
-

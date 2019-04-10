@@ -24,7 +24,7 @@ void Rigidbody::Cleanup()
 		// remove transform listener
 		gameObject->transform->OnTransformUpdate.RemoveListener(onTransformUpdate);
 		// remove from gameobject
-		gameObject->RemoveRigidbody();
+		gameObject->ResetRigidbody();
 	}
 	physics->rigidbodies.remove(this);
 }
@@ -101,12 +101,9 @@ const Rigidbody::bodyType& Rigidbody::GetBodyType() const
 void Rigidbody::FixedUpdate()
 {
 	Component::FixedUpdate();
-	gameObject->transform->SetAbsolutePosition(physics->GetWorldCoordinates(body->GetPosition()));
-	gameObject->transform->SetAbsoluteAngle(body->GetAngle() * 180.0f / M_PI);
 	accelaration = body->GetLinearVelocity() - lastVelocity;
 	accelaration *= 1 / Time::FixedDeltaTime();
 	lastVelocity = body->GetLinearVelocity();
-
 }
 
 void Rigidbody::Extrapolate(float dt)
@@ -116,8 +113,10 @@ void Rigidbody::Extrapolate(float dt)
 	b2Vec2 delta2 = accelaration;
 	delta2 *= 0.5f * dt * dt;
 	b2Vec2 extrapolatedPos = body->GetPosition() + delta + delta2;
+	onTransformUpdate->disabled = true;
 	gameObject->transform->SetAbsolutePosition(physics->GetWorldCoordinates(extrapolatedPos));
 	gameObject->transform->SetAbsoluteAngle((body->GetAngle() + body->GetAngularVelocity() * dt) * 180.0f / M_PI);
+	onTransformUpdate->disabled = false;
 }
 
 void Rigidbody::AddForce(Vector2 force)
@@ -182,8 +181,6 @@ bool Rigidbody::ContainsCollider(Collider* col)
 void Rigidbody::AddCollider(Collider* col)
 {
  	col->fixture = body->CreateFixture(&col->fixtureDef);
-	/*col->fixture->SetRestitution(1);
-	col->fixture->SetFriction(0);*/
 	col->fixture->SetUserData(col);
 	myColliders.push_back(col);
 }
@@ -202,4 +199,5 @@ void Rigidbody::UpdatePhysicsTransform(const TransformData &data)
 {
 	body->SetTransform(physics->GetPhysicsCoordinates(data.position), data.angle * M_PI / 180.0f);
 }
+
 

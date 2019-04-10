@@ -7,6 +7,7 @@
 #include "Time.h"
 #include "Camera.h"
 #include "Game.h"
+<<<<<<< HEAD
 #include "EnemyShoot.h"
 #include "Arrive.h"
 #include "ObstacleAvoidance.h"
@@ -14,6 +15,9 @@
 #include "BoxCollider.h"
 #include "Rigidbody.h"
 #include "Stop.h"
+=======
+
+>>>>>>> upstream/ExampleProjects
 
 UpdateVectorTarget::UpdateVectorTarget()
 {
@@ -29,6 +33,7 @@ UpdateVectorTarget::~UpdateVectorTarget()
 
 void UpdateVectorTarget::Update()
 {
+<<<<<<< HEAD
 	if ((gameObject->transform->GetAbsolutePosition() - target).Length() <= 650 && stage == 0)
 	{
 		/*SteeringAgent* steerAgent = gameObject->GetComponent<Arrive>()->agent;
@@ -132,5 +137,21 @@ void UpdateVectorTarget::Update()
 	}
 	//SDL_SetRenderDrawColor(game->gRenderer, 0xFF, 0x00, 0x00, 0xFF);
 	//SDL_RenderDrawPoint(game->gRenderer, target.x - Camera::x, target.y - Camera::y);
+=======
+	timer += Time::DeltaTime();
+	if ((gameObject->transform->GetAbsolutePosition() - target).Length() <= 10 || timer > maxTime)
+	{
+		/*target.x = Camera::x + rand() % Camera::width;
+		target.y = Camera::y + rand() % Camera::height;*/
+		float theta = rand();
+		target.x = Camera::x + center.x + radius * cos(theta);
+		target.y = Camera::y + center.y + radius * sin(theta);
+
+		targetObject->transform->SetAbsolutePosition(target);
+		timer = 0;
+	}
+	SDL_SetRenderDrawColor(game->gRenderer, 0xFF, 0x00, 0x00, 0xFF);
+	SDL_RenderDrawPoint(game->gRenderer, target.x - Camera::x, target.y - Camera::y);
+>>>>>>> upstream/ExampleProjects
 	Behaviour::Update();
 }

@@ -8,6 +8,9 @@ public:
 	~Scene1();
 
 	void Setup();
+<<<<<<< HEAD
 	//void Update();
+=======
+>>>>>>> upstream/ExampleProjects
 };
 

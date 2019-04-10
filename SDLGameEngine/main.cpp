@@ -7,13 +7,20 @@ and may not be redistributed without written permission.*/
 #include <stdio.h>
 #include <string>
 #include <iostream>
+<<<<<<< HEAD
 //#include "Game.h"
+=======
+//#include "PathfindingDemo.h"
+>>>>>>> upstream/ExampleProjects
 #include "Shooter.h"
 
 
 Game* game = new Shooter();
+<<<<<<< HEAD
 //Game* game = new Game();
 //Game* game = Shooter::Instance();
+=======
+>>>>>>> upstream/ExampleProjects
 
 int main( int argc, char* args[] )
 {

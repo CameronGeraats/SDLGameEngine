@@ -9,6 +9,8 @@ GameObject::GameObject()
 {
 	transform = new Transform(0, 0);
 	AddComponent((Component*)transform);
+	onAddChild = std::make_shared<EventListener<Transform*>>(std::bind(&GameObject::AddChild, this, std::placeholders::_1));
+	transform->OnAddChild.AddListener(onAddChild);
 	//OnRemoveRigidbody.AddListener(OnMyRigidbodyRemoved);
 }
 
@@ -16,6 +18,8 @@ GameObject::GameObject(const GameObject &gameObject)
 {
 	transform = new Transform(0, 0);
 	AddComponent((Component*)transform);
+	onAddChild = std::make_shared<EventListener<Transform*>>(std::bind(&GameObject::AddChild, this, std::placeholders::_1));
+	transform->OnAddChild.AddListener(onAddChild);
 }
 
 GameObject::GameObject(Game* _game, std::string _name, float x, float y, float angle, float xScale, float yScale)
@@ -24,6 +28,8 @@ GameObject::GameObject(Game* _game, std::string _name, float x, float y, float a
 	transform = new Transform(this, x, y, angle, xScale, yScale);
 	AddComponent((Component*)transform);
 	game = _game;
+	onAddChild = std::make_shared<EventListener<Transform*>>(std::bind(&GameObject::AddChild, this, std::placeholders::_1));
+	transform->OnAddChild.AddListener(onAddChild);
 }
 
 GameObject::~GameObject()
@@ -86,6 +92,8 @@ void GameObject::FixedUpdate()
 
 void GameObject::Cleanup()
 {
+	transform->OnAddChild.RemoveListener(onAddChild);
+
 	if (scene != NULL)
 	{
 		scene->ReleaseFromScene(this);
@@ -103,7 +111,7 @@ void GameObject::Cleanup()
 
 Rigidbody* GameObject::SearchForNewRigidBody()
 {
-	Transform* t = transform->parent;
+	Transform* t = transform;
 	Rigidbody* rb = nullptr;
 	while (t != nullptr)
 	{
@@ -130,8 +138,13 @@ void GameObject::AddRigidbody(Rigidbody* _rigidbody)
 	OnAddRigidbody(_rigidbody);
 }
 
-void GameObject::RemoveRigidbody()
+void GameObject::ResetRigidbody()
 {
 	AddRigidbody(SearchForNewRigidBody());
+}
+
+void GameObject::AddChild(Transform* child)
+{
+	child->gameObject->ResetRigidbody();
 }
 

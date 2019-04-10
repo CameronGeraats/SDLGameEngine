@@ -6,55 +6,106 @@
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
     <Filter Include="Engine">
-      <UniqueIdentifier>{ec8eb86f-5ce5-43a4-92fc-f0a4d74db8f5}</UniqueIdentifier>
+      <UniqueIdentifier>{f2dae873-4a17-435d-92d3-c34b11cf1938}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Header Files">
-      <UniqueIdentifier>{17beed24-2c1a-4062-b1d8-189e2ca5a3fa}</UniqueIdentifier>
+    <Filter Include="Engine\Core">
+      <UniqueIdentifier>{33b3ed90-303d-49a9-b414-6dab12f223dd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Source Files">
-      <UniqueIdentifier>{8e02f5c6-f857-4df1-8c0a-cf6697825f0c}</UniqueIdentifier>
+    <Filter Include="Engine\Core\Header">
+      <UniqueIdentifier>{6cf47504-9c38-40ce-8d01-583d443a1996}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Header Files\Core">
-      <UniqueIdentifier>{79525409-d3ff-4809-bfaf-37f7cf43e519}</UniqueIdentifier>
+    <Filter Include="Engine\Core\Source">
+      <UniqueIdentifier>{cde33337-5ef0-4a8f-9a79-b0969322b4b9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Header Files\Utils">
-      <UniqueIdentifier>{3557a979-55de-47b3-a763-685edeb15052}</UniqueIdentifier>
+    <Filter Include="Engine\Helper">
+      <UniqueIdentifier>{727219e9-c9aa-4b92-88f6-1a7bdc2e551e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Header Files\Data">
-      <UniqueIdentifier>{255794bd-57ed-4673-813b-bf229cd12fdb}</UniqueIdentifier>
+    <Filter Include="Engine\Helper\Header">
+      <UniqueIdentifier>{9467aa69-a806-4338-bc2b-3e1eaf6085d1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Header Files\Core\Components">
-      <UniqueIdentifier>{a3556bea-4a60-4426-a48f-9fe48c8cdd51}</UniqueIdentifier>
+    <Filter Include="Engine\Helper\Source">
+      <UniqueIdentifier>{8d3e6954-9a58-4f96-a90e-b43d0d9f964e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Header Files\Core\Modules">
-      <UniqueIdentifier>{ae4c0c6c-9576-4733-a7a7-ea69144655d2}</UniqueIdentifier>
+    <Filter Include="Engine\Components">
+      <UniqueIdentifier>{999dd5f2-e45b-4bb7-b45d-359a3029c9bd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Header Files\Core\Helpers">
-      <UniqueIdentifier>{08f614f1-3cbb-464f-9a1a-ac63c01b9258}</UniqueIdentifier>
+    <Filter Include="Engine\Components\Header">
+      <UniqueIdentifier>{b7654b21-e019-4e1a-bcd4-bde3873ef876}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Source Files\Core">
-      <UniqueIdentifier>{cb33dd51-f5bf-41b9-8c99-f25527abfe7d}</UniqueIdentifier>
+    <Filter Include="Engine\Components\Source">
+      <UniqueIdentifier>{51760072-a7e7-44cd-b16a-36581b1ceb02}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Source Files\Core\Components">
-      <UniqueIdentifier>{75506255-337b-4ea3-bba3-b469311f00ef}</UniqueIdentifier>
+    <Filter Include="Engine\Modules">
+      <UniqueIdentifier>{16026f3a-95f0-4367-a317-c50642238be4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Source Files\Core\Modules">
-      <UniqueIdentifier>{29069eaf-13a3-4649-bbd7-9e4d0121e390}</UniqueIdentifier>
+    <Filter Include="Engine\Modules\Header">
+      <UniqueIdentifier>{88880801-171f-455a-a2a6-a76c99c40e1f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Source Files\Core\Helpers">
-      <UniqueIdentifier>{f0da6a45-dbf8-4594-9dfd-8fbba648f422}</UniqueIdentifier>
+    <Filter Include="Engine\Modules\Source">
+      <UniqueIdentifier>{dfadc656-845e-463d-a482-95f476ec24db}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Source Files\Data">
-      <UniqueIdentifier>{cb005cf2-61ef-46fb-8e59-95400e25ce78}</UniqueIdentifier>
+    <Filter Include="Engine\Data">
+      <UniqueIdentifier>{d88400f7-bfa5-4914-87a1-c3aa66ed3384}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Source Files\Utils">
-      <UniqueIdentifier>{a24b8458-c6fd-4a6d-b4c3-86f1f05c2f39}</UniqueIdentifier>
+    <Filter Include="Engine\Data\Header">
+      <UniqueIdentifier>{2e4a63bc-e896-466e-9aac-e22624663c42}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Source Files\Physics">
-      <UniqueIdentifier>{54436597-ad1e-444b-b8dd-4c8c43e9344d}</UniqueIdentifier>
+    <Filter Include="Engine\Data\Source">
+      <UniqueIdentifier>{309f3765-22bf-4608-83ac-91a0fef608c4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Header Files\Physics">
-      <UniqueIdentifier>{935d3661-5c5a-4658-bcac-59d2000e2ef9}</UniqueIdentifier>
+    <Filter Include="Engine\Physics">
+      <UniqueIdentifier>{d454440e-8514-49a7-8b11-a390ea66994e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics\Data">
+      <UniqueIdentifier>{70ca02e0-9c61-41ef-b033-8bb1a10724c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics\Data\Header">
+      <UniqueIdentifier>{e7471b17-3903-4d92-91b6-45ced94fa284}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics\Data\Source">
+      <UniqueIdentifier>{cecaf975-8f6f-4912-99e7-c3bd261c8331}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics\Core">
+      <UniqueIdentifier>{028d486a-9606-4e81-bf9f-7f60592cac14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics\Core\Header">
+      <UniqueIdentifier>{ca8027c2-0903-4053-a944-220872de3b63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics\Core\Source">
+      <UniqueIdentifier>{10e05c54-af7f-4da9-b738-b7de5ad96634}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics\Components">
+      <UniqueIdentifier>{df46744f-3359-43b3-aa02-88ff168a4336}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics\Components\Header">
+      <UniqueIdentifier>{bf89ebbc-ee60-490a-ba5d-6add080b3c7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Physics\Components\Source">
+      <UniqueIdentifier>{af04c940-4943-49a1-8815-9e713ec8fafc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Utils">
+      <UniqueIdentifier>{de96f9bb-e47a-4b53-9282-c9b7a73ff177}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Utils\Header">
+      <UniqueIdentifier>{fa0d0933-a3f8-4700-851b-d6eae33432a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Utils\Source">
+      <UniqueIdentifier>{759b6523-d9ff-4988-a070-194d24c01350}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SteeringBehaviours">
+      <UniqueIdentifier>{3c46557b-58f6-4e8f-92df-ab1b6cb64fcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shooter">
+      <UniqueIdentifier>{425c115b-a6e6-4b7f-b920-e63b558b8aaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pathfinding">
+      <UniqueIdentifier>{38eef217-8964-4ac0-83cc-7dfeb34ff580}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BehaviourTrees">
+      <UniqueIdentifier>{5d9d1789-3443-41a4-8d76-ef34808c5d15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shooter\BTBehaviours">
+      <UniqueIdentifier>{e85fea0b-7a55-4f12-a23a-984eefed3b23}</UniqueIdentifier>
     </Filter>
     <Filter Include="Old Demo Projects">
       <UniqueIdentifier>{05280b82-7979-4590-af91-9c927bb4eb45}</UniqueIdentifier>
@@ -76,95 +127,216 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Behaviour.cpp">
+      <Filter>Engine\Core\Source</Filter>
     </ClCompile>
     <ClCompile Include="Component.cpp">
-      <Filter>Engine\Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Engine\Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Engine\Source Files\Core</Filter>
+      <Filter>Engine\Core\Source</Filter>
     </ClCompile>
     <ClCompile Include="Module.cpp">
-      <Filter>Engine\Source Files\Core</Filter>
+      <Filter>Engine\Core\Source</Filter>
     </ClCompile>
-    <ClCompile Include="Behaviour.cpp">
-      <Filter>Engine\Source Files\Core\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Renderer.cpp">
-      <Filter>Engine\Source Files\Core\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Transform.cpp">
-      <Filter>Engine\Source Files\Core\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Input.cpp">
-      <Filter>Engine\Source Files\Core\Modules</Filter>
+    <ClCompile Include="Game.cpp">
+      <Filter>Engine\Core\Source</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
-      <Filter>Engine\Source Files\Core\Helpers</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Engine\Source Files\Core\Helpers</Filter>
-    </ClCompile>
-    <ClCompile Include="Time.cpp">
-      <Filter>Engine\Source Files\Core\Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="Color.cpp">
-      <Filter>Engine\Source Files\Data</Filter>
-    </ClCompile>
-    <ClCompile Include="Rect.cpp">
-      <Filter>Engine\Source Files\Data</Filter>
-    </ClCompile>
-    <ClCompile Include="Sprite.cpp">
-      <Filter>Engine\Source Files\Core\Helpers</Filter>
-    </ClCompile>
-    <ClCompile Include="SpriteRenderer.cpp">
-      <Filter>Engine\Source Files\Core\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Collider.cpp">
-      <Filter>Engine\Source Files\Core\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Engine\Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderModule.cpp">
-      <Filter>Engine\Source Files\Core\Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="Physics.cpp">
-      <Filter>Engine\Source Files\Physics</Filter>
-    </ClCompile>
-    <ClCompile Include="Rigidbody.cpp">
-      <Filter>Engine\Source Files\Core\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="LayerdStorage.cpp">
-      <Filter>Engine\Source Files\Utils</Filter>
+      <Filter>Engine\Core\Source</Filter>
     </ClCompile>
     <ClCompile Include="BoxCollider.cpp">
-      <Filter>Engine\Source Files\Core\Components</Filter>
+      <Filter>Engine\Physics\Components\Source</Filter>
     </ClCompile>
-    <ClCompile Include="ContactListener.cpp">
-      <Filter>Engine\Source Files\Physics</Filter>
+    <ClCompile Include="Collider.cpp">
+      <Filter>Engine\Physics\Components\Source</Filter>
     </ClCompile>
     <ClCompile Include="Collision.cpp">
-      <Filter>Engine\Source Files\Physics</Filter>
+      <Filter>Engine\Physics\Data\Source</Filter>
     </ClCompile>
-    <ClCompile Include="SimpleEvent.cpp">
-      <Filter>Engine\Source Files\Utils</Filter>
+    <ClCompile Include="Color.cpp">
+      <Filter>Engine\Data\Source</Filter>
     </ClCompile>
-    <ClCompile Include="SimpleEventListener.cpp">
-      <Filter>Engine\Source Files\Utils</Filter>
+    <ClCompile Include="ContactListener.cpp">
+      <Filter>Engine\Physics\Core\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Engine\Core\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Engine\Modules\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="LayerdStorage.cpp">
+      <Filter>Engine\Helper\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Physics.cpp">
+      <Filter>Engine\Physics\Core\Source</Filter>
     </ClCompile>
     <ClCompile Include="Ray.cpp">
-      <Filter>Engine\Source Files\Physics</Filter>
+      <Filter>Engine\Physics\Data\Source</Filter>
     </ClCompile>
     <ClCompile Include="RaycastHit.cpp">
-      <Filter>Engine\Source Files\Physics</Filter>
+      <Filter>Engine\Physics\Data\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Rect.cpp">
+      <Filter>Engine\Data\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>Engine\Components\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderModule.cpp">
+      <Filter>Engine\Modules\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Rigidbody.cpp">
+      <Filter>Engine\Physics\Components\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Engine\Core\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleEvent.cpp">
+      <Filter>Engine\Helper\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SimpleEventListener.cpp">
+      <Filter>Engine\Helper\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Engine\Data\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteRenderer.cpp">
+      <Filter>Engine\Components\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="TextRenderer.cpp">
+      <Filter>Engine\Components\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>Engine\Components\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Time.cpp">
+      <Filter>Engine\Modules\Source</Filter>
     </ClCompile>
     <ClCompile Include="Vector2.cpp">
-      <Filter>Engine\Source Files\Utils</Filter>
+      <Filter>Engine\Utils\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Align.cpp">
+      <Filter>SteeringBehaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="Arrive.cpp">
+      <Filter>SteeringBehaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="ObstacleAvoidance.cpp">
+      <Filter>SteeringBehaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="PathFollowing.cpp">
+      <Filter>SteeringBehaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="Seek.cpp">
+      <Filter>SteeringBehaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="SteeringAgent.cpp">
+      <Filter>SteeringBehaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="SteeringBehaviour.cpp">
+      <Filter>SteeringBehaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Shooter</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraFollow.cpp">
+      <Filter>Shooter</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Shooter</Filter>
+    </ClCompile>
+    <ClCompile Include="Flee.cpp">
+      <Filter>SteeringBehaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveInCircle.cpp">
+      <Filter>Shooter</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerControls.cpp">
+      <Filter>Shooter</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene1.cpp">
+      <Filter>Shooter</Filter>
+    </ClCompile>
+    <ClCompile Include="Shoot.cpp">
+      <Filter>Shooter</Filter>
+    </ClCompile>
+    <ClCompile Include="Shooter.cpp">
+      <Filter>Shooter</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdateTarget.cpp">
+      <Filter>Shooter</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdateVectorTarget.cpp">
+      <Filter>Shooter</Filter>
+    </ClCompile>
+    <ClCompile Include="Pursue.cpp">
+      <Filter>SteeringBehaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="PathfindingDemo.cpp">
+      <Filter>Pathfinding</Filter>
+    </ClCompile>
+    <ClCompile Include="Pathfinder.cpp">
+      <Filter>Pathfinding</Filter>
+    </ClCompile>
+    <ClCompile Include="PathNode.cpp">
+      <Filter>Pathfinding</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawPath.cpp">
+      <Filter>Pathfinding</Filter>
+    </ClCompile>
+    <ClCompile Include="BehaviourTree.cpp">
+      <Filter>BehaviourTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="BTAction.cpp">
+      <Filter>BehaviourTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="BTBlackboard.cpp">
+      <Filter>BehaviourTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="BTComposite.cpp">
+      <Filter>BehaviourTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="BTCondition.cpp">
+      <Filter>BehaviourTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="BTDecorator.cpp">
+      <Filter>BehaviourTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="BTInverter.cpp">
+      <Filter>BehaviourTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="BTNode.cpp">
+      <Filter>BehaviourTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="BTRoot.cpp">
+      <Filter>BehaviourTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="BTSequence.cpp">
+      <Filter>BehaviourTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="BTSelector.cpp">
+      <Filter>BehaviourTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="BTNonLeafNode.cpp">
+      <Filter>BehaviourTrees</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemyBlackboard.cpp">
+      <Filter>Shooter</Filter>
+    </ClCompile>
+    <ClCompile Include="AimAndShoot.cpp">
+      <Filter>Shooter\BTBehaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="CanSeePlayer.cpp">
+      <Filter>Shooter\BTBehaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="Patrol.cpp">
+      <Filter>Shooter\BTBehaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="ShouldInvestigate.cpp">
+      <Filter>Shooter\BTBehaviours</Filter>
+    </ClCompile>
+    <ClCompile Include="Investigate.cpp">
+      <Filter>Shooter\BTBehaviours</Filter>
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
       <Filter>Old Demo Projects\Shooter</Filter>
@@ -249,101 +421,224 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Component.h">
-      <Filter>Engine\Header Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Engine\Header Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Input.h">
-      <Filter>Engine\Header Files\Core\Modules</Filter>
-    </ClInclude>
     <ClInclude Include="Behaviour.h">
-      <Filter>Engine\Header Files\Core\Components</Filter>
+      <Filter>Engine\Core\Header</Filter>
     </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>Engine\Header Files\Core\Helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Engine\Header Files\Core</Filter>
+    <ClInclude Include="Component.h">
+      <Filter>Engine\Core\Header</Filter>
     </ClInclude>
     <ClInclude Include="Module.h">
-      <Filter>Engine\Header Files\Core</Filter>
+      <Filter>Engine\Core\Header</Filter>
     </ClInclude>
-    <ClInclude Include="Renderer.h">
-      <Filter>Engine\Header Files\Core\Components</Filter>
+    <ClInclude Include="Game.h">
+      <Filter>Engine\Core\Header</Filter>
     </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>Engine\Header Files\Core\Helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="Time.h">
-      <Filter>Engine\Header Files\Core\Modules</Filter>
-    </ClInclude>
-    <ClInclude Include="Transform.h">
-      <Filter>Engine\Header Files\Core\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Color.h">
-      <Filter>Engine\Header Files\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="Rect.h">
-      <Filter>Engine\Header Files\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="Sprite.h">
-      <Filter>Engine\Header Files\Core\Helpers</Filter>
-    </ClInclude>
-    <ClInclude Include="SpriteRenderer.h">
-      <Filter>Engine\Header Files\Core\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Collider.h">
-      <Filter>Engine\Header Files\Core\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Engine\Header Files\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderModule.h">
-      <Filter>Engine\Header Files\Core\Modules</Filter>
-    </ClInclude>
-    <ClInclude Include="Physics.h">
-      <Filter>Engine\Header Files\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="Rigidbody.h">
-      <Filter>Engine\Header Files\Core\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="LayerdStorage.h">
-      <Filter>Engine\Header Files\Utils</Filter>
+    <ClInclude Include="Camera.h">
+      <Filter>Engine\Core\Header</Filter>
     </ClInclude>
     <ClInclude Include="BoxCollider.h">
-      <Filter>Engine\Header Files\Core\Components</Filter>
+      <Filter>Engine\Physics\Components\Header</Filter>
     </ClInclude>
-    <ClInclude Include="Event.h">
-      <Filter>Engine\Header Files\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="EventListener.h">
-      <Filter>Engine\Header Files\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="TransformData.h">
-      <Filter>Engine\Header Files\Utils</Filter>
-    </ClInclude>
-    <ClInclude Include="ContactListener.h">
-      <Filter>Engine\Header Files\Physics</Filter>
+    <ClInclude Include="Collider.h">
+      <Filter>Engine\Physics\Components\Header</Filter>
     </ClInclude>
     <ClInclude Include="Collision.h">
-      <Filter>Engine\Header Files\Physics</Filter>
+      <Filter>Engine\Physics\Data\Header</Filter>
     </ClInclude>
-    <ClInclude Include="SimpleEvent.h">
-      <Filter>Engine\Header Files\Utils</Filter>
+    <ClInclude Include="Color.h">
+      <Filter>Engine\Data\Header</Filter>
     </ClInclude>
-    <ClInclude Include="SimpleEventListener.h">
-      <Filter>Engine\Header Files\Utils</Filter>
+    <ClInclude Include="ContactListener.h">
+      <Filter>Engine\Physics\Core\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>Engine\Helper\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="EventListener.h">
+      <Filter>Engine\Helper\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Engine\Core\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Engine\Modules\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="LayerdStorage.h">
+      <Filter>Engine\Helper\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Physics.h">
+      <Filter>Engine\Physics\Core\Header</Filter>
     </ClInclude>
     <ClInclude Include="Ray.h">
-      <Filter>Engine\Header Files\Physics</Filter>
+      <Filter>Engine\Physics\Data\Header</Filter>
     </ClInclude>
     <ClInclude Include="RaycastHit.h">
-      <Filter>Engine\Header Files\Physics</Filter>
+      <Filter>Engine\Physics\Data\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Rect.h">
+      <Filter>Engine\Data\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>Engine\Components\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderModule.h">
+      <Filter>Engine\Modules\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Rigidbody.h">
+      <Filter>Engine\Physics\Components\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Engine\Core\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleEvent.h">
+      <Filter>Engine\Helper\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleEventListener.h">
+      <Filter>Engine\Helper\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Engine\Data\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteRenderer.h">
+      <Filter>Engine\Components\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="TextRenderer.h">
+      <Filter>Engine\Components\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Engine\Components\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Time.h">
+      <Filter>Engine\Modules\Header</Filter>
     </ClInclude>
     <ClInclude Include="Vector2.h">
-      <Filter>Engine\Header Files\Utils</Filter>
+      <Filter>Engine\Utils\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Align.h">
+      <Filter>SteeringBehaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="Arrive.h">
+      <Filter>SteeringBehaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="ObstacleAvoidance.h">
+      <Filter>SteeringBehaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="PathFollowing.h">
+      <Filter>SteeringBehaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="Seek.h">
+      <Filter>SteeringBehaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="SteeringAgent.h">
+      <Filter>SteeringBehaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="SteeringBehaviour.h">
+      <Filter>SteeringBehaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Shooter</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraFollow.h">
+      <Filter>Shooter</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Shooter</Filter>
+    </ClInclude>
+    <ClInclude Include="Flee.h">
+      <Filter>SteeringBehaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveInCircle.h">
+      <Filter>Shooter</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerControls.h">
+      <Filter>Shooter</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene1.h">
+      <Filter>Shooter</Filter>
+    </ClInclude>
+    <ClInclude Include="Shoot.h">
+      <Filter>Shooter</Filter>
+    </ClInclude>
+    <ClInclude Include="Shooter.h">
+      <Filter>Shooter</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdateTarget.h">
+      <Filter>Shooter</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdateVectorTarget.h">
+      <Filter>Shooter</Filter>
+    </ClInclude>
+    <ClInclude Include="Pursue.h">
+      <Filter>SteeringBehaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="PathfindingDemo.h">
+      <Filter>Pathfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="Pathfinder.h">
+      <Filter>Pathfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="PathNode.h">
+      <Filter>Pathfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawPath.h">
+      <Filter>Pathfinding</Filter>
+    </ClInclude>
+    <ClInclude Include="BehaviourTree.h">
+      <Filter>BehaviourTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="BTAction.h">
+      <Filter>BehaviourTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="BTBlackboard.h">
+      <Filter>BehaviourTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="BTComposite.h">
+      <Filter>BehaviourTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="BTCondition.h">
+      <Filter>BehaviourTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="BTDecorator.h">
+      <Filter>BehaviourTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="BTInverter.h">
+      <Filter>BehaviourTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="BTNode.h">
+      <Filter>BehaviourTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="BTRoot.h">
+      <Filter>BehaviourTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="BTSequence.h">
+      <Filter>BehaviourTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="BTSelector.h">
+      <Filter>BehaviourTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="BTNonLeafNode.h">
+      <Filter>BehaviourTrees</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformData.h">
+      <Filter>Engine\Data\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyBlackboard.h">
+      <Filter>Shooter</Filter>
+    </ClInclude>
+    <ClInclude Include="AimAndShoot.h">
+      <Filter>Shooter\BTBehaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="CanSeePlayer.h">
+      <Filter>Shooter\BTBehaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="Patrol.h">
+      <Filter>Shooter\BTBehaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="ShouldInvestigate.h">
+      <Filter>Shooter\BTBehaviours</Filter>
+    </ClInclude>
+    <ClInclude Include="Investigate.h">
+      <Filter>Shooter\BTBehaviours</Filter>
     </ClInclude>
     <ClInclude Include="Bullet.h">
       <Filter>Old Demo Projects\Shooter</Filter>

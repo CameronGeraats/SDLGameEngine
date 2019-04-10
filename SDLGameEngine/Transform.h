@@ -49,6 +49,7 @@ public:
 	Transform* parent = NULL;
 
 	Event<TransformData> OnTransformUpdate;
+	Event<Transform*> OnAddChild;
 
 	void Cleanup();
 
