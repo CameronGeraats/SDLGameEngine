@@ -53,6 +53,7 @@ void SceneMenu::Setup()
 	SpriteRenderer* playBRenderer = new SpriteRenderer(playButtonSprite);
 	playButton->AddComponent(playBRenderer);
 	TextRenderer* buttonText = new TextRenderer(Shooter::fontFile,28,"PLAY");
+	
 	playButton->AddComponent(buttonText);
 
 	//TextSprite* playButtonTextSprite = new TextSprite("PLAY",game);

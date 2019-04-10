@@ -7,6 +7,7 @@ TextRenderer::TextRenderer(std::string _fontPath, int size, std::string _text)
 {
 	gFont = TTF_OpenFont(_fontPath.c_str(), size);
 	text = _text;
+	SetColor(Color(205, 50, 50, 255));
 	LoadText();
 }
 

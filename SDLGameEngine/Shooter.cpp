@@ -32,7 +32,7 @@
 #include "Investigate.h"
 
 TTF_Font* Shooter::textFont = TTF_OpenFont("Assets/AdobeGothicStd-Bold", 28);
-std::string Shooter::fontFile = "Assets/AdobeGothicStd-Bold";
+std::string Shooter::fontFile = "Assets/arial.ttf";
 SDL_Color Shooter::textColour = { 255, 0, 0 };
 
 Shooter::Shooter()

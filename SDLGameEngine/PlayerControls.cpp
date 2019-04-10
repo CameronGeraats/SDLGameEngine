@@ -8,6 +8,7 @@
 
 PlayerControls::PlayerControls()
 {
+	target = new Transform();
 }
 
 
