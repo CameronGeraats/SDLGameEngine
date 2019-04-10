@@ -216,7 +216,6 @@
     <ClCompile Include="Stop.cpp" />
     <ClCompile Include="TextRenderer.cpp" />
     <ClCompile Include="TextSprite.cpp" />
-    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="UpdateTarget.cpp" />
@@ -299,7 +298,6 @@
     <ClInclude Include="Stop.h" />
     <ClInclude Include="TextRenderer.h" />
     <ClInclude Include="TextSprite.h" />
-    <ClInclude Include="Texture.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="TransformData.h" />

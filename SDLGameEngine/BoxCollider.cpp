@@ -75,5 +75,5 @@ void BoxCollider::FixedUpdate()
 	SDL_RenderDrawLine(Game::gRenderer, a.x, a.y, b.x, b.y);
 	SDL_RenderDrawLine(Game::gRenderer, b.x, b.y, c.x, c.y);
 	SDL_RenderDrawLine(Game::gRenderer, c.x, c.y, d.x, d.y);
-	SDL_RenderDrawLine(Game::gRenderer, d.x, d.y, a.x, a.y);*/
+	SDL_RenderDrawLine(Game::gRenderer, d.x, d.y, a.x, a.y);
 }

@@ -16,12 +16,14 @@
 #include "Shoot.h"
 #include "CameraFollow.h"
 #include "SpriteRenderer.h"
-#include "TextSprite.h"
+//#include "TextSprite.h"
+#include "TextRenderer.h"
 #include "Renderer.h"
 #include "Camera.h"
 #include "Game.h"
 #include "Rigidbody.h"
 #include "Button.h"
+#include "Shooter.h"
 
 
 SceneMenu::SceneMenu()
@@ -50,9 +52,12 @@ void SceneMenu::Setup()
 	Sprite* playButtonSprite = new Sprite("Assets/buttons.png", frameRect);
 	SpriteRenderer* playBRenderer = new SpriteRenderer(playButtonSprite);
 	playButton->AddComponent(playBRenderer);
-	TextSprite* playButtonTextSprite = new TextSprite("PLAY",game);
-	SpriteRenderer* playBTRenderer = new SpriteRenderer(playButtonTextSprite, playButtonTextSprite->GetTexture());
-	playButton->AddComponent(playBTRenderer);
+	TextRenderer* buttonText = new TextRenderer(Shooter::fontFile,28,"PLAY");
+	playButton->AddComponent(buttonText);
+
+	//TextSprite* playButtonTextSprite = new TextSprite("PLAY",game);
+	//SpriteRenderer* playBTRenderer = new SpriteRenderer(playButtonTextSprite, playButtonTextSprite->GetTexture());
+	//playButton->AddComponent(playBTRenderer);
 	//playButton->AddComponent(playBRenderer);
 	Button* playBut = new Button(SDL_Rect{ 300,200,frameRect->w,frameRect->h });
 	playButton->AddComponent(playBut);
@@ -72,10 +77,7 @@ void SceneMenu::Setup()
 	//graphic->transform->scale.x = 0.1f;
 	//graphic->transform->scale.y = 0.1f;
 
-
-
 	graphic->transform->SetParentRelative(go->transform);
-
 
 	go->AddComponent(new PlayerControls());
 	go->AddComponent(new CameraFollow());

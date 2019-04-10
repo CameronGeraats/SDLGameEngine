@@ -6,6 +6,7 @@
 #include "SDL_image.h"
 #include "Rect.h"
 #include "Scene1.h"
+#include "Vector2.h"
 
 Button::Button(SDL_Rect d)
 {
@@ -44,26 +45,19 @@ Button::~Button()
 
 void Button::Update()
 {
-	//SDL_Rect mouseXY = Input::GetMousePosition();
-	Transform* mouseXY = Input::GetMousePosition();
-	SDL_MouseButtonEvent mouse; // Temporary event that is used for finding specific mouse events (LEFT or RIGHT button, Up or Down State, etc)
-	mouse.button = SDL_BUTTON_LEFT;
-	
-	//if (mouseXY.x < (m_rDst.x + m_rDst.w) && mouseXY.x > m_rDst.x && // If cursor is within X bounds
-	if (mouseXY->GetAbsolutePosition().x < (m_rDst.x + m_rDst.w) && mouseXY->GetAbsolutePosition().x > m_rDst.x && // If cursor is within X bounds
-		//mouseXY.y < (m_rDst.y + m_rDst.h) && mouseXY.y > m_rDst.y)   // And cursor is within Y bounds
-		mouseXY->GetAbsolutePosition().y < (m_rDst.y + m_rDst.h) && mouseXY->GetAbsolutePosition().y > m_rDst.y)   // And cursor is within Y bounds
+	const Vector2 mouseXY = Input::GetMousePosition();
+	if (mouseXY.x < (m_rDst.x + m_rDst.w) && mouseXY.x > m_rDst.x && // If cursor is within X bounds
+		mouseXY.y < (m_rDst.y + m_rDst.h) && mouseXY.y > m_rDst.y)   // And cursor is within Y bounds
 	{
-		
-		if (Input::GetMouseButtonDown(mouse) && m_bReleased)
+
+		if (Input::GetMouseButtonDown(SDL_BUTTON_LEFT) && m_bReleased)
 		{
 			m_iFrame = MOUSE_DOWN; // For animated buttons
 			m_bReleased = false;
-			//Rect r();
 			//m_pSprite->ChangeFrame();
 			dynamic_cast<Shooter*>(game)->switchSceneTo = new Scene1();
 		}
-		else if (Input::GetMouseButtonUp(mouse))
+		else if (Input::GetMouseButtonUp(SDL_BUTTON_LEFT))
 		{
 			m_bReleased = true;
 			m_iFrame = MOUSE_OVER;
@@ -76,30 +70,4 @@ void Button::Update()
 		//if (Input::GetMouseButtonUp(mouse))
 			//m_bReleased = true;
 	}
-	//int mx = Game::Instance()->GetMouseX();
-	//int my = Game::Instance()->GetMouseY();
-	//if (mx < (m_rDst.x + m_rDst.w) && mx > m_rDst.x && // If cursor is within X bounds
-	//	my < (m_rDst.y + m_rDst.h) && my > m_rDst.y)   // And cursor is within Y bounds
-	//{
-	//	if (Game::Instance()->GetLeftMouse() && m_bReleased)
-	//	{
-	//		m_iFrame = MOUSE_DOWN;
-	//		m_bReleased = false;
-	//	}
-	//	else if (!Game::Instance()->GetLeftMouse())
-	//	{
-	//		m_bReleased = true;
-	//		m_iFrame = MOUSE_OVER;
-	//	}
-	//}
-	//else
-	//	m_iFrame = MOUSE_UP;
 }
-
-/*void Button::Render()
-{
-	//m_rSrc.x = m_rDst.w * m_iFrame; // Not needed if I dont have animation
-		SDL_RenderCopy(Game::gRenderer, m_pText, &m_rSrc, &m_rDst);
-	//m_rSrc.x = m_rDst.w * m_iFrame;
-	//SDL_RenderCopy(Game::Instance()->GetRenderer(), m_pText, &m_rSrc, &m_rDst);
-}*/

@@ -17,5 +17,5 @@ Cursor::~Cursor()
 
 void Cursor::Update()
 {
-	gameObject->transform->SetAbsolutePosition(Input::GetMousePosition()->GetAbsolutePosition());
+	gameObject->transform->SetAbsolutePosition(Input::GetMousePosition());
 }

@@ -29,7 +29,6 @@ UpdateVectorTarget::~UpdateVectorTarget()
 
 void UpdateVectorTarget::Update()
 {
-<<<<<<< HEAD
 /*timer += Time::DeltaTime();
 if ((gameObject->transform->GetAbsolutePosition() - target).Length() <= 10 || timer > maxTime)
 {
@@ -44,6 +43,7 @@ if ((gameObject->transform->GetAbsolutePosition() - target).Length() <= 10 || ti
 }*/
 	if ((gameObject->transform->GetAbsolutePosition() - target).Length() <= 650 && stage == 0)
 	{
+
 	}
 
 	if (stage == 0 && (gameObject->transform->GetAbsolutePosition() - target).Length() <= 350)

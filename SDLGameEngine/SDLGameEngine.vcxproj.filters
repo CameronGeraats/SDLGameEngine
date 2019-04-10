@@ -107,12 +107,6 @@
     <Filter Include="Shooter\BTBehaviours">
       <UniqueIdentifier>{e85fea0b-7a55-4f12-a23a-984eefed3b23}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Old Demo Projects">
-      <UniqueIdentifier>{05280b82-7979-4590-af91-9c927bb4eb45}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Old Demo Projects\Shooter">
-      <UniqueIdentifier>{80c28545-bd1a-45d7-b6bd-d34eae370ef8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="DeathMark">
       <UniqueIdentifier>{5200bdbd-a08d-4d00-8c49-7117551d1be5}</UniqueIdentifier>
     </Filter>

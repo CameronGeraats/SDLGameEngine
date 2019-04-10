@@ -32,6 +32,7 @@
 #include "Investigate.h"
 
 TTF_Font* Shooter::textFont = TTF_OpenFont("Assets/AdobeGothicStd-Bold", 28);
+std::string Shooter::fontFile = "Assets/AdobeGothicStd-Bold";
 SDL_Color Shooter::textColour = { 255, 0, 0 };
 
 Shooter::Shooter()
@@ -53,6 +54,25 @@ void Shooter::Awake()
 }
 
 void Shooter::BulletPrefab(GameObject* go)
+{
+	go->name = "bullet";
+	go->AddComponent(new SpriteRenderer("Assets/beams.png", new Rect(15, 300, 50, 90)));
+	go->AddComponent(new Bullet());
+	//go->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
+	Rigidbody* rb = new Rigidbody();
+	rb->SetBodyType(Rigidbody::dynamicBody);
+	go->AddComponent(rb);
+	rb->SetBullet(true);
+
+	BoxCollider* col = new BoxCollider();
+	go->AddComponent(col);
+	col->SetDimension(Vector2(10, 10));
+	col->SetTrigger(true);
+	//col->SetCategory(physics->Layer_1);
+	//col->SetCollisionMask(~physics->Layer_1);
+}
+
+void Shooter::EnemyBulletPrefab(GameObject* go)
 {
 	go->name = "bullet";
 	go->AddComponent(new SpriteRenderer("Assets/beams.png", new Rect(15, 300, 50, 90)));

@@ -6,9 +6,6 @@
 std::list<SDL_Keycode> Input::keyDownEvents = std::list<SDL_Keycode>({});
 std::list<SDL_Keycode> Input::keyHoldEvents = std::list<SDL_Keycode>({});
 std::list<SDL_Keycode> Input::keyUpEvents = std::list<SDL_Keycode>({});
-std::list<SDL_MouseButtonEvent> Input::mouseUpEvents = std::list<SDL_MouseButtonEvent>({});
-std::list<SDL_MouseButtonEvent> Input::mouseDownEvents = std::list<SDL_MouseButtonEvent>({});
-std::list<SDL_MouseMotionEvent> Input::mouseMoveEvents = std::list<SDL_MouseMotionEvent>({});
 
 std::list<Uint8> Input::mouseDownEvents = std::list<Uint8>({});
 std::list<Uint8> Input::mouseHoldEvents = std::list<Uint8>({});
@@ -62,19 +59,6 @@ void Input::Update()
 			keyDownEvents.remove(e.key.keysym.sym);
 			break;
 		
-		case SDL_MOUSEBUTTONDOWN:
-			//if (e.button.button == SDL_BUTTON_LEFT)
-				//m_bLeftMouse = true;
-			// if()
-			mouseDownEvents.push_back(e.button);
-			break;
-
-		case SDL_MOUSEBUTTONUP:
-			//if (e.button.button == SDL_BUTTON_LEFT)
-				//m_bLeftMouse = false;
-			mouseUpEvents.push_back(e.button);
-			break;
-
 		case SDL_MOUSEMOTION: // Not needed if I just need mouse position and not motion
 			//mouseMoveEvents.push_back(e.motion); // unneccesary? useful if tracking delta x/y?
 			//SDL_GetMouseState(&m_iMouseX, &m_iMouseY);
@@ -103,71 +87,6 @@ void Input::Update()
 	{
 		std::cout << "No. of events = " << i << std::endl;
 	}*/
-}
-
-//bool Input::GetMouseButtonDown(SDL_MouseButtonEvent button)
-//{
-//	for (SDL_Event* e : currentEvents)
-//	{
-//		if (e->type == SDL_MOUSEBUTTONDOWN && e->button.type == button.type)
-//		{
-//
-//		}
-//	}
-//	return true;
-//}
-bool Input::GetMouseButtonDown(SDL_MouseButtonEvent button)
-{
-	for (SDL_MouseButtonEvent mbe : mouseDownEvents)
-	{
-		if (mbe.type == SDL_MOUSEBUTTONDOWN && mbe.button == button.button)
-		{ 
-			return true;
-		}
-	}
-	return false;
-	//button.button = SDL_BUTTON_LEFT;
-}
-
-bool Input::GetMouseButtonUp(SDL_MouseButtonEvent button)
-{
-	for (SDL_MouseButtonEvent mbe : mouseUpEvents)
-	{
-		if (mbe.type == SDL_MOUSEBUTTONUP && mbe.button == button.button)
-		{
-			return true;
-		}
-	}
-	return false;
-}
-
-//SDL_Rect Input::GetMousePosition()
-//{
-//	int m_iMouseX, m_iMouseY;
-//	SDL_GetMouseState(&m_iMouseX, &m_iMouseY);
-//	SDL_Rect xy;
-//	xy.h = xy.w = 0;
-//	xy.x = m_iMouseX;
-//	xy.y = m_iMouseY;
-//	return xy;
-//}
-
-//Transform* Input::GetMousePosition()
-//{
-//	int m_iMouseX, m_iMouseY;
-//	SDL_GetMouseState(&m_iMouseX, &m_iMouseY);
-//	static Transform* xy = new Transform;
-//	xy->SetAbsolutePosition(Vector2(m_iMouseX,m_iMouseY));
-//	return xy;
-//}
-
-Transform* Input::GetMousePosition()
-{
-	int m_iMouseX, m_iMouseY;
-	SDL_GetMouseState(&m_iMouseX, &m_iMouseY);
-	static Transform* xy = new Transform;
-	xy->SetAbsolutePosition(Vector2(m_iMouseX ,m_iMouseY));
-	return xy;
 }
 
 bool Input::GetKeyDown(SDL_Keycode const &key)

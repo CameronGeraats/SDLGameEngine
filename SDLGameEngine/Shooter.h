@@ -22,6 +22,7 @@ public:
 
 	Scene* switchSceneTo = nullptr;
 	static TTF_Font* textFont;
+	static std::string fontFile;
 	static SDL_Color textColour;
 
 	//StateMachine* m_pFinStateMachine;

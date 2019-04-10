@@ -5,6 +5,7 @@
 #include "Collider.h"
 #include "Rect.h"
 #include "Arrive.h"
+#include "BoxCollider.h"
 
 ObstacleAvoidance::ObstacleAvoidance()
 {
