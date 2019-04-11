@@ -395,9 +395,6 @@
     <ClCompile Include="MoveInCircle.cpp">
       <Filter>Old Demo Projects\Shooter</Filter>
     </ClCompile>
-    <ClCompile Include="TextSprite.cpp">
-      <Filter>DeathMark\Cams Additions\Added Functionality</Filter>
-    </ClCompile>
     <ClCompile Include="SpawnEnemies.cpp">
       <Filter>DeathMark\Cams Additions</Filter>
     </ClCompile>
@@ -406,6 +403,12 @@
     </ClCompile>
     <ClCompile Include="Stop.cpp">
       <Filter>DeathMark\Cams Additions</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerStats.cpp">
+      <Filter>DeathMark\Cams Additions</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneUpgrade.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -694,9 +697,6 @@
     <ClInclude Include="MoveInCircle.h">
       <Filter>Old Demo Projects\Shooter</Filter>
     </ClInclude>
-    <ClInclude Include="TextSprite.h">
-      <Filter>DeathMark\Cams Additions\Added Functionality</Filter>
-    </ClInclude>
     <ClInclude Include="SpawnEnemies.h">
       <Filter>DeathMark\Cams Additions</Filter>
     </ClInclude>
@@ -706,5 +706,9 @@
     <ClInclude Include="Stop.h">
       <Filter>DeathMark\Cams Additions</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerStats.h">
+      <Filter>DeathMark\Cams Additions</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneUpgrade.h" />
   </ItemGroup>
 </Project>

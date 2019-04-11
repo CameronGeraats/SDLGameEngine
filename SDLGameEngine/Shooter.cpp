@@ -51,6 +51,7 @@ void Shooter::Awake()
 	Camera::width = 1280;
 	Camera::height = 720;
 	Time::timeScale = 1;
+	//playerStats = new PlayerStats();
 }
 
 void Shooter::BulletPrefab(GameObject* go)
@@ -83,12 +84,12 @@ void Shooter::EnemyBulletPrefab(GameObject* go)
 	go->AddComponent(rb);
 	rb->SetBullet(true);
 
-	/*BoxCollider* col = new BoxCollider();
+	BoxCollider* col = new BoxCollider();
 	go->AddComponent(col);
 	col->SetDimension(Vector2(10, 10));
 	col->SetTrigger(true);
 	//col->SetCategory(physics->Layer_1);
-	//col->SetCollisionMask(~physics->Layer_1);*/
+	//col->SetCollisionMask(~physics->Layer_1);
 }
 
 void Shooter::LaserPrefab(GameObject* go)
@@ -132,10 +133,13 @@ void Shooter::WallPrefab(GameObject* go)
 void Shooter::EnemyPrefab(GameObject* go)
 {
 	go->name = "enemy";
-	GameObject* graphic = Instantiate("enemy_graphic", 0, 0, 90);
-	graphic->AddComponent(new SpriteRenderer("Assets/tanks_3.png", new Rect(350, 250, 225, 150)));
-	graphic->transform->SetParentRelative(go->transform);
-	graphic->transform->SetAbsoluteScale(Vector2(0.3f, 0.3f));
+	//GameObject* graphic = Instantiate("enemy_graphic", 0, 0, 90);
+	go->AddComponent(new SpriteRenderer("Assets/Enemy/black.png"));
+	//go->AddComponent(new SpriteRenderer("Assets/tanks_3.png", new Rect(350, 250, 225, 150)));
+	//graphic->AddComponent(new SpriteRenderer("Assets/tanks_3.png", new Rect(350, 250, 225, 150)));
+	//graphic->transform->SetParentRelative(go->transform);
+	go->transform->SetAbsoluteScale(Vector2(0.25f, 0.25f));
+	//graphic->transform->SetAbsoluteScale(Vector2(0.3f, 0.3f));
 
 	//GameObject* tgt = Instantiate("Target", Camera::x + rand() % Camera::width, Camera::y + rand() % Camera::height);
 	GameObject* tgt = Instantiate("Target", Camera::x + Camera::width/2, Camera::y + Camera::height/2);
@@ -188,7 +192,7 @@ void Shooter::EnemyPrefab(GameObject* go)
 	BoxCollider* col = new BoxCollider();
 	go->AddComponent(col);
 
-	col->SetDimension(Vector2(50, 50));
+	col->SetDimension(Vector2(150, 150));
 	col->SetCategory(physics->Layer_3);
 	col->SetCollisionMask(~physics->Layer_3);
 

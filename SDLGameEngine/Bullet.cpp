@@ -3,6 +3,9 @@
 #include "Transform.h"
 #include "Time.h"
 #include "Game.h"
+#include "Shooter.h"
+#include "SceneMenu.h"
+#include <iostream>
 
 Bullet::Bullet()
 {
@@ -41,6 +44,22 @@ void Bullet::OnTriggerEnter(Collider* col)
 {
 	if (col->gameObject->name == "enemy")
 	{
-		game->Destroy(col->gameObject);
+			game->Destroy(col->gameObject);
+			dynamic_cast<Shooter*>(game)->playerStats->UpdateMoney(25);
+			if(gameObject->name != "laser")
+				timer += 50;
+	}
+	else if (col->gameObject->name == "Player")
+	{
+		Shooter* temp = dynamic_cast<Shooter*>(game);
+		float damage = 6 * (100 - temp->playerStats->GetArmor())/100;
+		temp->playerStats->UpdateHealth(int(-damage));
+		std::cout << temp->playerStats->GetHealth() << std::endl;
+		if (temp->playerStats->GetHealth() <= 0)
+		{
+			//game->Destroy(col->gameObject);
+			temp->switchSceneTo = new SceneMenu();
+		}
+		game->Destroy(gameObject);
 	}
 }

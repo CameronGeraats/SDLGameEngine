@@ -2,6 +2,7 @@
 #include "Game.h"
 //#include "FSM.h"
 //#include "AudioManager.h"
+#include "PlayerStats.h"
 
 class Shooter :
 	public Game
@@ -25,6 +26,7 @@ public:
 	static std::string fontFile;
 	static SDL_Color textColour;
 
+	PlayerStats* playerStats;
 	//StateMachine* m_pFinStateMachine;
 	//AudioManager* m_pAudioManager;
 };

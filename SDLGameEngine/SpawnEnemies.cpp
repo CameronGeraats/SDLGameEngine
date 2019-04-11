@@ -29,9 +29,10 @@ void SpawnEnemies::Start()
 void SpawnEnemies::Update()
 {
 	float f = Time::TimeElapsed();
-	if(createReady && fmod(f,4)>3.5f)
+	if(spawnLimit > 0 && createReady && fmod(f,5)>4.5f)
 	{
-		for (int i = 0; i < 3; i++) // To generate more each tick
+		int max = 1 + rand() % 5;
+		for (int i = 0; i < max; i++) // To generate more each tick
 		{
 			int x, y, z = rand() % 4;
 			if (z == 0) { y = Camera::y - 100; x = Camera::x + rand() % Camera::width; }
@@ -46,10 +47,14 @@ void SpawnEnemies::Update()
 		}
 		createReady = false;
 	}
-	if (fmod(f, 4) < 3.5f) createReady = true;
+	if (fmod(f, 5) < 4.5f) createReady = true;
 	Component::Update();
 	if (spawnLimit <= 0)
+	{
+		spawnLimit--;
+		if(spawnLimit <= -180)
 		dynamic_cast<Shooter*>(game)->switchSceneTo = new SceneMenu();
+	}
 }
 
 void SpawnEnemies::FixedUpdate()

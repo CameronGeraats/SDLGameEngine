@@ -25,6 +25,7 @@
 #include "Cursor.h"
 #include "Enemy.h"
 #include "MenuControls.h"
+#include "Shooter.h"
 
 Scene1::Scene1()
 {
@@ -39,8 +40,14 @@ Scene1::~Scene1()
 void Scene1::Setup()
 {
 	Scene::Setup();
-
-
+	Shooter* temp = dynamic_cast<Shooter*>(game);
+	if(temp->playerStats){
+		delete temp->playerStats;
+		temp->playerStats = nullptr;
+		temp->playerStats = new PlayerStats();
+	}
+	else
+		temp->playerStats = new PlayerStats();
 	GameObject* bg = Instantiate("bg", Camera::width/2, Camera::height/2, 0);
 	Sprite* bgSprite = new Sprite("Assets/LevelMap/plaingrass3.png");//Sprite* bgSprite = new Sprite("Assets/background.png");
 	SpriteRenderer* bgRenderer = new SpriteRenderer(bgSprite);

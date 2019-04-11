@@ -63,7 +63,7 @@ void Enemy::Update()
 
 void Enemy::OnTriggerEnter(Collider* col)
 {
-	if (col->gameObject->name == "TankGraphic")
+	if (col->gameObject->name == "playerGraphic")
 	{
 		//detectedPlayer = col->gameObject;
 	}
@@ -71,7 +71,7 @@ void Enemy::OnTriggerEnter(Collider* col)
 
 void Enemy::OnTriggerExit(Collider* col)
 {
-	if (col->gameObject->name == "TankGraphic")
+	if (col->gameObject->name == "playerGraphic")
 	{
 		//detectedPlayer = nullptr;
 	}

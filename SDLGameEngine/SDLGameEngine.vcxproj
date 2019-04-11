@@ -184,11 +184,13 @@
     <ClCompile Include="PathNode.cpp" />
     <ClCompile Include="Patrol.cpp" />
     <ClCompile Include="PlayerControls.cpp" />
+    <ClCompile Include="PlayerStats.cpp" />
     <ClCompile Include="Pursue.cpp" />
     <ClCompile Include="Ray.cpp" />
     <ClCompile Include="RaycastHit.cpp" />
     <ClCompile Include="Scene1.cpp" />
     <ClCompile Include="SceneMenu.cpp" />
+    <ClCompile Include="SceneUpgrade.cpp" />
     <ClCompile Include="Seek.cpp" />
     <ClCompile Include="Shoot.cpp" />
     <ClCompile Include="Shooter.cpp" />
@@ -214,7 +216,6 @@
     <ClCompile Include="SteeringBehaviour.cpp" />
     <ClCompile Include="Stop.cpp" />
     <ClCompile Include="TextRenderer.cpp" />
-    <ClCompile Include="TextSprite.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="UpdateTarget.cpp" />
@@ -272,6 +273,7 @@
     <ClInclude Include="Patrol.h" />
     <ClInclude Include="Physics.h" />
     <ClInclude Include="PlayerControls.h" />
+    <ClInclude Include="PlayerStats.h" />
     <ClInclude Include="Pursue.h" />
     <ClInclude Include="Ray.h" />
     <ClInclude Include="RaycastHit.h" />
@@ -282,6 +284,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Scene1.h" />
     <ClInclude Include="SceneMenu.h" />
+    <ClInclude Include="SceneUpgrade.h" />
     <ClInclude Include="Seek.h" />
     <ClInclude Include="Shoot.h" />
     <ClInclude Include="Shooter.h" />
@@ -295,7 +298,6 @@
     <ClInclude Include="SteeringBehaviour.h" />
     <ClInclude Include="Stop.h" />
     <ClInclude Include="TextRenderer.h" />
-    <ClInclude Include="TextSprite.h" />
     <ClInclude Include="Time.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="TransformData.h" />
