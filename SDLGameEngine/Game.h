@@ -52,6 +52,7 @@ public:
 
 	Physics* const physics = new Physics();
 
+	Scene* GetCurrentScene() { return currentScene; }
 private:
 	void InitializeModules();
 

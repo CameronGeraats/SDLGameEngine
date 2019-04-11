@@ -110,9 +110,6 @@
     <Filter Include="DeathMark">
       <UniqueIdentifier>{5200bdbd-a08d-4d00-8c49-7117551d1be5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="DeathMark\SteeringBehaviours">
-      <UniqueIdentifier>{dae22b37-912f-4fe4-9010-5914ce9592f9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="DeathMark\Cams Additions">
       <UniqueIdentifier>{e3f3a66f-7509-466b-bb7c-b4722fda24ce}</UniqueIdentifier>
     </Filter>
@@ -409,9 +406,6 @@
     </ClCompile>
     <ClCompile Include="Stop.cpp">
       <Filter>DeathMark\Cams Additions</Filter>
-    </ClCompile>
-    <ClCompile Include="Cursor.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -712,6 +706,5 @@
     <ClInclude Include="Stop.h">
       <Filter>DeathMark\Cams Additions</Filter>
     </ClInclude>
-    <ClInclude Include="Cursor.h" />
   </ItemGroup>
 </Project>

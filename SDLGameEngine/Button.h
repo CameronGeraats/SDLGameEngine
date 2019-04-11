@@ -9,16 +9,17 @@ class Button :
 	public Component
 {
 public:
+	enum buttonTypes { EXIT_GAME, START_GAME, INSTRUCTIONS };
 	//Button(const char* s, SDL_Rect d);
-	Button(SDL_Rect d);
-	Button(SDL_Rect d, Sprite* sp);
+	Button(SDL_Rect d, buttonTypes = EXIT_GAME);
+	Button(SDL_Rect d, Sprite* sp, buttonTypes = EXIT_GAME);
 	~Button();
 	void Update();
 	//void Render(); // New engine separates functionality, redundant
 	bool Clicked() { return m_iFrame == 2; }
-
 private:
 	enum state { MOUSE_UP, MOUSE_OVER, MOUSE_DOWN };
+	buttonTypes buttonType;
 	bool m_bReleased;
 	int m_iFrame;
 	SDL_Rect m_rSrc;

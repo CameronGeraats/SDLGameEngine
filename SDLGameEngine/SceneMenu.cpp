@@ -28,6 +28,7 @@
 
 SceneMenu::SceneMenu()
 {
+	SDL_ShowCursor(SDL_ENABLE);
 }
 
 
@@ -39,29 +40,54 @@ void SceneMenu::Setup()
 {
 	Scene::Setup();
 
-	GameObject* bg = Instantiate("bg", 300, 200, 0);
-	Sprite* bgSprite = new Sprite("Assets/bg.png");
+	GameObject* bg = Instantiate("bg", 760, 420, 0); // 300, 200
+	bg->transform->SetAbsoluteScale(Vector2(1.5f, 1.5f));
+	Sprite* bgSprite = new Sprite("Assets/LevelMap/airfield.png");	//Sprite* bgSprite = new Sprite("Assets/bg.png");
 	SpriteRenderer* bgRenderer = new SpriteRenderer(bgSprite);
 	bg->AddComponent(bgRenderer);
 	bg->AddComponent(new MenuControls());
 
+	GameObject* tit = Instantiate("title", 760, 350, 0); // 300, 200
+	//tit->transform->SetAbsoluteScale(Vector2(1.0f, 1.0f));
+	Sprite* titSprite = new Sprite("Assets/LevelMap/title.png");	//Sprite* bgSprite = new Sprite("Assets/bg.png");
+	SpriteRenderer* titRenderer = new SpriteRenderer(titSprite);
+	tit->AddComponent(titRenderer);
+
 	// Could add XML file loading to get an array of frame rectangles
-	GameObject* playButton = Instantiate("playButton",300,200,0);
+	GameObject* playButton = Instantiate("playButton",450,485,0);
 	//Rect* tempRect = new Rect(0,0,256,128);
 	Rect* frameRect = new Rect(0,0,256,64);
 	Sprite* playButtonSprite = new Sprite("Assets/buttons.png", frameRect);
 	SpriteRenderer* playBRenderer = new SpriteRenderer(playButtonSprite);
 	playButton->AddComponent(playBRenderer);
-	TextRenderer* buttonText = new TextRenderer(Shooter::fontFile,28,"PLAY");
-	
+	TextRenderer* buttonText = new TextRenderer(Shooter::fontFile,28,"START GAME");
 	playButton->AddComponent(buttonText);
-
-	//TextSprite* playButtonTextSprite = new TextSprite("PLAY",game);
-	//SpriteRenderer* playBTRenderer = new SpriteRenderer(playButtonTextSprite, playButtonTextSprite->GetTexture());
-	//playButton->AddComponent(playBTRenderer);
-	//playButton->AddComponent(playBRenderer);
-	Button* playBut = new Button(SDL_Rect{ 300,200,frameRect->w,frameRect->h });
+	Button* playBut = new Button(SDL_Rect{ 450,485,frameRect->w,frameRect->h }, Button::START_GAME);
 	playButton->AddComponent(playBut);
+
+	// Could add XML file loading to get an array of frame rectangles
+	GameObject* instructionsButton = Instantiate("instrButton", 750, 485, 0);
+	//Rect* tempRect = new Rect(0,0,256,128);
+	Rect* frameRect2 = new Rect(0, 0, 256, 64);
+	Sprite* instrButtonSprite = new Sprite("Assets/buttons.png", frameRect2);
+	SpriteRenderer* instrBRenderer = new SpriteRenderer(instrButtonSprite);
+	instructionsButton->AddComponent(instrBRenderer);
+	TextRenderer* buttonText2 = new TextRenderer(Shooter::fontFile, 28, "INSTRUCTIONS");
+	instructionsButton->AddComponent(buttonText2);
+	Button* instrBut = new Button(SDL_Rect{ 750,485,frameRect2->w,frameRect2->h }, Button::INSTRUCTIONS);
+	instructionsButton->AddComponent(instrBut);
+
+	// Could add XML file loading to get an array of frame rectangles
+	GameObject* exitButton = Instantiate("exitButton", 1050, 485, 0);
+	//Rect* tempRect = new Rect(0,0,256,128);
+	Rect* frameRect3 = new Rect(0, 0, 256, 64);
+	Sprite* exitButtonSprite = new Sprite("Assets/buttons.png", frameRect3);
+	SpriteRenderer* exitBRenderer = new SpriteRenderer(exitButtonSprite);
+	exitButton->AddComponent(exitBRenderer);
+	TextRenderer* buttonText3 = new TextRenderer(Shooter::fontFile, 28, "EXIT GAME");
+	exitButton->AddComponent(buttonText3);
+	Button* exitBut = new Button(SDL_Rect{ 1050,485,frameRect3->w,frameRect3->h }, Button::EXIT_GAME);
+	exitButton->AddComponent(exitBut);
 
 	/*
 	GameObject* go = Instantiate("Tank", 300, 200, 0);

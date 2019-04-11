@@ -3,6 +3,8 @@
 #include "Time.h"
 #include "RenderModule.h"
 #include "Event.h"
+#include <iostream>
+#include <string>
 
 SDL_Window* Game::gWindow = NULL;
 SDL_Renderer* Game::gRenderer = NULL;
@@ -181,8 +183,8 @@ void Game::Update()
 		{
 			currentScene->ReleaseFromScene(g);
 		}
-	//	if(g)
-			delete g; // Error hereeeee
+		std::cout << g->name << " \n";
+		delete g; // Error hereeeee
 		g = NULL;
 	}
 

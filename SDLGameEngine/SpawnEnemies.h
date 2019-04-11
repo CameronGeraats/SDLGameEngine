@@ -17,5 +17,6 @@ public:
 	virtual ~SpawnEnemies();
 private:
 	bool createReady = true;
+	int spawnLimit;
 };
 

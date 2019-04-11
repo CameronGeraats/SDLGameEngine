@@ -24,6 +24,7 @@
 #include "SpawnEnemies.h"
 #include "Cursor.h"
 #include "Enemy.h"
+#include "MenuControls.h"
 
 Scene1::Scene1()
 {
@@ -40,38 +41,55 @@ void Scene1::Setup()
 	Scene::Setup();
 
 
-	GameObject* bg = Instantiate("bg", 300, 200, 0);
-	Sprite* bgSprite = new Sprite("Assets/background.png");
+	GameObject* bg = Instantiate("bg", Camera::width/2, Camera::height/2, 0);
+	Sprite* bgSprite = new Sprite("Assets/LevelMap/plaingrass3.png");//Sprite* bgSprite = new Sprite("Assets/background.png");
 	SpriteRenderer* bgRenderer = new SpriteRenderer(bgSprite);
 	bg->AddComponent(bgRenderer);
+	bg->AddComponent(new MenuControls());
 
-	GameObject* bg1 = Instantiate("bg", 300 - 700, 200, 0);
+	GameObject* bg1 = Instantiate("bg", Camera::width/2 - 600, Camera::height/2, 0);
 	SpriteRenderer* bgRenderer1 = new SpriteRenderer(bgSprite);
 	bg1->AddComponent(bgRenderer1);
 
-	GameObject* bg2 = Instantiate("bg", 300 + 700, 200, 0);
+	GameObject* bg2 = Instantiate("bg", Camera::width/2 + 600, Camera::height/2, 0);
 	SpriteRenderer* bgRenderer2 = new SpriteRenderer(bgSprite);
 	bg2->AddComponent(bgRenderer2);
 
-	GameObject* bg3 = Instantiate("bg", 300, 200 + 600, 0);
+	GameObject* bg3 = Instantiate("bg", Camera::width/2, Camera::height/2 + 360, 0);
 	SpriteRenderer* bgRenderer3 = new SpriteRenderer(bgSprite);
 	bg3->AddComponent(bgRenderer3);
 
-	GameObject* bg4 = Instantiate("bg", 300, 200 - 600, 0);
+	GameObject* bg4 = Instantiate("bg", Camera::width/2 - 600, Camera::height/2 + 360, 0);
 	SpriteRenderer* bgRenderer4 = new SpriteRenderer(bgSprite);
 	bg4->AddComponent(bgRenderer4);
 
-	//GameObject* wall1 = Instantiate(game->Prefab("Wall"), 200, 200, 90);
-	//GameObject* wall2 = Instantiate(game->Prefab("Wall"), 500, 400, 0);
-	//GameObject* wall3 = Instantiate(game->Prefab("Wall"), 0, 0, 0);
-	//GameObject* wall4 = Instantiate(game->Prefab("Wall"), 700, 200, 45);
-	//GameObject* wall5 = Instantiate(game->Prefab("Wall"), 400, 100, 10);
-	//GameObject* wall6 = Instantiate(game->Prefab("Wall"), -50, 550, 45);
+	GameObject* bg5 = Instantiate("bg", Camera::width/2 + 600, Camera::height/2 + 360, 0);
+	SpriteRenderer* bgRenderer5 = new SpriteRenderer(bgSprite);
+	bg5->AddComponent(bgRenderer5);
+
+	GameObject* bg6 = Instantiate("bg", Camera::width/2, Camera::height/2 - 360, 0);
+	SpriteRenderer* bgRenderer6 = new SpriteRenderer(bgSprite);
+	bg6->AddComponent(bgRenderer6);
+
+	GameObject* bg7 = Instantiate("bg", Camera::width/2 - 600, Camera::height/2 - 360, 0);
+	SpriteRenderer* bgRenderer7 = new SpriteRenderer(bgSprite);
+	bg7->AddComponent(bgRenderer7);
+
+	GameObject* bg8 = Instantiate("bg", Camera::width/2 + 600, Camera::height/2 - 360, 0);
+	SpriteRenderer* bgRenderer8 = new SpriteRenderer(bgSprite);
+	bg8->AddComponent(bgRenderer8);
+
+	/*GameObject* wall1 = Instantiate(game->Prefab("Wall"), 200, 200, 90);
+	GameObject* wall2 = Instantiate(game->Prefab("Wall"), 500, 400, 0);
+	GameObject* wall3 = Instantiate(game->Prefab("Wall"), 0, 0, 0);
+	GameObject* wall4 = Instantiate(game->Prefab("Wall"), 700, 200, 45);
+	GameObject* wall5 = Instantiate(game->Prefab("Wall"), 400, 100, 10);
+	GameObject* wall6 = Instantiate(game->Prefab("Wall"), -50, 550, 45);*/
 
 
-	GameObject* go = Instantiate("Player", 300, 200, 0);
-	go->AddComponent(new SpriteRenderer("Assets/Target.png"));
-	go->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
+	GameObject* go = Instantiate("Player", Camera::width/2, Camera::height/2, 0);//	GameObject* go = Instantiate("Player", 300, 200, 0);
+	//go->AddComponent(new SpriteRenderer("Assets/Target.png"));
+	go->transform->SetRelativeScale(Vector2(0.25f, 0.25f));
 	Rigidbody* rb = new Rigidbody();
 	rb->SetBodyType(Rigidbody::dynamicBody);
 	//rb->SetBodyType(Rigidbody::staticBody);
@@ -82,51 +100,53 @@ void Scene1::Setup()
 
 	col->SetDimension(Vector2(80, 80));
 
-	GameObject* graphic = Instantiate("TankGraphic", 0, 0, 90);
-	Sprite* tankSprite = new Sprite("Assets/Tank.png");
-	SpriteRenderer* tankRenderer = new SpriteRenderer();
-	tankRenderer->SetSprite(tankSprite);
-	//tankRenderer->flipY = true;
+	//GameObject* graphic = Instantiate("playerGraphic", 0, 0, 0);
+	Sprite* playerSprite = new Sprite("Assets/Player/handgun3.png");	//Sprite* tankSprite = new Sprite("Assets/Tank.png");
+	SpriteRenderer* playerRenderer = new SpriteRenderer();
+	playerRenderer->SetSprite(playerSprite);
 
-	graphic->AddComponent(tankRenderer);
-	/*graphic->transform->scale.x = 0.1f;
-	graphic->transform->scale.y = 0.1f;*/
-	graphic->transform->SetParentRelative(go->transform);
+	go->AddComponent(playerRenderer);
+	//graphic->AddComponent(playerRenderer);
+	//graphic->transform->SetParentRelative(go->transform);
 
 	//BoxCollider* col = new BoxCollider();
 	//col->SetCategory(game->physics->Layer_1);
 	//graphic->AddComponent(col);
 	//col->SetDimension(Vector2(620, 691));
 
-	go->AddComponent(new PlayerControls());
-	go->AddComponent(new CameraFollow());
-	go->GetComponent<CameraFollow>()->Update();
+	//go->AddComponent(new PlayerControls());
+	/*go->AddComponent(new CameraFollow());
+	go->GetComponent<CameraFollow>()->Update();*/
 	go->AddComponent(new SpawnEnemies());
-	graphic->AddComponent(new Shoot());
-			// Trying to replace cursor with Target sprite
+	go->AddComponent(new Shoot());
+	//graphic->AddComponent(new Shoot());
+			
 	SDL_ShowCursor(SDL_DISABLE);
-	GameObject* cursor = Instantiate("Cursor", 0, 0, 0);
-	cursor->AddComponent(new Cursor);
-	//GameObject* cursor = Instantiate("Cursor", -300, -200, 0);
-	cursor->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
-	//GameObject* targetGraph = Instantiate("TargetGraphic", -Camera::width/2, -Camera::height/2, 90);
-	GameObject* targetGraph = Instantiate("TargetGraphic", -500, -250, 90);
-	Sprite* targetSprite = new Sprite("Assets/Target.png");
-	//SpriteRenderer* sprRen = new SpriteRenderer("Assets/Target.png", 0, 1);
-	SpriteRenderer* sprRen = new SpriteRenderer();
-	sprRen->SetLayer(1);
-	sprRen->SetSprite(targetSprite);
-	targetGraph->AddComponent(sprRen);
-	targetGraph->transform->SetParentRelative(cursor->transform);
-// Abisheks Cursor
-	//GameObject* crosshair = Instantiate("Crosshair", 0, 0, 90);
+// My old cursor stuff
+	//GameObject* cursor = Instantiate("Cursor", 0, 0, 0);
+	//cursor->AddComponent(new Cursor);
+	////GameObject* cursor = Instantiate("Cursor", -300, -200, 0);
+	//cursor->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
+	////GameObject* targetGraph = Instantiate("TargetGraphic", -Camera::width/2, -Camera::height/2, 90);
+	//GameObject* targetGraph = Instantiate("TargetGraphic", -500, -250, 90);
 	//Sprite* targetSprite = new Sprite("Assets/Target.png");
-	//SpriteRenderer* targetRenderer = new SpriteRenderer();
-	//targetRenderer->SetSprite(targetSprite);
-	//crosshair->AddComponent(targetRenderer);
-	//crosshair->transform->SetAbsoluteScale(Vector2(0.1f, 0.1f));
+	////SpriteRenderer* sprRen = new SpriteRenderer("Assets/Target.png", 0, 1);
+	//SpriteRenderer* sprRen = new SpriteRenderer();
+	//sprRen->SetLayer(1);
+	//sprRen->SetSprite(targetSprite);
+	//targetGraph->AddComponent(sprRen);
+	//targetGraph->transform->SetParentRelative(cursor->transform);
+// Abisheks Cursor
+	GameObject* crosshair = Instantiate("Crosshair", 0, 0, 0);
+	Sprite* targetSprite = new Sprite("Assets/Target.png");
+	SpriteRenderer* targetRenderer = new SpriteRenderer();
+	targetRenderer->SetSprite(targetSprite);
+	crosshair->AddComponent(targetRenderer);
+	crosshair->transform->SetAbsoluteScale(Vector2(0.1f, 0.1f));
+	PlayerControls* controls = new PlayerControls(playerRenderer);
 	//PlayerControls* controls = new PlayerControls();
-	//controls->target = crosshair->transform;
+	controls->target = crosshair->transform;
+	go->AddComponent(controls);
 
 	for (int i = 0; i < 5; i++)
 	{
@@ -138,7 +158,7 @@ void Scene1::Setup()
 
 		//GameObject* enemy = Instantiate(game->Prefab("Enemy"), Camera::x + rand() % Camera::width, Camera::y + rand() % Camera::height, 0);
 		GameObject* enemy = Instantiate(game->Prefab("Enemy"), x, y, 0);
-		enemy->GetComponent<Enemy>()->player = graphic;
+		enemy->GetComponent<Enemy>()->player = go;//		enemy->GetComponent<Enemy>()->player = graphic;
 		//enemy->GetComponent<Rigidbody>()->AddForce(50 * Vector2(rand() % 100 - 50 , rand() % 100 - 50));
 	}
 

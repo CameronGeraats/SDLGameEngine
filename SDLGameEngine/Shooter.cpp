@@ -111,7 +111,7 @@ void Shooter::LaserPrefab(GameObject* go)
 	BoxCollider* col = new BoxCollider();
 	go->AddComponent(col);
 
-	col->SetDimension(Vector2(20, 1350));
+	col->SetDimension(Vector2(20, 70));
 	col->SetTrigger(true);
 }
 

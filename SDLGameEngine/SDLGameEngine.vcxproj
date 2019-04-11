@@ -169,7 +169,6 @@
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ContactListener.cpp" />
-    <ClCompile Include="Cursor.cpp" />
     <ClCompile Include="DrawPath.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EnemyBlackboard.cpp" />
@@ -250,7 +249,6 @@
     <ClInclude Include="Color.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ContactListener.h" />
-    <ClInclude Include="Cursor.h" />
     <ClInclude Include="DrawPath.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EnemyBlackboard.h" />

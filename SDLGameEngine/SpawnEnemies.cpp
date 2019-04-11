@@ -3,10 +3,12 @@
 #include <cmath>
 #include "Game.h"
 #include "Camera.h"
-
+#include "Shooter.h"
+#include "SceneMenu.h"
 
 SpawnEnemies::SpawnEnemies()
 {
+	spawnLimit = 35;
 }
 
 //SpawnEnemies::SpawnEnemies(GameObject * _gameObject) : Component(_gameObject)
@@ -39,12 +41,15 @@ void SpawnEnemies::Update()
 
 			//GameObject* enemy = Instantiate(game->Prefab("Enemy"), Camera::x + rand() % Camera::width, Camera::y + rand() % Camera::height, 0);
 			GameObject* enemy = Instantiate(game->Prefab("Enemy"), x, y, 0);
+			spawnLimit--;
 			//enemy->GetComponent<Rigidbody>()->AddForce(50 * Vector2(rand() % 100 - 50 , rand() % 100 - 50));
 		}
 		createReady = false;
 	}
 	if (fmod(f, 4) < 3.5f) createReady = true;
 	Component::Update();
+	if (spawnLimit <= 0)
+		dynamic_cast<Shooter*>(game)->switchSceneTo = new SceneMenu();
 }
 
 void SpawnEnemies::FixedUpdate()

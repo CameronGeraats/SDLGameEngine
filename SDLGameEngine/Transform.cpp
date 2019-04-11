@@ -261,9 +261,12 @@ void Transform::SetParentRelative(Transform* _parent)
 	{
 		parent->children.push_back(this);
 	}
-	SetRelativePosition(relativePosition);
-	SetRelativeAngle(relativeAngle);
-	SetRelativeScale(relativeScale);
+	if (parent != NULL)
+	{
+		SetRelativePosition(relativePosition);
+		SetRelativeAngle(relativeAngle);
+		SetRelativeScale(relativeScale);
+	}
 	if (parent != NULL)
 	{
 		parent->OnAddChild(this);

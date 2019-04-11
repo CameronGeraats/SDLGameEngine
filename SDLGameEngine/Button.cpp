@@ -8,7 +8,7 @@
 #include "Scene1.h"
 #include "Vector2.h"
 
-Button::Button(SDL_Rect d)
+Button::Button(SDL_Rect d, buttonTypes butType)
 {
 	/// Set the button image. You should have some fail checking just in case. 
 //m_pSurf = IMG_Load(s);
@@ -20,10 +20,11 @@ Button::Button(SDL_Rect d)
 	m_rSrc.x = m_rSrc.y = 0;
 	m_rSrc.w = m_rDst.w;
 	m_rSrc.h = m_rDst.h;
+	buttonType = butType;
 }
 
 //Button::Button(const char* s, SDL_Rect d)
-Button::Button(SDL_Rect d, Sprite* sp)
+Button::Button(SDL_Rect d, Sprite* sp, buttonTypes butType)
 {
 					/// Set the button image. You should have some fail checking just in case. 
 			//m_pSurf = IMG_Load(s);
@@ -36,6 +37,7 @@ Button::Button(SDL_Rect d, Sprite* sp)
 	m_rSrc.w = m_rDst.w;
 	m_rSrc.h = m_rDst.h;
 	m_pSprite = sp;
+	buttonType = butType;
 }
 
 Button::~Button()
@@ -55,7 +57,12 @@ void Button::Update()
 			m_iFrame = MOUSE_DOWN; // For animated buttons
 			m_bReleased = false;
 			//m_pSprite->ChangeFrame();
-			dynamic_cast<Shooter*>(game)->switchSceneTo = new Scene1();
+			if (buttonType == Button::START_GAME)
+				dynamic_cast<Shooter*>(game)->switchSceneTo = new Scene1();
+			else if (buttonType == Button::EXIT_GAME)
+				Game::quit = true;
+			else if (buttonType == Button::INSTRUCTIONS)
+				;
 		}
 		else if (Input::GetMouseButtonUp(SDL_BUTTON_LEFT))
 		{
