@@ -7,6 +7,7 @@
 #include "Rect.h"
 #include "Scene1.h"
 #include "Vector2.h"
+#include "SceneUpgrade.h"
 
 Button::Button(SDL_Rect d, buttonTypes butType)
 {
@@ -58,7 +59,8 @@ void Button::Update()
 			m_bReleased = false;
 			//m_pSprite->ChangeFrame();
 			if (buttonType == Button::START_GAME)
-				dynamic_cast<Shooter*>(game)->switchSceneTo = new Scene1();
+				dynamic_cast<Shooter*>(game)->switchSceneTo = new SceneUpgrade(game);
+				//dynamic_cast<Shooter*>(game)->switchSceneTo = new Scene1();
 			else if (buttonType == Button::EXIT_GAME)
 				Game::quit = true;
 			else if (buttonType == Button::INSTRUCTIONS)

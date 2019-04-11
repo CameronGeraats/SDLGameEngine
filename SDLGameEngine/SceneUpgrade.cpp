@@ -24,13 +24,21 @@
 #include "Rigidbody.h"
 #include "Button.h"
 #include "Shooter.h"
-
+#include <string>
+#include <iostream>
 
 SceneUpgrade::SceneUpgrade()
 {
 	SDL_ShowCursor(SDL_ENABLE);
 }
 
+SceneUpgrade::SceneUpgrade(Game* g)
+{
+	Shooter* temp = dynamic_cast<Shooter*>(g);
+	game = g;
+	temp->playerStats = new PlayerStats();
+	SDL_ShowCursor(SDL_ENABLE);
+}
 
 SceneUpgrade::~SceneUpgrade()
 {
@@ -42,81 +50,71 @@ void SceneUpgrade::Setup()
 
 	GameObject* bg = Instantiate("bg", 760, 420, 0); // 300, 200
 	bg->transform->SetAbsoluteScale(Vector2(1.5f, 1.5f));
-	Sprite* bgSprite = new Sprite("Assets/LevelMap/airfield.png");	//Sprite* bgSprite = new Sprite("Assets/bg.png");
+	Sprite* bgSprite = new Sprite("Assets/UI/UpgradeBG.png"); //Sprite* bgSprite = new Sprite("Assets/LevelMap/airfield.png");	//Sprite* bgSprite = new Sprite("Assets/bg.png");
 	SpriteRenderer* bgRenderer = new SpriteRenderer(bgSprite);
-	bg->AddComponent(bgRenderer);
-	bg->AddComponent(new MenuControls());
+	bg->AddComponent(bgRenderer);	//bg->AddComponent(new MenuControls());
 
-	GameObject* tit = Instantiate("title", 760, 350, 0); // 300, 200
-	//tit->transform->SetAbsoluteScale(Vector2(1.0f, 1.0f));
-	Sprite* titSprite = new Sprite("Assets/LevelMap/title.png");	//Sprite* bgSprite = new Sprite("Assets/bg.png");
+	GameObject* tit = Instantiate("title", 800, 75, 0); // 300, 200 //tit->transform->SetAbsoluteScale(Vector2(1.0f, 1.0f));
+	Sprite* titSprite = new Sprite("Assets/UI/baseButton.png");	//Sprite* bgSprite = new Sprite("Assets/bg.png");
 	SpriteRenderer* titRenderer = new SpriteRenderer(titSprite);
 	tit->AddComponent(titRenderer);
+	tit->transform->SetAbsoluteScale(Vector2(1.0f, 0.5f));
+	TextRenderer* titText = new TextRenderer(Shooter::fontFile, 34, "BLACK MARKET");
+	tit->AddComponent(titText);
 
-	// Could add XML file loading to get an array of frame rectangles
-	GameObject* playButton = Instantiate("playButton", 450, 485, 0);
-	//Rect* tempRect = new Rect(0,0,256,128);
-	Rect* frameRect = new Rect(0, 0, 256, 64);
-	Sprite* playButtonSprite = new Sprite("Assets/buttons.png", frameRect);
-	SpriteRenderer* playBRenderer = new SpriteRenderer(playButtonSprite);
-	playButton->AddComponent(playBRenderer);
-	TextRenderer* buttonText = new TextRenderer(Shooter::fontFile, 28, "START GAME");
-	playButton->AddComponent(buttonText);
-	Button* playBut = new Button(SDL_Rect{ 450,485,frameRect->w,frameRect->h }, Button::START_GAME);
-	playButton->AddComponent(playBut);
+	GameObject* moneyBG = Instantiate("moneyBG", 150, 75, 0); // 300, 200 //tit->transform->SetAbsoluteScale(Vector2(1.0f, 1.0f));
+	Sprite* moneyBGSprite = new Sprite("Assets/UI/baseButton.png");	//Sprite* bgSprite = new Sprite("Assets/bg.png");
+	SpriteRenderer* moneyBGRenderer = new SpriteRenderer(moneyBGSprite);
+	moneyBG->AddComponent(moneyBGRenderer);
+	moneyBG->transform->SetAbsoluteScale(Vector2(0.6f, 0.5f));
 
-	// Could add XML file loading to get an array of frame rectangles
-	GameObject* instructionsButton = Instantiate("instrButton", 750, 485, 0);
-	//Rect* tempRect = new Rect(0,0,256,128);
-	Rect* frameRect2 = new Rect(0, 0, 256, 64);
-	Sprite* instrButtonSprite = new Sprite("Assets/buttons.png", frameRect2);
-	SpriteRenderer* instrBRenderer = new SpriteRenderer(instrButtonSprite);
-	instructionsButton->AddComponent(instrBRenderer);
-	TextRenderer* buttonText2 = new TextRenderer(Shooter::fontFile, 28, "INSTRUCTIONS");
-	instructionsButton->AddComponent(buttonText2);
-	Button* instrBut = new Button(SDL_Rect{ 750,485,frameRect2->w,frameRect2->h }, Button::INSTRUCTIONS);
-	instructionsButton->AddComponent(instrBut);
+	GameObject* moneyImg = Instantiate("moneyImg", 75, 75, 0); // 300, 200 //tit->transform->SetAbsoluteScale(Vector2(1.0f, 1.0f));
+	Sprite* moneyImgSprite = new Sprite("Assets/UI/coin.png");	//Sprite* bgSprite = new Sprite("Assets/bg.png");
+	SpriteRenderer* moneyImgRenderer = new SpriteRenderer(moneyImgSprite);
+	moneyImg->AddComponent(moneyImgRenderer);
 
-	// Could add XML file loading to get an array of frame rectangles
-	GameObject* exitButton = Instantiate("exitButton", 1050, 485, 0);
-	//Rect* tempRect = new Rect(0,0,256,128);
-	Rect* frameRect3 = new Rect(0, 0, 256, 64);
-	Sprite* exitButtonSprite = new Sprite("Assets/buttons.png", frameRect3);
-	SpriteRenderer* exitBRenderer = new SpriteRenderer(exitButtonSprite);
-	exitButton->AddComponent(exitBRenderer);
-	TextRenderer* buttonText3 = new TextRenderer(Shooter::fontFile, 28, "EXIT GAME");
-	exitButton->AddComponent(buttonText3);
-	Button* exitBut = new Button(SDL_Rect{ 1050,485,frameRect3->w,frameRect3->h }, Button::EXIT_GAME);
-	exitButton->AddComponent(exitBut);
+	GameObject* moneyAmount = Instantiate("moneyAmount", 175, 75, 0); 
+	int money = dynamic_cast<Shooter*>(game)->playerStats->GetMoney();
+	TextRenderer* moneyAmtText = new TextRenderer(Shooter::fontFile, 34, std::to_string(money));
+	moneyAmount->AddComponent(moneyAmtText);
 
-	/*
-	GameObject* go = Instantiate("Tank", 300, 200, 0);
-	go->AddComponent(new SpriteRenderer("Assets/Target.png"));
-	go->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
+	GameObject* healthBG = Instantiate("healthBG", 425, 75, 0); // 300, 200 //tit->transform->SetAbsoluteScale(Vector2(1.0f, 1.0f));
+	Sprite* healthBGSprite = new Sprite("Assets/UI/baseButton.png");	//Sprite* bgSprite = new Sprite("Assets/bg.png");
+	SpriteRenderer* healthBGRenderer = new SpriteRenderer(healthBGSprite);
+	healthBG->AddComponent(healthBGRenderer);
+	healthBG->transform->SetAbsoluteScale(Vector2(0.6f, 0.5f));
 
-	GameObject* graphic = Instantiate("TankGraphic", 0, 0, 90);
-	Sprite* tankSprite = new Sprite("Assets/Tank.png");
-	SpriteRenderer* tankRenderer = new SpriteRenderer();
-	tankRenderer->SetSprite(tankSprite);
-	//tankRenderer->flipY = true;
 
-	graphic->AddComponent(tankRenderer);
-	//graphic->transform->scale.x = 0.1f;
-	//graphic->transform->scale.y = 0.1f;
 
-	graphic->transform->SetParentRelative(go->transform);
 
-	go->AddComponent(new PlayerControls());
-	go->AddComponent(new CameraFollow());
 
-	graphic->AddComponent(new Shoot());
 
-	for (int i = 0; i < 10; i++)
-	{
-		GameObject* enemy = Instantiate(game->Prefab("Enemy"), Camera::x + rand() % Camera::width, Camera::y + rand() % Camera::height, 0);
-		enemy->GetComponent<Rigidbody>()->AddForce(500 * Vector2(rand() % 100 - 50, rand() % 100 - 50));
-	}
-	*/
+	GameObject* gunsTitle = Instantiate("gunsTitle", 320, 185, 0);
+	Rect* frameRect1 = new Rect(0, 0, 230, 110);
+	Sprite* gunsTitleSprite = new Sprite("Assets/UI/guns.png", frameRect1);
+	SpriteRenderer* gunsTitleRenderer = new SpriteRenderer(gunsTitleSprite);
+	gunsTitle->AddComponent(gunsTitleRenderer);
 
+	GameObject* armourTitle = Instantiate("armourTitle", 800, 185, 0);
+	Rect* frameRect2 = new Rect(0, 0, 230, 110);
+	Sprite* armourTitleSprite = new Sprite("Assets/UI/armour.png", frameRect2);
+	SpriteRenderer* armourTitleRenderer = new SpriteRenderer(armourTitleSprite);
+	armourTitle->AddComponent(armourTitleRenderer);
+
+	GameObject* itemsTitle = Instantiate("itemsTitle", 1280, 185, 0);
+	Rect* frameRect3 = new Rect(0, 0, 230, 110);
+	Sprite* itemsTitleSprite = new Sprite("Assets/UI/items.png", frameRect3);
+	SpriteRenderer* itemsTitleRenderer = new SpriteRenderer(itemsTitleSprite);
+	itemsTitle->AddComponent(itemsTitleRenderer);
+
+	GameObject* buyDamage = Instantiate("buyDamage", 300, 285, 0);
+	Rect* frameRect4 = new Rect(0, 0, 256, 64);
+	Sprite* buyDamageSprite = new Sprite("Assets/buttons.png", frameRect4);
+	SpriteRenderer* buyDamageRenderer = new SpriteRenderer(buyDamageSprite);
+	buyDamage->AddComponent(buyDamageRenderer);
+	TextRenderer* buttonText1 = new TextRenderer(Shooter::fontFile, 32, "BUY DAMAGE");
+	buyDamage->AddComponent(buttonText1);
+	Button* buyDamageBut = new Button(SDL_Rect{ 320,285,frameRect4->w,frameRect4->h }, Button::START_GAME);
+	buyDamage->AddComponent(buyDamageBut);
 
 }

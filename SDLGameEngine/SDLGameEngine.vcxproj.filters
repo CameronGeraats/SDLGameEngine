@@ -408,7 +408,7 @@
       <Filter>DeathMark\Cams Additions</Filter>
     </ClCompile>
     <ClCompile Include="SceneUpgrade.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>DeathMark\Cams Additions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -709,6 +709,8 @@
     <ClInclude Include="PlayerStats.h">
       <Filter>DeathMark\Cams Additions</Filter>
     </ClInclude>
-    <ClInclude Include="SceneUpgrade.h" />
+    <ClInclude Include="SceneUpgrade.h">
+      <Filter>DeathMark\Cams Additions</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

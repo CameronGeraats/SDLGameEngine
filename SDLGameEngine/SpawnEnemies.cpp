@@ -5,10 +5,11 @@
 #include "Camera.h"
 #include "Shooter.h"
 #include "SceneMenu.h"
+#include "SceneUpgrade.h"
 
 SpawnEnemies::SpawnEnemies()
 {
-	spawnLimit = 35;
+	spawnLimit = 10;
 }
 
 //SpawnEnemies::SpawnEnemies(GameObject * _gameObject) : Component(_gameObject)
@@ -53,7 +54,8 @@ void SpawnEnemies::Update()
 	{
 		spawnLimit--;
 		if(spawnLimit <= -180)
-		dynamic_cast<Shooter*>(game)->switchSceneTo = new SceneMenu();
+		dynamic_cast<Shooter*>(game)->switchSceneTo = new SceneUpgrade();
+		//dynamic_cast<Shooter*>(game)->switchSceneTo = new SceneMenu();
 	}
 }
 

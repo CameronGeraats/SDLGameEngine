@@ -48,15 +48,15 @@ if ((gameObject->transform->GetAbsolutePosition() - target).Length() <= 10 || ti
 
 	if (stage == 0 && (gameObject->transform->GetAbsolutePosition() - target).Length() <= 350)
 	{
-			gameObject->transform->SetAbsoluteAngle(atan2(((target.x) - gameObject->transform->GetAbsolutePosition().x)*-1, (target.y) - gameObject->transform->GetAbsolutePosition().y) * 180 / M_PI + 180);
-				SteeringAgent* steerAgent = gameObject->GetComponent<Arrive>()->agent;
-				steerAgent->steerings.remove(gameObject->GetComponent<Arrive>());
-				steerAgent->steerings.remove(gameObject->GetComponent<ObstacleAvoidance>());
-				steerAgent->steerings.clear();
-				steerAgent->steerings.resize(0);
-				gameObject->GetComponent<Rigidbody>()->SetVelocity(Vector2(0, 0));
-				gameObject->RemoveComponents<Arrive>();
-				gameObject->RemoveComponents<ObstacleAvoidance>();
+		gameObject->transform->SetAbsoluteAngle(atan2(((target.x) - gameObject->transform->GetAbsolutePosition().x)*-1, (target.y) - gameObject->transform->GetAbsolutePosition().y) * 180 / M_PI + 180);
+		SteeringAgent* steerAgent = gameObject->GetComponent<Arrive>()->agent;
+		steerAgent->steerings.remove(gameObject->GetComponent<Arrive>());
+		steerAgent->steerings.remove(gameObject->GetComponent<ObstacleAvoidance>());
+		steerAgent->steerings.clear();
+		steerAgent->steerings.resize(0);
+		gameObject->GetComponent<Rigidbody>()->SetVelocity(Vector2(0, 0));
+		gameObject->RemoveComponents<Arrive>();
+		gameObject->RemoveComponents<ObstacleAvoidance>();
 		gameObject->AddComponent(new EnemyShoot());
 		stage++;
 			//target.x = gameObject->transform->GetAbsolutePosition().x;
