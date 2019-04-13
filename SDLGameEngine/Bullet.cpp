@@ -63,6 +63,7 @@ void Bullet::OnTriggerEnter(Collider* col)
 					temp->playerStats->UpdateMoney(75);
 				else if (col->gameObject->name == "enemy3")
 					temp->playerStats->UpdateMoney(75);
+				temp->GetAM()->PlaySound(1);
 			}
 			if (gameObject->name != "laser")
 				timer += 50;

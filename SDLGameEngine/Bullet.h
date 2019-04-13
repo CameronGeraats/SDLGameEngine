@@ -10,7 +10,7 @@ public:
 	~Bullet();
 
 	float speed = 1000;
-	float destroyTime = 1;
+	float destroyTime = 2;
 	void Awake();
 	void Update();
 	void Cleanup();

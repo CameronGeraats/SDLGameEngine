@@ -46,6 +46,9 @@ Scene1::~Scene1()
 void Scene1::Setup()
 {
 	Scene::Setup();
+	game->GetAM()->ClearMusic();
+	game->GetAM()->LoadSound("Assets/Audio/bullet.wav");
+	game->GetAM()->LoadSound("Assets/Audio/explosion.wav");
 	Shooter* temp = dynamic_cast<Shooter*>(game);
 	if(!temp->playerStats){
 		temp->playerStats = new PlayerStats();
@@ -193,6 +196,10 @@ void Scene1::Setup()
 void Scene1::Update()
 {
 	time += Time::DeltaTime();
-	if (time >= 10)
+	if (time >= 15)
+	{
 		dynamic_cast<Shooter*>(game)->switchSceneTo = new SceneUpgrade();
+		game->GetAM()->ClearSounds();
+		game->GetAM()->ClearMusic();
+	}
 }

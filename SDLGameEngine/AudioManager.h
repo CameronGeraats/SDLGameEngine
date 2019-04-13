@@ -15,6 +15,8 @@ public:
 	void ToggleMusic();
 	void ClearMusic();
 	void ClearSounds();
+	bool GetMusic() { return !m_vMusic.empty(); }
+	bool MusicActive() { return !(Mix_PausedMusic() == 1); }
 	// Any other useful methods you want. I'll leave them to you.
 private:
 	vector<Mix_Music*> m_vMusic;

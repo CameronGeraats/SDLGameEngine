@@ -57,6 +57,7 @@ void Shooter::Awake()
 
 void Shooter::BulletPrefab(GameObject* go)
 {
+	GetAM()->PlaySound(0);
 	go->name = "bullet";
 	go->AddComponent(new SpriteRenderer("Assets/beams.png", new Rect(15, 300, 50, 90)));
 	Bullet* bullTemp = new Bullet();
@@ -80,6 +81,7 @@ void Shooter::BulletPrefab(GameObject* go)
 
 void Shooter::EnemyBulletPrefab(GameObject* go)
 {
+	GetAM()->PlaySound(0);
 	go->name = "enemybullet";
 	go->AddComponent(new SpriteRenderer("Assets/beams.png", new Rect(15, 300, 50, 90)));
 	go->AddComponent(new Bullet());

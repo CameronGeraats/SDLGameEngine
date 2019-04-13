@@ -35,19 +35,26 @@ SceneMenu::SceneMenu(Game* g)
 {
 	game = g;
 	SDL_ShowCursor(SDL_ENABLE);
-	game->GetAM()->LoadMusic("Assets/Audio/waverunner.mp3");
-	game->GetAM()->PlayMusic();
 }
 
 
 SceneMenu::~SceneMenu()
 {
-	game->GetAM()->ClearMusic();
 }
 
 void SceneMenu::Setup()
 {
 	Scene::Setup();
+	if (game->GetAM()->GetMusic())
+	{
+		if (!game->GetAM()->MusicActive())
+			game->GetAM()->ToggleMusic();
+	}
+	else 
+	{
+		game->GetAM()->LoadMusic("Assets/Audio/waverunner.mp3");
+		game->GetAM()->PlayMusic();
+	}
 
 	GameObject* bg = Instantiate("bg", 760, 420, 0); // 300, 200
 	bg->transform->SetAbsoluteScale(Vector2(1.5f, 1.5f));

@@ -36,7 +36,8 @@ bool Game::Init()
 	bool success = true;
 
 	//Initialize SDL
-	if (SDL_Init(SDL_INIT_VIDEO) < 0)
+	//if (SDL_Init(SDL_INIT_VIDEO) < 0)
+	if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
 	{
 		printf("SDL could not initialize! SDL Error: %s\n", SDL_GetError());
 		success = false;
@@ -84,7 +85,7 @@ bool Game::Init()
 				if (Mix_Init(MIX_INIT_MP3) != 0) // Mixer init success.
 				{
 					Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 4096);
-					Mix_AllocateChannels(16);
+					Mix_AllocateChannels(32);
 				}
 				else
 				{
@@ -109,8 +110,8 @@ bool Game::Init()
 
 	InitializeModules();
 	m_pAM = new AudioManager(); // Creates the audio manager object.
-	m_pAM->SetMusicVolume(10); // Set low volume so we can hear sfx.
-	m_pAM->LoadSound("Aud/button.wav"); // A sound for all button presses.	
+	m_pAM->SetMusicVolume(128); // Set low volume so we can hear sfx.
+	//m_pAM->LoadSound("Aud/button.wav"); // A sound for all button presses.	
 	return success;
 }
 
