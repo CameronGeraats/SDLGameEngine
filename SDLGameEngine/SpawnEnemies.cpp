@@ -42,7 +42,8 @@ void SpawnEnemies::Update()
 			else if (z == 3) { y = Camera::y + rand() % Camera::height; x = Camera::x + Camera::width + 100; }
 
 			//GameObject* enemy = Instantiate(game->Prefab("Enemy"), Camera::x + rand() % Camera::width, Camera::y + rand() % Camera::height, 0);
-			GameObject* enemy = Instantiate(game->Prefab("Enemy"), x, y, 0);
+			int type = rand() % 3;
+			GameObject* enemy = Instantiate(game->Prefab( type == 0 ? "Enemy1" : type == 1 ? "Enemy2" : "Enemy3"), x, y, 0);
 			spawnLimit--;
 			//enemy->GetComponent<Rigidbody>()->AddForce(50 * Vector2(rand() % 100 - 50 , rand() % 100 - 50));
 		}
@@ -53,8 +54,9 @@ void SpawnEnemies::Update()
 	if (spawnLimit <= 0)
 	{
 		spawnLimit--;
-		if(spawnLimit <= -180)
-		dynamic_cast<Shooter*>(game)->switchSceneTo = new SceneUpgrade();
+		if (spawnLimit <= -180)
+			;
+		//dynamic_cast<Shooter*>(game)->switchSceneTo = new SceneUpgrade();
 		//dynamic_cast<Shooter*>(game)->switchSceneTo = new SceneMenu();
 	}
 }

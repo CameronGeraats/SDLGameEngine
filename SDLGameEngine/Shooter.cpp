@@ -30,6 +30,7 @@
 #include "Patrol.h"
 #include "ShouldInvestigate.h"
 #include "Investigate.h"
+#include "SceneUpgrade.h"
 
 TTF_Font* Shooter::textFont = TTF_OpenFont("Assets/AdobeGothicStd-Bold", 28);
 std::string Shooter::fontFile = "Assets/arial.ttf";
@@ -75,7 +76,7 @@ void Shooter::BulletPrefab(GameObject* go)
 
 void Shooter::EnemyBulletPrefab(GameObject* go)
 {
-	go->name = "bullet";
+	go->name = "enemybullet";
 	go->AddComponent(new SpriteRenderer("Assets/beams.png", new Rect(15, 300, 50, 90)));
 	go->AddComponent(new Bullet());
 	//go->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
@@ -130,11 +131,13 @@ void Shooter::WallPrefab(GameObject* go)
 	//col->SetDimension(Vector2(300, 60));
 }
 
-void Shooter::EnemyPrefab(GameObject* go)
+void Shooter::Enemy1Prefab(GameObject* go)
 {
 	go->name = "enemy";
 	//GameObject* graphic = Instantiate("enemy_graphic", 0, 0, 90);
-	go->AddComponent(new SpriteRenderer("Assets/Enemy/black.png"));
+	SpriteRenderer* enemySprRend = new SpriteRenderer("Assets/Enemy/black.png");
+	enemySprRend->SetColor(Color(200,56,56,255));
+	go->AddComponent(enemySprRend);
 	//go->AddComponent(new SpriteRenderer("Assets/tanks_3.png", new Rect(350, 250, 225, 150)));
 	//graphic->AddComponent(new SpriteRenderer("Assets/tanks_3.png", new Rect(350, 250, 225, 150)));
 	//graphic->transform->SetParentRelative(go->transform);
@@ -143,6 +146,204 @@ void Shooter::EnemyPrefab(GameObject* go)
 
 	//GameObject* tgt = Instantiate("Target", Camera::x + rand() % Camera::width, Camera::y + rand() % Camera::height);
 	GameObject* tgt = Instantiate("Target", Camera::x + Camera::width/2, Camera::y + Camera::height/2);
+	//go->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
+
+	Arrive* arrive = new Arrive(go);
+	arrive->target = tgt->transform;;
+	arrive->maxAccelaraction = 1;
+	arrive->slowRadius = 30;
+	arrive->targetRadius = 10;
+	arrive->steering.weight = 0.5f;
+	go->AddComponent(arrive);
+
+	//ObstacleAvoidance* obstacleAvoidance = new ObstacleAvoidance();
+	//obstacleAvoidance->avoidLayer = physics->Layer_2;
+	//obstacleAvoidance->steering.weight = 1;
+	//obstacleAvoidance->lookAhead = 100; // More aggressive, direct enemies
+	//obstacleAvoidance->maxAccelaraction = 1;
+	//go->AddComponent(obstacleAvoidance);
+
+	/*ObstacleAvoidance* obstacleAvoidance2 = new ObstacleAvoidance();
+	obstacleAvoidance2->avoidLayer = physics->Layer_3;
+	obstacleAvoidance2->steering.weight = 1;
+	obstacleAvoidance2->maxAccelaraction = 1;
+	go->AddComponent(obstacleAvoidance2);*/
+
+	SteeringAgent* agent = new SteeringAgent(go);
+	agent->steerings.push_back(arrive);
+	//agent->steerings.push_back(obstacleAvoidance);
+	//agent->steerings.push_back(obstacleAvoidance2);
+	agent->maxSpeed = 60; //200 default
+	//agent->velocity.y = -100;
+	go->AddComponent(agent);
+	arrive->agent = agent;
+	//obstacleAvoidance->agent = agent;
+	//obstacleAvoidance2->agent = agent;
+
+	UpdateVectorTarget* updateTarget = new UpdateVectorTarget(go);
+	updateTarget->target = &tgt->transform->GetAbsolutePosition();
+	updateTarget->maxTime = 6;
+	go->AddComponent(updateTarget);
+
+	updateTarget->targetObject = tgt;
+
+	//go->transform->SetRelativeScale(Vector2(0.2f, 0.2f));
+	Rigidbody* rb = new Rigidbody();
+	rb->SetBodyType(Rigidbody::dynamicBody);
+	go->AddComponent(rb);
+
+	BoxCollider* col = new BoxCollider();
+	go->AddComponent(col);
+
+	col->SetDimension(Vector2(150, 150));
+	col->SetCategory(physics->Layer_3);
+	col->SetCollisionMask(~physics->Layer_3);
+
+	// Trigger
+	/*BoxCollider* col2 = new BoxCollider();
+	go->AddComponent(col2);
+
+	col2->SetDimension(Vector2(200, 200));
+	col2->SetCategory(physics->Layer_3);
+	col2->SetCollisionMask(~physics->Layer_3);
+	col2->SetTrigger(true);*/
+
+	Enemy* nME = new Enemy();
+	nME->ModHealth(2);
+	go->AddComponent(nME);
+
+	EnemyBlackboard* blackBoard = new EnemyBlackboard();
+	blackBoard->enemy = go->GetComponent<Enemy>();
+
+	BehaviourTree* tree = new BehaviourTree();
+	tree->blackboard = blackBoard;
+	go->AddComponent(tree);
+	tree->Create()->
+		AddChild(new BTSelector())->
+			AddChild(new BTSequence())->
+				AddChild(new CanSeePlayer())->
+				AddChild(new AimAndShoot())->
+			End()->
+			AddChild(new BTSequence())->
+				AddChild(new ShouldInvestigate())->
+				AddChild(new Investigate())->
+			End()->
+			AddChild(new Patrol());
+}
+void Shooter::Enemy2Prefab(GameObject* go)
+{
+	go->name = "enemy";
+	//GameObject* graphic = Instantiate("enemy_graphic", 0, 0, 90);
+	SpriteRenderer* enemySprRend = new SpriteRenderer("Assets/Enemy/black.png");
+	enemySprRend->SetColor(Color(255, 255, 255, 200));
+	go->AddComponent(enemySprRend);
+	//go->AddComponent(new SpriteRenderer("Assets/tanks_3.png", new Rect(350, 250, 225, 150)));
+	//graphic->AddComponent(new SpriteRenderer("Assets/tanks_3.png", new Rect(350, 250, 225, 150)));
+	//graphic->transform->SetParentRelative(go->transform);
+	go->transform->SetAbsoluteScale(Vector2(0.35f, 0.35f));
+	//graphic->transform->SetAbsoluteScale(Vector2(0.3f, 0.3f));
+
+	//GameObject* tgt = Instantiate("Target", Camera::x + rand() % Camera::width, Camera::y + rand() % Camera::height);
+	GameObject* tgt = Instantiate("Target", Camera::x + Camera::width / 2, Camera::y + Camera::height / 2);
+	//go->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
+
+	Arrive* arrive = new Arrive(go);
+	arrive->target = tgt->transform;;
+	arrive->maxAccelaraction = 1;
+	arrive->slowRadius = 30;
+	arrive->targetRadius = 10;
+	arrive->steering.weight = 0.5f;
+	go->AddComponent(arrive);
+
+	ObstacleAvoidance* obstacleAvoidance = new ObstacleAvoidance();
+	obstacleAvoidance->avoidLayer = physics->Layer_2;
+	obstacleAvoidance->steering.weight = 1;
+	obstacleAvoidance->lookAhead = 100; // More aggressive, direct enemies
+	obstacleAvoidance->maxAccelaraction = 1;
+	go->AddComponent(obstacleAvoidance);
+
+	/*ObstacleAvoidance* obstacleAvoidance2 = new ObstacleAvoidance();
+	obstacleAvoidance2->avoidLayer = physics->Layer_3;
+	obstacleAvoidance2->steering.weight = 1;
+	obstacleAvoidance2->maxAccelaraction = 1;
+	go->AddComponent(obstacleAvoidance2);*/
+
+	SteeringAgent* agent = new SteeringAgent(go);
+	agent->steerings.push_back(arrive);
+	agent->steerings.push_back(obstacleAvoidance);
+	//agent->steerings.push_back(obstacleAvoidance2);
+	agent->maxSpeed = 80; //200 default
+	//agent->velocity.y = -100;
+	go->AddComponent(agent);
+	arrive->agent = agent;
+	obstacleAvoidance->agent = agent;
+	//obstacleAvoidance2->agent = agent;
+
+	UpdateVectorTarget* updateTarget = new UpdateVectorTarget(go);
+	updateTarget->target = &tgt->transform->GetAbsolutePosition();
+	updateTarget->maxTime = 6;
+	go->AddComponent(updateTarget);
+
+	updateTarget->targetObject = tgt;
+
+	//go->transform->SetRelativeScale(Vector2(0.2f, 0.2f));
+	Rigidbody* rb = new Rigidbody();
+	rb->SetBodyType(Rigidbody::dynamicBody);
+	go->AddComponent(rb);
+
+	BoxCollider* col = new BoxCollider();
+	go->AddComponent(col);
+
+	col->SetDimension(Vector2(150, 150));
+	col->SetCategory(physics->Layer_3);
+	col->SetCollisionMask(~physics->Layer_3);
+
+	// Trigger
+	/*BoxCollider* col2 = new BoxCollider();
+	go->AddComponent(col2);
+
+	col2->SetDimension(Vector2(200, 200));
+	col2->SetCategory(physics->Layer_3);
+	col2->SetCollisionMask(~physics->Layer_3);
+	col2->SetTrigger(true);*/
+
+	Enemy* nME = new Enemy();
+	nME->ModHealth(6);
+	go->AddComponent(nME);
+
+	EnemyBlackboard* blackBoard = new EnemyBlackboard();
+	blackBoard->enemy = go->GetComponent<Enemy>();
+
+	BehaviourTree* tree = new BehaviourTree();
+	tree->blackboard = blackBoard;
+	go->AddComponent(tree);
+	tree->Create()->
+		AddChild(new BTSelector())->
+		AddChild(new BTSequence())->
+		AddChild(new CanSeePlayer())->
+		AddChild(new AimAndShoot())->
+		End()->
+		AddChild(new BTSequence())->
+		AddChild(new ShouldInvestigate())->
+		AddChild(new Investigate())->
+		End()->
+		AddChild(new Patrol());
+}
+void Shooter::Enemy3Prefab(GameObject* go)
+{
+	go->name = "enemy";
+	//GameObject* graphic = Instantiate("enemy_graphic", 0, 0, 90);
+	SpriteRenderer* enemySprRend = new SpriteRenderer("Assets/Enemy/black.png");
+	enemySprRend->SetColor(Color(0, 51, 0, 150));
+	go->AddComponent(enemySprRend);
+	//go->AddComponent(new SpriteRenderer("Assets/tanks_3.png", new Rect(350, 250, 225, 150)));
+	//graphic->AddComponent(new SpriteRenderer("Assets/tanks_3.png", new Rect(350, 250, 225, 150)));
+	//graphic->transform->SetParentRelative(go->transform);
+	go->transform->SetAbsoluteScale(Vector2(0.25f, 0.25f));
+	//graphic->transform->SetAbsoluteScale(Vector2(0.3f, 0.3f));
+
+	//GameObject* tgt = Instantiate("Target", Camera::x + rand() % Camera::width, Camera::y + rand() % Camera::height);
+	GameObject* tgt = Instantiate("Target", Camera::x + Camera::width / 2, Camera::y + Camera::height / 2);
 	//go->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
 
 	Arrive* arrive = new Arrive(go);
@@ -205,7 +406,9 @@ void Shooter::EnemyPrefab(GameObject* go)
 	col2->SetCollisionMask(~physics->Layer_3);
 	col2->SetTrigger(true);*/
 
-	go->AddComponent(new Enemy());
+	Enemy* nME = new Enemy();
+	nME->ModHealth(3);
+	go->AddComponent(nME);
 
 	EnemyBlackboard* blackBoard = new EnemyBlackboard();
 	blackBoard->enemy = go->GetComponent<Enemy>();
@@ -215,15 +418,15 @@ void Shooter::EnemyPrefab(GameObject* go)
 	go->AddComponent(tree);
 	tree->Create()->
 		AddChild(new BTSelector())->
-			AddChild(new BTSequence())->
-				AddChild(new CanSeePlayer())->
-				AddChild(new AimAndShoot())->
-			End()->
-			AddChild(new BTSequence())->
-				AddChild(new ShouldInvestigate())->
-				AddChild(new Investigate())->
-			End()->
-			AddChild(new Patrol());
+		AddChild(new BTSequence())->
+		AddChild(new CanSeePlayer())->
+		AddChild(new AimAndShoot())->
+		End()->
+		AddChild(new BTSequence())->
+		AddChild(new ShouldInvestigate())->
+		AddChild(new Investigate())->
+		End()->
+		AddChild(new Patrol());
 }
 
 void Shooter::Setup()
@@ -231,26 +434,30 @@ void Shooter::Setup()
 	AddPrefab("EnemyBullet", std::bind(&Shooter::EnemyBulletPrefab, this, std::placeholders::_1));
 	AddPrefab("Bullet", std::bind(&Shooter::BulletPrefab, this, std::placeholders::_1));
 	AddPrefab("Laser", std::bind(&Shooter::LaserPrefab, this, std::placeholders::_1));
-	AddPrefab("Enemy", std::bind(&Shooter::EnemyPrefab, this, std::placeholders::_1));
+	AddPrefab("Enemy1", std::bind(&Shooter::Enemy1Prefab, this, std::placeholders::_1));
+	AddPrefab("Enemy2", std::bind(&Shooter::Enemy2Prefab, this, std::placeholders::_1));
+	AddPrefab("Enemy3", std::bind(&Shooter::Enemy3Prefab, this, std::placeholders::_1));
 	AddPrefab("Wall", std::bind(&Shooter::WallPrefab, this, std::placeholders::_1));
 	srand(unsigned(time(NULL)));
 
 	//SetScene(new Scene1());
 	SetScene(new SceneMenu());
+	//SetScene(new SceneUpgrade());
 }
 
 void Shooter::Update()
 { // Checks if scene requested a scene swap, and swaps to new scene if so.
 	// Doing it inside a scene function would probably be bad as the SetScene will
 	// delete the scene that is in scope.
-
-	Game::Update();
+	
 	if (switchSceneTo != nullptr)
 	{
 		std::cout << "Shooter - switching scene" << std::endl;
 		SetScene(switchSceneTo);
 		switchSceneTo = nullptr;
+		//return;
 	}
-
+	GetCurrentScene()->Update();
+	Game::Update();
 	//
 }

@@ -60,11 +60,21 @@ void Button::Update()
 			//m_pSprite->ChangeFrame();
 			if (buttonType == Button::START_GAME)
 				dynamic_cast<Shooter*>(game)->switchSceneTo = new SceneUpgrade(game);
-				//dynamic_cast<Shooter*>(game)->switchSceneTo = new Scene1();
+			//dynamic_cast<Shooter*>(game)->switchSceneTo = new Scene1();
 			else if (buttonType == Button::EXIT_GAME)
 				Game::quit = true;
 			else if (buttonType == Button::INSTRUCTIONS)
 				;
+			else if (buttonType == Button::CONTINUE)
+				 dynamic_cast<Shooter*>(game)->switchSceneTo = new Scene1();
+			else if (buttonType == Button::BUY_DAMAGE)
+				dynamic_cast<Shooter*>(game)->playerStats->BuyUpgrade(PlayerStats::UpgradeType::dmg);
+			else if (buttonType == Button::BUY_SPEED)
+				dynamic_cast<Shooter*>(game)->playerStats->BuyUpgrade(PlayerStats::UpgradeType::speed);
+			else if (buttonType == Button::BUY_FIRESPEED)
+				dynamic_cast<Shooter*>(game)->playerStats->BuyUpgrade(PlayerStats::UpgradeType::fireSpeed);
+			else if (buttonType == Button::UPGRADE_ARMOUR);
+			else if (buttonType == Button::HEAL_PLAYER);
 		}
 		else if (Input::GetMouseButtonUp(SDL_BUTTON_LEFT))
 		{

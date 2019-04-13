@@ -4,10 +4,12 @@
 
 Seek::Seek()
 {
+	//target = nullptr;
 }
 
 Seek::Seek(GameObject* go): SteeringBehaviour(go)
 {
+	//target = nullptr;
 }
 
 Seek::~Seek()

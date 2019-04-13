@@ -30,11 +30,10 @@ void PlayerControls::Update()
 		playerSprite->SetSprite(new Sprite("Assets/Player/shotgun3.png"));
 	// Horizontal
 	int horizontal = Input::GetKey(SDLK_d) ? 1 : Input::GetKey(SDLK_a) ? -1 : 0;
-
 	// Vertical
 	int vertical = Input::GetKey(SDLK_w) ? -1 : Input::GetKey(SDLK_s) ? 1 : 0;
-
-	gameObject->transform->SetAbsolutePositionDelta(Vector2(horizontal * xSpeed * Time::DeltaTime(), vertical * ySpeed * Time::DeltaTime()));
+	// Movement, disabled
+	//gameObject->transform->SetAbsolutePositionDelta(Vector2(horizontal * xSpeed * Time::DeltaTime(), vertical * ySpeed * Time::DeltaTime()));
 
 	// Orientation
 	target->SetAbsolutePosition(Input::GetMousePosition() + Vector2(Camera::x, Camera::y));

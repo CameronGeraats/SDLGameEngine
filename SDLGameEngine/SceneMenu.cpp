@@ -30,6 +30,11 @@ SceneMenu::SceneMenu()
 {
 	SDL_ShowCursor(SDL_ENABLE);
 }
+SceneMenu::SceneMenu(Game* g)
+{
+	game = g;
+	SDL_ShowCursor(SDL_ENABLE);
+}
 
 
 SceneMenu::~SceneMenu()
@@ -62,7 +67,7 @@ void SceneMenu::Setup()
 	playButton->AddComponent(playBRenderer);
 	TextRenderer* buttonText = new TextRenderer(Shooter::fontFile,28,"START GAME");
 	playButton->AddComponent(buttonText);
-	Button* playBut = new Button(SDL_Rect{ 450,485,frameRect->w,frameRect->h }, Button::START_GAME);
+	Button* playBut = new Button(SDL_Rect{ 450 - frameRect->w/2,485 - frameRect->h/2,frameRect->w,frameRect->h }, Button::START_GAME);
 	playButton->AddComponent(playBut);
 
 	// Could add XML file loading to get an array of frame rectangles
@@ -74,7 +79,7 @@ void SceneMenu::Setup()
 	instructionsButton->AddComponent(instrBRenderer);
 	TextRenderer* buttonText2 = new TextRenderer(Shooter::fontFile, 28, "INSTRUCTIONS");
 	instructionsButton->AddComponent(buttonText2);
-	Button* instrBut = new Button(SDL_Rect{ 750,485,frameRect2->w,frameRect2->h }, Button::INSTRUCTIONS);
+	Button* instrBut = new Button(SDL_Rect{ 750 - frameRect2->w/2,485- frameRect2->h/2,frameRect2->w,frameRect2->h }, Button::INSTRUCTIONS);
 	instructionsButton->AddComponent(instrBut);
 
 	// Could add XML file loading to get an array of frame rectangles
@@ -86,7 +91,7 @@ void SceneMenu::Setup()
 	exitButton->AddComponent(exitBRenderer);
 	TextRenderer* buttonText3 = new TextRenderer(Shooter::fontFile, 28, "EXIT GAME");
 	exitButton->AddComponent(buttonText3);
-	Button* exitBut = new Button(SDL_Rect{ 1050,485,frameRect3->w,frameRect3->h }, Button::EXIT_GAME);
+	Button* exitBut = new Button(SDL_Rect{ 1050 - frameRect3->w/2,485- frameRect3->h/2,frameRect3->w,frameRect3->h }, Button::EXIT_GAME);
 	exitButton->AddComponent(exitBut);
 
 	/*
@@ -121,6 +126,6 @@ void SceneMenu::Setup()
 
 }
 
-//void SceneMenu::Update()
-//{
-//}
+void SceneMenu::Update()
+{
+}

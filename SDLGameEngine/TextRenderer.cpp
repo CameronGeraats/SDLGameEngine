@@ -1,7 +1,8 @@
 #include "TextRenderer.h"
 #include "Game.h"
 #include "Rect.h"
-
+#include <iostream>
+#include <string>
 
 TextRenderer::TextRenderer(std::string _fontPath, int size, std::string _text)
 {

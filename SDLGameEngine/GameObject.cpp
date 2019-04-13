@@ -105,7 +105,7 @@ void GameObject::Cleanup()
 	for (Component* component : components)
 	{
 		delete component;
-		component = NULL;
+		component = nullptr;
 	}
 }
 

@@ -130,6 +130,7 @@ void Game::SetScene(Scene* _scene)
 	{
 		currentScene->Cleanup();
 		delete currentScene;
+		currentScene = nullptr;
 	}
 	currentScene = _scene;
 	currentScene->game = this;
@@ -177,7 +178,7 @@ void Game::Update()
 	// Some error with deleting these objeccts!!!
 	for (GameObject* g : objectsToDestroy)
 	{
-		g->transform->SetParentRelative(nullptr);
+		//g->transform->SetParentRelative(nullptr);
 		gameObjects.remove(g);
 		if (currentScene)
 		{
@@ -185,7 +186,7 @@ void Game::Update()
 		}
 		std::cout << g->name << " \n";
 		delete g; // Error hereeeee
-		g = NULL;
+		g = nullptr;
 	}
 
 	objectsToDestroy.clear();

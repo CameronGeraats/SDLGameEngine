@@ -26,9 +26,15 @@
 #include "Enemy.h"
 #include "MenuControls.h"
 #include "Shooter.h"
+#include "SceneUpgrade.h"
 
 Scene1::Scene1()
 {
+}
+
+Scene1::Scene1(Game* g)
+{
+	game = g;
 }
 
 
@@ -41,13 +47,16 @@ void Scene1::Setup()
 {
 	Scene::Setup();
 	Shooter* temp = dynamic_cast<Shooter*>(game);
-	if(temp->playerStats){
+	if(!temp->playerStats){
+		temp->playerStats = new PlayerStats();
+	}	
+	/*if(temp->playerStats){
 		delete temp->playerStats;
 		temp->playerStats = nullptr;
 		temp->playerStats = new PlayerStats();
 	}
 	else
-		temp->playerStats = new PlayerStats();
+		temp->playerStats = new PlayerStats();*/
 	GameObject* bg = Instantiate("bg", Camera::width/2, Camera::height/2, 0);
 	Sprite* bgSprite = new Sprite("Assets/LevelMap/plaingrass3.png");//Sprite* bgSprite = new Sprite("Assets/background.png");
 	SpriteRenderer* bgRenderer = new SpriteRenderer(bgSprite);
@@ -164,11 +173,18 @@ void Scene1::Setup()
 		else if (z == 3) { y = Camera::y + rand() % Camera::height; x = Camera::x + Camera::width + 100; }
 
 		//GameObject* enemy = Instantiate(game->Prefab("Enemy"), Camera::x + rand() % Camera::width, Camera::y + rand() % Camera::height, 0);
-		GameObject* enemy = Instantiate(game->Prefab("Enemy"), x, y, 0);
+		GameObject* enemy = Instantiate(game->Prefab("Enemy1"), x, y, 0);
 		enemy->GetComponent<Enemy>()->player = go;//		enemy->GetComponent<Enemy>()->player = graphic;
 		//enemy->GetComponent<Rigidbody>()->AddForce(50 * Vector2(rand() % 100 - 50 , rand() % 100 - 50));
 	}
 
 
 
+}
+
+void Scene1::Update()
+{
+	time += Time::DeltaTime();
+	if (time >= 10)
+		dynamic_cast<Shooter*>(game)->switchSceneTo = new SceneUpgrade();
 }

@@ -18,7 +18,9 @@ public:
 	void EnemyBulletPrefab(GameObject* go);
 	void BulletPrefab(GameObject* go);
 	void LaserPrefab(GameObject* go);
-	void EnemyPrefab(GameObject* go);
+	void Enemy1Prefab(GameObject* go);
+	void Enemy2Prefab(GameObject* go);
+	void Enemy3Prefab(GameObject* go);
 	void WallPrefab(GameObject* go);
 
 	Scene* switchSceneTo = nullptr;

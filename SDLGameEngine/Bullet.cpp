@@ -6,6 +6,7 @@
 #include "Shooter.h"
 #include "SceneMenu.h"
 #include <iostream>
+#include "Enemy.h"
 
 Bullet::Bullet()
 {
@@ -44,10 +45,14 @@ void Bullet::OnTriggerEnter(Collider* col)
 {
 	if (col->gameObject->name == "enemy")
 	{
+		col->gameObject->GetComponent<Enemy>()->ModHealth(-1);
+		if (col->gameObject->GetComponent<Enemy>()->GetHealth() == 0)
+		{
 			game->Destroy(col->gameObject);
 			dynamic_cast<Shooter*>(game)->playerStats->UpdateMoney(25);
-			if(gameObject->name != "laser")
-				timer += 50;
+		}
+		if (gameObject->name != "laser")
+			timer += 50;
 	}
 	else if (col->gameObject->name == "Player")
 	{

@@ -110,7 +110,7 @@ template<class T> void GameObject::RemoveComponent()
 	components.remove(found);
 	found->Cleanup();
 	delete found;
-	found = NULL;
+	found = nullptr;
 	std::cout << "Component not found";
 	return;
 }
@@ -132,7 +132,7 @@ template<class T> void GameObject::RemoveComponents()
 		components.remove(component);
 		component->Cleanup();
 		delete component;
-		component = NULL;
+		component = nullptr;
 	}
 	
 	std::cout << "Component not found";

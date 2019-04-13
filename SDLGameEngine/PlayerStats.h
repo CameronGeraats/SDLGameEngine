@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 class PlayerStats
 {
 private:
@@ -7,7 +8,6 @@ private:
 	int armor;
 	struct WeaponUpgrade
 	{
-		enum UpgradeType { dmg, speed, fireSpeed};
 		float dmgMod;
 		float speedMod;
 		float fireSpeedMod;
@@ -19,6 +19,7 @@ private:
 		}
 	};
 public:
+	enum UpgradeType { dmg, speed, fireSpeed };
 	PlayerStats();
 	~PlayerStats();
 	enum ArmorEquipped { light, medium, heavy, assault };
@@ -28,16 +29,24 @@ public:
 
 	WeaponUpgrade upgrades[3] = {WeaponUpgrade(),WeaponUpgrade(),WeaponUpgrade()};
 
-	void BuyUpgrade(WeaponUpgrade::UpgradeType upg)
+	void BuyUpgrade(UpgradeType upg)
 	{
-		if (upg == WeaponUpgrade::UpgradeType::dmg)
-			upgrades[int(currentWep)].dmgMod += 0.1f;
-		else if (upg == WeaponUpgrade::UpgradeType::speed)
-			upgrades[int(currentWep)].speedMod += 0.1f;
-		else if (upg == WeaponUpgrade::UpgradeType::fireSpeed)
-			upgrades[int(currentWep)].fireSpeedMod += 0.1f;
+		if (money >= 50) {
+			if (upg == UpgradeType::dmg)
+			{
+				upgrades[int(currentWep)].dmgMod += 0.1f; money -= 50;
+			}
+			else if (upg == UpgradeType::speed)
+			{
+				upgrades[int(currentWep)].speedMod += 0.1f; money -= 50;
+			}
+			else if (upg == UpgradeType::fireSpeed)
+			{
+				upgrades[int(currentWep)].fireSpeedMod += 0.1f; money -= 50;
+			}
+		}
 	}
-	void GetUpgradeStats(int& a, int& b, int& c)
+	void GetUpgradeStats(float& a, float& b, float& c)
 	{
 		a = upgrades[int(currentWep)].dmgMod;
 		b = upgrades[int(currentWep)].speedMod;
