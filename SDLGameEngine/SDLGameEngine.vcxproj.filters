@@ -410,6 +410,9 @@
     <ClCompile Include="SceneUpgrade.cpp">
       <Filter>DeathMark\Cams Additions</Filter>
     </ClCompile>
+    <ClCompile Include="SceneInstruct.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Behaviour.h">
@@ -712,5 +715,6 @@
     <ClInclude Include="SceneUpgrade.h">
       <Filter>DeathMark\Cams Additions</Filter>
     </ClInclude>
+    <ClInclude Include="SceneInstruct.h" />
   </ItemGroup>
 </Project>

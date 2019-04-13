@@ -189,6 +189,7 @@
     <ClCompile Include="Ray.cpp" />
     <ClCompile Include="RaycastHit.cpp" />
     <ClCompile Include="Scene1.cpp" />
+    <ClCompile Include="SceneInstruct.cpp" />
     <ClCompile Include="SceneMenu.cpp" />
     <ClCompile Include="SceneUpgrade.cpp" />
     <ClCompile Include="Seek.cpp" />
@@ -283,6 +284,7 @@
     <ClInclude Include="Rigidbody.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Scene1.h" />
+    <ClInclude Include="SceneInstruct.h" />
     <ClInclude Include="SceneMenu.h" />
     <ClInclude Include="SceneUpgrade.h" />
     <ClInclude Include="Seek.h" />

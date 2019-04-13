@@ -173,6 +173,15 @@ void SceneUpgrade::Setup()
 	TextRenderer* upgradeStatText3 = new TextRenderer(Shooter::fontFile, 32, std::to_string(c));
 	currentFre->AddComponent(upgradeStatText3); updateStats[4] = upgradeStatText3;
 
+	GameObject* buyHeal = Instantiate("buyHeal", 1260, 285, 0);
+	Rect* frameRect7 = new Rect(0, 0, 256, 64);
+	Sprite* buyHealSprite = new Sprite("Assets/buttons.png", frameRect7);
+	SpriteRenderer* buyHealRenderer = new SpriteRenderer(buyHealSprite);
+	buyHeal->AddComponent(buyHealRenderer);
+	TextRenderer* buttonText4 = new TextRenderer(Shooter::fontFile, 22, "BUY HEALING [100]");
+	buyHeal->AddComponent(buttonText4);
+	Button* buyHealBut = new Button(SDL_Rect{ 1260 - frameRect7->w / 2,285 - frameRect7->h / 2,frameRect7->w,frameRect7->h }, Button::HEAL_PLAYER);
+	buyHeal->AddComponent(buyHealBut);
 }
 
 void SceneUpgrade::Update()

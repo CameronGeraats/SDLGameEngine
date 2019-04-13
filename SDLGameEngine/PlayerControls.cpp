@@ -21,13 +21,23 @@ PlayerControls::~PlayerControls()
 
 void PlayerControls::Update()
 {
+	Shooter* temp = dynamic_cast<Shooter*>(game);
 	//std::cout << "X: "<< Camera::x << "Y: " << Camera::y << "W: " << Camera::width << "H: " << Camera::height << std::endl;
 	if (Input::GetKey(SDLK_1))
+	{
 		playerSprite->SetSprite(new Sprite("Assets/Player/handgun3.png"));
+		temp->playerStats->currentWep = PlayerStats::pistol;
+	}
 	else if (Input::GetKey(SDLK_2))
+	{
 		playerSprite->SetSprite(new Sprite("Assets/Player/rifle3.png"));
+		temp->playerStats->currentWep = PlayerStats::rifle;
+	}
 	else if (Input::GetKey(SDLK_3))
+	{
 		playerSprite->SetSprite(new Sprite("Assets/Player/shotgun3.png"));
+		temp->playerStats->currentWep = PlayerStats::shotgun;
+	}
 	// Horizontal
 	int horizontal = Input::GetKey(SDLK_d) ? 1 : Input::GetKey(SDLK_a) ? -1 : 0;
 	// Vertical

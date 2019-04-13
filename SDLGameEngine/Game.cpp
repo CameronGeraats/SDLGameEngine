@@ -184,7 +184,7 @@ void Game::Update()
 		{
 			currentScene->ReleaseFromScene(g);
 		}
-		std::cout << g->name << " \n";
+		//std::cout << g->name << " \n";
 		delete g; // Error hereeeee
 		g = nullptr;
 	}

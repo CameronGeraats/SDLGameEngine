@@ -59,7 +59,11 @@ void Shooter::BulletPrefab(GameObject* go)
 {
 	go->name = "bullet";
 	go->AddComponent(new SpriteRenderer("Assets/beams.png", new Rect(15, 300, 50, 90)));
-	go->AddComponent(new Bullet());
+	Bullet* bullTemp = new Bullet();
+	float a, b, c;
+	playerStats->GetUpgradeStats(a,b,c);
+	bullTemp->speed *= b;			// Modify projectile speed
+	go->AddComponent(bullTemp);
 	//go->transform->SetRelativeScale(Vector2(0.1f, 0.1f));
 	Rigidbody* rb = new Rigidbody();
 	rb->SetBodyType(Rigidbody::dynamicBody);
@@ -133,7 +137,7 @@ void Shooter::WallPrefab(GameObject* go)
 
 void Shooter::Enemy1Prefab(GameObject* go)
 {
-	go->name = "enemy";
+	go->name = "enemy1";
 	//GameObject* graphic = Instantiate("enemy_graphic", 0, 0, 90);
 	SpriteRenderer* enemySprRend = new SpriteRenderer("Assets/Enemy/black.png");
 	enemySprRend->SetColor(Color(200,56,56,255));
@@ -232,7 +236,7 @@ void Shooter::Enemy1Prefab(GameObject* go)
 }
 void Shooter::Enemy2Prefab(GameObject* go)
 {
-	go->name = "enemy";
+	go->name = "enemy2";
 	//GameObject* graphic = Instantiate("enemy_graphic", 0, 0, 90);
 	SpriteRenderer* enemySprRend = new SpriteRenderer("Assets/Enemy/black.png");
 	enemySprRend->SetColor(Color(255, 255, 255, 200));
@@ -331,7 +335,7 @@ void Shooter::Enemy2Prefab(GameObject* go)
 }
 void Shooter::Enemy3Prefab(GameObject* go)
 {
-	go->name = "enemy";
+	go->name = "enemy3";
 	//GameObject* graphic = Instantiate("enemy_graphic", 0, 0, 90);
 	SpriteRenderer* enemySprRend = new SpriteRenderer("Assets/Enemy/black.png");
 	enemySprRend->SetColor(Color(0, 51, 0, 150));

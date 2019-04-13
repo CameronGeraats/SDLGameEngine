@@ -117,7 +117,15 @@ void Scene1::Setup()
 	col->SetDimension(Vector2(80, 80));
 
 	//GameObject* graphic = Instantiate("playerGraphic", 0, 0, 0);
-	Sprite* playerSprite = new Sprite("Assets/Player/handgun3.png");	//Sprite* tankSprite = new Sprite("Assets/Tank.png");
+	Sprite* playerSprite;
+	if(temp->playerStats->currentWep == PlayerStats::pistol)
+		playerSprite = new Sprite("Assets/Player/handgun3.png");	//Sprite* tankSprite = new Sprite("Assets/Tank.png");
+	else if (temp->playerStats->currentWep == PlayerStats::rifle)
+		playerSprite = new Sprite("Assets/Player/rifle3.png");
+	else if (temp->playerStats->currentWep == PlayerStats::shotgun)
+		playerSprite = new Sprite("Assets/Player/shotgun3.png");
+	else
+		playerSprite = new Sprite("Assets/Player/handgun3.png");
 	SpriteRenderer* playerRenderer = new SpriteRenderer();
 	playerRenderer->SetSprite(playerSprite);
 

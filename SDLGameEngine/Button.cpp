@@ -8,6 +8,8 @@
 #include "Scene1.h"
 #include "Vector2.h"
 #include "SceneUpgrade.h"
+#include "SceneMenu.h"
+#include "SceneInstruct.h"
 
 Button::Button(SDL_Rect d, buttonTypes butType)
 {
@@ -55,26 +57,36 @@ void Button::Update()
 
 		if (Input::GetMouseButtonDown(SDL_BUTTON_LEFT) && m_bReleased)
 		{
+			Shooter* temp = dynamic_cast<Shooter*>(game);
 			m_iFrame = MOUSE_DOWN; // For animated buttons
 			m_bReleased = false;
 			//m_pSprite->ChangeFrame();
 			if (buttonType == Button::START_GAME)
-				dynamic_cast<Shooter*>(game)->switchSceneTo = new SceneUpgrade(game);
+				temp->switchSceneTo = new SceneUpgrade(game);
 			//dynamic_cast<Shooter*>(game)->switchSceneTo = new Scene1();
 			else if (buttonType == Button::EXIT_GAME)
 				Game::quit = true;
 			else if (buttonType == Button::INSTRUCTIONS)
-				;
+				temp->switchSceneTo = new SceneInstruct(game);
+			else if (buttonType == Button::MAIN_MENU)
+				temp->switchSceneTo = new SceneMenu(game);
 			else if (buttonType == Button::CONTINUE)
-				 dynamic_cast<Shooter*>(game)->switchSceneTo = new Scene1();
+				 temp->switchSceneTo = new Scene1();
 			else if (buttonType == Button::BUY_DAMAGE)
-				dynamic_cast<Shooter*>(game)->playerStats->BuyUpgrade(PlayerStats::UpgradeType::dmg);
+				temp->playerStats->BuyUpgrade(PlayerStats::UpgradeType::dmg);
 			else if (buttonType == Button::BUY_SPEED)
-				dynamic_cast<Shooter*>(game)->playerStats->BuyUpgrade(PlayerStats::UpgradeType::speed);
+				temp->playerStats->BuyUpgrade(PlayerStats::UpgradeType::speed);
 			else if (buttonType == Button::BUY_FIRESPEED)
-				dynamic_cast<Shooter*>(game)->playerStats->BuyUpgrade(PlayerStats::UpgradeType::fireSpeed);
+				temp->playerStats->BuyUpgrade(PlayerStats::UpgradeType::fireSpeed);
 			else if (buttonType == Button::UPGRADE_ARMOUR);
-			else if (buttonType == Button::HEAL_PLAYER);
+			else if (buttonType == Button::HEAL_PLAYER)
+			{
+				if (temp->playerStats->GetMoney() >= 100)
+				{
+					temp->playerStats->UpdateHealth(100);
+					temp->playerStats->UpdateMoney(-100);
+				}
+			}
 		}
 		else if (Input::GetMouseButtonUp(SDL_BUTTON_LEFT))
 		{

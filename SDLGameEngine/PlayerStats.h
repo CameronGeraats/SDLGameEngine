@@ -53,7 +53,7 @@ public:
 		c = upgrades[int(currentWep)].fireSpeedMod;
 	}
 	void UpdateEquipment() { armor = 5 + currentArm * 20; }
-	void UpdateHealth(int mod) { health += mod; }
+	void UpdateHealth(int mod) { health += mod; health = health > 100 ? 100 : health; }
 	void UpdateMoney(int mod) { money += mod; }
 
 	int GetHealth() const { return health; }

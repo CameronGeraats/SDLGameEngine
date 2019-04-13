@@ -14,6 +14,7 @@
 #include "BoxCollider.h"
 #include "Rigidbody.h"
 #include "Stop.h"
+#include "Shooter.h"
 
 UpdateVectorTarget::UpdateVectorTarget()
 {
@@ -41,26 +42,63 @@ if ((gameObject->transform->GetAbsolutePosition() - target).Length() <= 10 || ti
 	targetObject->transform->SetAbsolutePosition(target);
 	timer = 0;
 }*/
+	
 	if ((gameObject->transform->GetAbsolutePosition() - target).Length() <= 650 && stage == 0)
 	{
-
+		if (gameObject->name == "enemy3") {
+			bool xValid = gameObject->transform->GetAbsolutePosition().x > 50 && gameObject->transform->GetAbsolutePosition().x < 1550;
+			bool yValid = gameObject->transform->GetAbsolutePosition().y > 50 && gameObject->transform->GetAbsolutePosition().y < 850;
+			if (xValid && yValid)
+			{
+				gameObject->transform->SetAbsoluteAngle(atan2(((target.x) - gameObject->transform->GetAbsolutePosition().x)*-1, (target.y) - gameObject->transform->GetAbsolutePosition().y) * 180 / M_PI + 180);
+				SteeringAgent* steerAgent = gameObject->GetComponent<Arrive>()->agent;
+				steerAgent->steerings.remove(gameObject->GetComponent<Arrive>());
+				steerAgent->steerings.remove(gameObject->GetComponent<ObstacleAvoidance>());
+				steerAgent->steerings.clear();
+				steerAgent->steerings.resize(0);
+				gameObject->GetComponent<Rigidbody>()->SetVelocity(Vector2(0, 0));
+				gameObject->RemoveComponents<Arrive>();
+				gameObject->RemoveComponents<ObstacleAvoidance>();
+				gameObject->AddComponent(new EnemyShoot());
+				stage++;
+			}
+		}
 	}
 
 	if (stage == 0 && (gameObject->transform->GetAbsolutePosition() - target).Length() <= 350)
 	{
-		gameObject->transform->SetAbsoluteAngle(atan2(((target.x) - gameObject->transform->GetAbsolutePosition().x)*-1, (target.y) - gameObject->transform->GetAbsolutePosition().y) * 180 / M_PI + 180);
-		SteeringAgent* steerAgent = gameObject->GetComponent<Arrive>()->agent;
-		steerAgent->steerings.remove(gameObject->GetComponent<Arrive>());
-		steerAgent->steerings.remove(gameObject->GetComponent<ObstacleAvoidance>());
-		steerAgent->steerings.clear();
-		steerAgent->steerings.resize(0);
-		gameObject->GetComponent<Rigidbody>()->SetVelocity(Vector2(0, 0));
-		gameObject->RemoveComponents<Arrive>();
-		gameObject->RemoveComponents<ObstacleAvoidance>();
-		gameObject->AddComponent(new EnemyShoot());
-		stage++;
+		if (gameObject->name != "enemy2") {
+			gameObject->transform->SetAbsoluteAngle(atan2(((target.x) - gameObject->transform->GetAbsolutePosition().x)*-1, (target.y) - gameObject->transform->GetAbsolutePosition().y) * 180 / M_PI + 180);
+			SteeringAgent* steerAgent = gameObject->GetComponent<Arrive>()->agent;
+			steerAgent->steerings.remove(gameObject->GetComponent<Arrive>());
+			steerAgent->steerings.remove(gameObject->GetComponent<ObstacleAvoidance>());
+			steerAgent->steerings.clear();
+			steerAgent->steerings.resize(0);
+			gameObject->GetComponent<Rigidbody>()->SetVelocity(Vector2(0, 0));
+			gameObject->RemoveComponents<Arrive>();
+			gameObject->RemoveComponents<ObstacleAvoidance>();
+			gameObject->AddComponent(new EnemyShoot());
+			stage++;
+			//target.x = gameObject->transform->GetAbsolutePosition().x;
+		}
+	}
+
+	if (stage == 0 && (gameObject->transform->GetAbsolutePosition() - target).Length() <= 200)
+	{
+			gameObject->transform->SetAbsoluteAngle(atan2(((target.x) - gameObject->transform->GetAbsolutePosition().x)*-1, (target.y) - gameObject->transform->GetAbsolutePosition().y) * 180 / M_PI + 180);
+			SteeringAgent* steerAgent = gameObject->GetComponent<Arrive>()->agent;
+			steerAgent->steerings.remove(gameObject->GetComponent<Arrive>());
+			steerAgent->steerings.remove(gameObject->GetComponent<ObstacleAvoidance>());
+			steerAgent->steerings.clear();
+			steerAgent->steerings.resize(0);
+			gameObject->GetComponent<Rigidbody>()->SetVelocity(Vector2(0, 0));
+			gameObject->RemoveComponents<Arrive>();
+			gameObject->RemoveComponents<ObstacleAvoidance>();
+			gameObject->AddComponent(new EnemyShoot());
+			stage++;
 			//target.x = gameObject->transform->GetAbsolutePosition().x;
 	}
+
 	if (stage == 1) // Should be a behaviour tree action? Used to stop movement
 	{
 		gameObject->GetComponent<Rigidbody>()->SetVelocity(Vector2(0,0));

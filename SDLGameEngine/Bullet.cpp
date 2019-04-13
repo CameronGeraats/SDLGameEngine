@@ -43,20 +43,34 @@ void Bullet::Update()
 
 void Bullet::OnTriggerEnter(Collider* col)
 {
-	if (col->gameObject->name == "enemy")
+	Shooter* temp = dynamic_cast<Shooter*>(game);
+	if (col->gameObject->name == "enemy1" || col->gameObject->name == "enemy2" || col->gameObject->name == "enemy3")
 	{
-		col->gameObject->GetComponent<Enemy>()->ModHealth(-1);
-		if (col->gameObject->GetComponent<Enemy>()->GetHealth() == 0)
+		float a, b, c;
+		temp->playerStats->GetUpgradeStats(a,b,c);
+		int x, y, z;
+		x = a; y = (a - (float)x) * 10; z = 1 + rand() % 10;
+		x += (y >= z ? 1 : 0);
+		if (col->gameObject->GetComponent<Enemy>()->GetHealth() > 0)
 		{
-			game->Destroy(col->gameObject);
-			dynamic_cast<Shooter*>(game)->playerStats->UpdateMoney(25);
+			col->gameObject->GetComponent<Enemy>()->ModHealth(-x);
+			if (col->gameObject->GetComponent<Enemy>()->GetHealth() <= 0)
+			{
+				game->Destroy(col->gameObject);
+				if (col->gameObject->name == "enemy1")
+					temp->playerStats->UpdateMoney(25);
+				else if (col->gameObject->name == "enemy2")
+					temp->playerStats->UpdateMoney(75);
+				else if (col->gameObject->name == "enemy3")
+					temp->playerStats->UpdateMoney(75);
+			}
+			if (gameObject->name != "laser")
+				timer += 50;
 		}
-		if (gameObject->name != "laser")
-			timer += 50;
 	}
 	else if (col->gameObject->name == "Player")
 	{
-		Shooter* temp = dynamic_cast<Shooter*>(game);
+		
 		float damage = 6 * (100 - temp->playerStats->GetArmor())/100;
 		temp->playerStats->UpdateHealth(int(-damage));
 		std::cout << temp->playerStats->GetHealth() << std::endl;

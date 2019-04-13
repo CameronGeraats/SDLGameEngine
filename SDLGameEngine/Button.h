@@ -9,7 +9,7 @@ class Button :
 	public Component
 {
 public:
-	enum buttonTypes { EXIT_GAME, START_GAME, INSTRUCTIONS, CONTINUE, BUY_DAMAGE, BUY_SPEED, BUY_FIRESPEED, UPGRADE_ARMOUR, HEAL_PLAYER };
+	enum buttonTypes { MAIN_MENU, EXIT_GAME, START_GAME, INSTRUCTIONS, CONTINUE, BUY_DAMAGE, BUY_SPEED, BUY_FIRESPEED, UPGRADE_ARMOUR, HEAL_PLAYER };
 	//Button(const char* s, SDL_Rect d);
 	Button(SDL_Rect d, buttonTypes = EXIT_GAME);
 	Button(SDL_Rect d, Sprite* sp, buttonTypes = EXIT_GAME);

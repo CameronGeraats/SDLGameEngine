@@ -18,11 +18,13 @@ void Shoot::Update()
 {
 	Behaviour::Update();
 	// Shoot
+	Shooter* temp = dynamic_cast<Shooter*>(game);
 	laserActive -= Time::DeltaTime();
-	if (dynamic_cast<Scene1*>(dynamic_cast<Shooter*>(game)->GetCurrentScene()) != nullptr) {
+	if (dynamic_cast<Scene1*>(temp->GetCurrentScene()) != nullptr) {
 		if (laserActive <= 0)
 		{
-			if (Input::GetMouseButton(SDL_BUTTON_LEFT))
+			if (temp->playerStats->currentWep == PlayerStats::rifle && Input::GetMouseButton(SDL_BUTTON_LEFT))
+			//if (Input::GetMouseButton(SDL_BUTTON_LEFT))
 			//if (Input::GetMouseButtonDown(SDL_BUTTON_LEFT))
 				//if (Input::GetKeyDown(SDLK_SPACE))
 			{
@@ -31,6 +33,25 @@ void Shoot::Update()
 				dynamic_cast<Shooter*>(game)->playerStats->GetUpgradeStats(a, b, c);
 				laserActive = 0.35f / c;
 			}
+			else if (temp->playerStats->currentWep == PlayerStats::pistol && Input::GetMouseButtonDown(SDL_BUTTON_LEFT))
+			{
+				Instantiate(game->Prefab("Bullet"), gameObject->transform->GetAbsolutePosition() + 45 * gameObject->transform->Right() + 10 * gameObject->transform->Up(), gameObject->transform->GetAbsoluteAngle() - 90); //-50, 180
+				float a, b, c;
+				dynamic_cast<Shooter*>(game)->playerStats->GetUpgradeStats(a, b, c);
+				laserActive = 0.45f / c;
+			}
+			else if(temp->playerStats->currentWep == PlayerStats::shotgun && Input::GetMouseButtonDown(SDL_BUTTON_LEFT))
+			{
+				for (int i = 0; i < 5; i++)
+				{
+					float randomness = ((float)(-150 + rand() % 301)) / 10;
+					Instantiate(game->Prefab("Bullet"), gameObject->transform->GetAbsolutePosition() + 45 * gameObject->transform->Right() + 10 * gameObject->transform->Up(), gameObject->transform->GetAbsoluteAngle() - 90 + randomness); //-50, 180
+				}
+				float a, b, c;
+				dynamic_cast<Shooter*>(game)->playerStats->GetUpgradeStats(a, b, c);
+				laserActive = 0.45f / c;
+			}
+			
 		//	if (Input::GetMouseButtonDown(SDL_BUTTON_RIGHT))
 		//		//if (Input::GetKeyDown(SDLK_SPACE))
 		//	{
