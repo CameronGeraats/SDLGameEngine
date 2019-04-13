@@ -1,4 +1,5 @@
 #pragma once
+#include "AudioManager.h"
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
@@ -11,6 +12,7 @@
 #include "Camera.h"
 #include "Scene.h"
 #include "Physics.h"
+
 
 typedef GameObject* (*prefab)(Game* game);
 
@@ -64,5 +66,9 @@ private:
 	static float fixedDeltaAccumulator;
 
 	void Awaken(GameObject* go);
+
+	AudioManager* m_pAM;
+public:
+	AudioManager* GetAM() { return m_pAM; }
 };
 

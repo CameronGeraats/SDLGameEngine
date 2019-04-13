@@ -86,7 +86,7 @@
       <AdditionalIncludeDirectories>$(SolutionDir)ExternalLibraries\SDL2\include;$(SolutionDir)ExternalLibraries\Box2D\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_ttf.lib;Box2D.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;Box2D.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)ExternalLibraries\Box2D\lib;$(SolutionDir)ExternalLibraries\SDL2\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Console</SubSystem>
     </Link>
@@ -145,6 +145,7 @@
     <ClCompile Include="AimAndShoot.cpp" />
     <ClCompile Include="Align.cpp" />
     <ClCompile Include="Arrive.cpp" />
+    <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="Behaviour.cpp" />
     <ClCompile Include="BehaviourTree.cpp" />
     <ClCompile Include="BoxCollider.cpp" />
@@ -227,6 +228,7 @@
     <ClInclude Include="AimAndShoot.h" />
     <ClInclude Include="Align.h" />
     <ClInclude Include="Arrive.h" />
+    <ClInclude Include="AudioManager.h" />
     <ClInclude Include="Behaviour.h" />
     <ClInclude Include="BehaviourTree.h" />
     <ClInclude Include="BoxCollider.h" />

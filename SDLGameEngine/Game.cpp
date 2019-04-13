@@ -5,6 +5,8 @@
 #include "Event.h"
 #include <iostream>
 #include <string>
+//#include <SDL_mixer.h>
+//#include "AudioManager.h"
 
 SDL_Window* Game::gWindow = NULL;
 SDL_Renderer* Game::gRenderer = NULL;
@@ -79,6 +81,16 @@ bool Game::Init()
 					success = false;
 				}
 
+				if (Mix_Init(MIX_INIT_MP3) != 0) // Mixer init success.
+				{
+					Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 4096);
+					Mix_AllocateChannels(16);
+				}
+				else
+				{
+					printf("Mixer init fail!SDL_ttf Error: %s\n", TTF_GetError());
+					success = false; // Mixer init fail.
+				}
 				//if (Mix_Init(MIX_INIT_MP3) != 0) // Mixer init success.
 				//{
 				//	Mix_OpenAudio(22050, AUDIO_S16SYS, 2, 8192);
@@ -96,7 +108,9 @@ bool Game::Init()
 	}
 
 	InitializeModules();
-
+	m_pAM = new AudioManager(); // Creates the audio manager object.
+	m_pAM->SetMusicVolume(10); // Set low volume so we can hear sfx.
+	m_pAM->LoadSound("Aud/button.wav"); // A sound for all button presses.	
 	return success;
 }
 
@@ -212,7 +226,10 @@ void Game::End()
 	gWindow = NULL;
 	gRenderer = NULL;
 
+	delete m_pAM;
 	//Quit SDL subsystems
+	Mix_CloseAudio();
+	Mix_Quit();
 	IMG_Quit();
 	SDL_Quit();
 }

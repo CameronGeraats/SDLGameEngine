@@ -24,6 +24,7 @@
 #include "Rigidbody.h"
 #include "Button.h"
 #include "Shooter.h"
+#include "SDL_mixer.h"
 
 
 SceneMenu::SceneMenu()
@@ -34,11 +35,14 @@ SceneMenu::SceneMenu(Game* g)
 {
 	game = g;
 	SDL_ShowCursor(SDL_ENABLE);
+	game->GetAM()->LoadMusic("Assets/Audio/waverunner.mp3");
+	game->GetAM()->PlayMusic();
 }
 
 
 SceneMenu::~SceneMenu()
 {
+	game->GetAM()->ClearMusic();
 }
 
 void SceneMenu::Setup()

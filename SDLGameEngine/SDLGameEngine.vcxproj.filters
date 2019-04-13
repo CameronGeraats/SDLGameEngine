@@ -413,6 +413,9 @@
     <ClCompile Include="SceneInstruct.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AudioManager.cpp">
+      <Filter>DeathMark\Cams Additions\Added Functionality</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Behaviour.h">
@@ -716,5 +719,8 @@
       <Filter>DeathMark\Cams Additions</Filter>
     </ClInclude>
     <ClInclude Include="SceneInstruct.h" />
+    <ClInclude Include="AudioManager.h">
+      <Filter>DeathMark\Cams Additions\Added Functionality</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

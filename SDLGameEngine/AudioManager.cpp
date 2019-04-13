@@ -1,4 +1,5 @@
 #include "AudioManager.h"
+#include "SDL.h"
 
 void AudioManager::SetMusicVolume(int v)
 {
