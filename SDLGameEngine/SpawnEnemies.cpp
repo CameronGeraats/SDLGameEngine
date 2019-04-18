@@ -9,7 +9,7 @@
 
 SpawnEnemies::SpawnEnemies()
 {
-	spawnLimit = 10;
+	spawnLimit = 15;
 }
 
 //SpawnEnemies::SpawnEnemies(GameObject * _gameObject) : Component(_gameObject)
