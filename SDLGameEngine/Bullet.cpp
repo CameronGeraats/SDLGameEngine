@@ -50,8 +50,8 @@ void Bullet::OnTriggerEnter(Collider* col)
 		temp->playerStats->GetUpgradeStats(a,b,c);
 		int x, y, z;
 		x = a; y = (a - (float)x) * 10; z = 1 + rand() % 10;
-		x += (y >= z ? 1 : 0);
 		x = x > 1 ? x : 1;
+		x += (y >= z ? 1 : 0);
 		if (col->gameObject->GetComponent<Enemy>()->GetHealth() > 0)
 		{
 			col->gameObject->GetComponent<Enemy>()->ModHealth(-x);
